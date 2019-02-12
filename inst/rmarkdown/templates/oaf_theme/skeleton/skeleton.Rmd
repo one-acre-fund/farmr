@@ -1,0 +1,120 @@
+---
+author: 'Your Name'
+date: '`r format(Sys.time(), "%d %B, %Y")`'
+output:
+  html_document:
+    code_folding: hide
+    theme: flatly
+    toc: yes
+    toc_depth: 3
+    toc_float: yes
+    css: styles.css
+---
+
+
+```{r setup, include=FALSE}
+library(knitr)
+library(farmr)
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Phase 3 RCT/Phase 2 Impact Evaluation TRIAL TITLE HERE
+### Country Year Evaluation Type (e.g. Kenya LR2018 RCT)
+
+*In this section, give a brief introduction to the trial: the context and the decisions that will be made/goal of the analysis*
+
+### Hypotheses
+
+This trial aims to validate or refute the following hypotheses:
+
++ **H1**:
++ **H2**:
+
+### Trial Design
+
+*In this section, add in more detail about how the trial was designed (e.g. which districts, how randomization happened)**
+
+
+### Survey Methodology 
+
+*In this section, describe the survey methodology: how many surveys, what questions were asked that will be used for the analysis, the frequency, any methodology changes mid-survey*
+
+
+
+## Data Cleaning
+
+*import and clear all variables here and briefly describe the steps you are taking for transparency*
+
+```{r data.cleaning}
+
+
+
+
+
+
+
+```
+
+## Data Checking
+
+### Balance
+
+*Number in treatment groups and number in control groups*
+
+```{r data.checking.balance}
+
+num.t.c.farmers <- data.frame(c("Treatment", "Control"), c(100,100))
+colnames(num.t.c.farmers) <-c("Sample", "N")
+
+kable(num.t.c.farmers,table.attr = "class=\"yellow\"", align=rep('c', 5), digits=2, caption="Number of Farmers by Study Group")
+
+```
+
+
+### Duplicates
+
+*Check for duplicate entries and verify whether or not they are true duplciates*
+
+
+### Attrition
+
+*If applicable, check how many farmers requested to be dropped from baseline and after the survey began. Also check the number of surveys that each farmer actually completed*
+
+```{r data.checking.attrition.1}
+
+attrition.percent <- data.frame(c("Treatment", "Control"), c(100,100), c(10,8), c(.1, .08))
+colnames(attrition.percent) <-c("Sample", "Total Farmers", "Number of Attritors", "% Attrition")
+
+knitr::kable(attrition.percent,table.attr = "class=\"orange\"", align=rep('c', 5), digits=2, caption="Number of Farmers by Study Group")
+
+
+```
+
+### Any other data checking can go here
+
+*e.g. if there were potential fradulent entries, or farmers who didn't get the sanitary pads*
+
+
+# H1 Analysis
+
+### Data Exploration
+
+*put a couple tables showing summary statistics and a boxplot/violin and density plot here or any other relevant graphs*
+
+### Outliers
+
+*check for outliers here for the H1 variables. If there are outliers, you will run the regression both with and without the outliers*
+
+### Analysis
+
+
+# Summary of Results
+
+*Add a couple of the key points at the end here and a couple key graphs. Basically, if Patrick or Jan wanted to see the results, this is the only thing they should have to look at.*
+
+
+# Appendix
+
+### H1 Regression Ouptut
+
+*Print regression diagnostic plots here*

@@ -1,0 +1,98 @@
+body {
+  font-family: Calibri;
+  font-size: 11pt;
+}
+
+
+a {
+  color: #929948;
+}
+
+a:hover {
+  color: #bf5138;
+}
+
+.tocify {
+  background-image: url("OAF_Logo_Teal.png");
+  background-repeat: no-repeat;
+  background-position: top center;
+  padding-top: 50px;
+  border: 0px;
+}
+
+.tocify-header .list-group-item {
+  background-color: #dbd5c0;
+}
+
+.tocify-header .list-group-item:hover {
+  background-color: #6b7150;
+  color: #fff;
+}
+
+
+table {
+  font-family: Calibri;
+  font-size: 12pt;
+  margin:1em auto;
+}
+
+.yellow td {
+  background-color:#f2f2f2;
+  text-align:center;
+  padding: 5px;
+  border: solid 4px #fff;
+  border-collapse: collapse;
+  vertical-align: middle;
+  width: 150px;
+}
+
+.yellow th {
+  background-color: #eeaf39;
+  padding: 15px;
+  border: solid 4px #fff;
+  border-collapse: collapse;
+  vertical-align: middle;
+}
+
+
+.orange th {
+  background-color: #fff;
+  padding: 15px;
+  border-bottom: solid 2px #bf5138;
+  border-collapse: collapse;
+  vertical-align: middle;
+}
+
+.orange td {
+  text-align:center;
+  padding: 5px;
+  border-bottom: dotted 1px #000;
+  border-collapse: collapse;
+  vertical-align: middle;
+  width: 150px;
+}
+
+
+h1 {
+  background-color: #3D6066;
+  padding: 10px;
+  color: #fff;
+  text-align: center;
+  font-family: Calibri;
+}
+
+h2 {
+  background-color: #dbd5c0;
+  color: #000;
+  text-align: center;
+  font-family: Calibri;
+  padding: 5px;
+  size: 14px;
+}
+
+h3 {
+  border-bottom: solid 1px #000;
+  font-weight: bold;
+  font-style: italic;
+  color: #000;
+}
