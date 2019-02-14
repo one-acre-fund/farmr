@@ -9,6 +9,7 @@
 #' p <- ggplot(mtcars) + geom_point(aes(x = wt, y = mpg,
 #' colour = factor(gear))) + facet_wrap(~am)
 #' p + theme_oaf() adding in 1AF theme
+#' @export
 
 ### bbc example https://github.com/bbc/bbplot/blob/master/R/bbc_style.R
 
