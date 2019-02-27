@@ -11,7 +11,7 @@ sd_check(dataset, column, ..., flag = FALSE, sdNum = 3)
 
 \item{column}{The variable (in vector form) to be checked for outliers.}
 
-\item{flag}{Flag if the value is sdNum aboe the mean (Default = True)}
+\item{flag}{Flag if the value is sdNum aboe the mean (Default = False)}
 
 \item{sdNum}{The number of standard deviations to check (Default = 3)}
 
@@ -30,7 +30,10 @@ set standard deviation from the mean. It is designed to help analysts flag
 erroneous values.
 }
 \examples{
-
+Without groups:
+dataframe$Outlier <- sd_check(dataframe, yield, flag = TRUE)
+With groups:
+dataframe$Outlier <- sd_check(dataframe, yield, block, trial, aez, flag = TRUE)
 
 
 }

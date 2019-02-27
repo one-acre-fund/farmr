@@ -9,7 +9,7 @@
 #' @param .... The names of the group (or groups) of data.
 #' For example, trial, block, and/or AEZ. Note: groups must be in order with the
 #' parent group (e.g. maize monocrop trial) before the child (e.g. the specific variety).
-#' @param flag Flag if the value is sdNum aboe the mean (Default = True)
+#' @param flag Flag if the value is sdNum aboe the mean (Default = False)
 #' @param sdNum The number of standard deviations to check (Default = 3)
 #' @export
 #'
@@ -18,7 +18,10 @@
 #' above the mean.
 #'
 #' @examples
-#'
+#' Without groups:
+#' dataframe$Outlier <- sd_check(dataframe, yield, flag = TRUE)
+#' With groups:
+#' dataframe$Outlier <- sd_check(dataframe, yield, block, trial, aez, flag = TRUE)
 #'
 #'
 
