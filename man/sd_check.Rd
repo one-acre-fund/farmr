@@ -9,20 +9,21 @@ sd_check(dataset, column, ..., flag = FALSE, sdNum = 3)
 \arguments{
 \item{dataset}{The full dataset}
 
-\item{column}{The variable (in vector form) to be checked for outliers.}
+\item{column}{The name of the variable to be checked for outliers.}
 
-\item{flag}{Flag if the value is sdNum aboe the mean (Default = False)}
+\item{flag}{Flag (1) if the value is sdNum aboe the mean (Default = False)}
 
 \item{sdNum}{The number of standard deviations to check (Default = 3)}
 
 \item{....}{The names of the group (or groups) of data.
 For example, trial, block, and/or AEZ. Note: groups must be in order with the
-parent group (e.g. maize monocrop trial) before the child (e.g. the specific variety).}
+parent group (e.g. maize monocrop trial) before the child (e.g. the specific
+variety).}
 }
 \value{
-A vector of values with either a boolean value if the column is more
-than `sdNum` SDs above the mean, or the actual number of standard deviations
-above the mean.
+A vector of values with either a boolean value (1 or 0) if the column
+is more than `sdNum` SDs from the mean, or the actual number of standard
+deviations from the mean.
 }
 \description{
 This function takes a column of values and flags any values that are above a
@@ -32,8 +33,10 @@ erroneous values.
 \examples{
 Without groups:
 dataframe$Outlier <- sd_check(dataframe, yield, flag = TRUE)
+
 With groups:
-dataframe$Outlier <- sd_check(dataframe, yield, block, trial, aez, flag = TRUE)
+dataframe$Outlier <- sd_check(dataframe, yield, block, trial, aez,
+flag = TRUE)
 
 
 }

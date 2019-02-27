@@ -5,30 +5,33 @@
 #' erroneous values.
 #'
 #' @param dataset The full dataset
-#' @param column The variable (in vector form) to be checked for outliers.
+#' @param column The name of the variable to be checked for outliers.
 #' @param .... The names of the group (or groups) of data.
 #' For example, trial, block, and/or AEZ. Note: groups must be in order with the
-#' parent group (e.g. maize monocrop trial) before the child (e.g. the specific variety).
-#' @param flag Flag if the value is sdNum aboe the mean (Default = False)
+#' parent group (e.g. maize monocrop trial) before the child (e.g. the specific
+#' variety).
+#' @param flag Flag (1) if the value is sdNum aboe the mean (Default = False)
 #' @param sdNum The number of standard deviations to check (Default = 3)
 #' @export
 #'
-#' @return A vector of values with either a boolean value if the column is more
-#' than `sdNum` SDs above the mean, or the actual number of standard deviations
-#' above the mean.
+#' @return A vector of values with either a boolean value (1 or 0) if the column
+#' is more than `sdNum` SDs from the mean, or the actual number of standard
+#' deviations from the mean.
 #'
 #' @examples
 #' Without groups:
 #' dataframe$Outlier <- sd_check(dataframe, yield, flag = TRUE)
+#'
 #' With groups:
-#' dataframe$Outlier <- sd_check(dataframe, yield, block, trial, aez, flag = TRUE)
+#' dataframe$Outlier <- sd_check(dataframe, yield, block, trial, aez,
+#' flag = TRUE)
 #'
 #'
 
 sd_check <- function(dataset, column, ..., flag = FALSE, sdNum = 3) {
 
   # initializing new column
-  dataset$sd.check = 0
+  dataset$sd.check = NA
 
   # evaluating dataset column names
   column <- rlang::enquo(column)
