@@ -12,3 +12,6 @@ commcare_gps_split(gps_col)
 \description{
 Split GPS data as saved by commcare for use in data.frame
 }
+\examples{
+df <- cbind(df, commcare_gps_split(df$gps_col))
+}
