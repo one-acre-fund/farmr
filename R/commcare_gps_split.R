@@ -1,8 +1,7 @@
 #' Split GPS data as saved by commcare for use in data.frame
 #' @param gps_col the column in the df where the GPS character is saved.
-#' @examples
 #' @export
-#' @example
+#' @examples
 #' df <- cbind(df, commcare_gps_split(df$gps_col))
 
 
