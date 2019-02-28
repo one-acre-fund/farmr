@@ -2,6 +2,6 @@
 
 export(commcare_gps_split)
 export(iqr_check)
-export(read_that_csv)
+export(is_unique)
 export(sd_check)
 export(theme_oaf)
