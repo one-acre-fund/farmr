@@ -2,6 +2,7 @@
 
 export(commcare_gps_split)
 export(iqr_check)
+export(is_duplicated)
 export(is_unique)
 export(sd_check)
 export(theme_oaf)
