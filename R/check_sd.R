@@ -28,9 +28,9 @@
 #'
 #'
 
-sd_check <- function(dataset, column, ..., flag = FALSE, sdNum = 3) {
+check_sd <- function(dataset, column, ..., flag = FALSE, sdNum = 3) {
 
-  # initializing new column
+  # initializing new columns
   dataset$sd.check = NA
 
   # evaluating dataset column names

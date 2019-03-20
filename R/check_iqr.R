@@ -25,7 +25,7 @@
 
 
 
-iqr_check <- function(dataset, column, ...) {
+check_iqr <- function(dataset, column, ...) {
 
   # initializing new column
   dataset$IQRMark = NA
