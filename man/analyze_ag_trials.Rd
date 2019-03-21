@@ -37,6 +37,7 @@ Tukey's HSD) in a dataframe.
 With profit column:
 rcbdOutput <- analyze_ag_trials(finalData, block_type_number, ton.hectare,
 name, profitVariable = profit, block_number)
+
 Without profit column:
 rcbdOutput <- analyze_ag_trials(finalData, block_type_number, ton.hectare,
 name, profitVariable = NULL, block_number)
