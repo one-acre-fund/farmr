@@ -24,5 +24,3 @@ join_report <- function(.data, join_statement){
   cat("\n Joined data has", nrow(joined_data), "rows")
 
 }
-
-
