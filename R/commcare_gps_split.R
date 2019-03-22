@@ -12,7 +12,7 @@ commcare_gps_split <- function(gps_col) {
   split_col <- as.data.frame(sapply(split_col[,1:4], function(x) as.numeric(as.character(x))))
   names(split_col) <- c("lat", "lon", "alt", "precision")
 
-  assertthat::assert_that(sum(is.na(split_col)) == 0)
+  #assertthat::assert_that(sum(is.na(split_col)) == 0)
 
   return(split_col)
 }
