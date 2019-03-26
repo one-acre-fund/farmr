@@ -12,6 +12,14 @@ test_that("input can be split into four sections", {
   #expect_equal(commcare_gps_split(df2$gps_col))
 })
 
+
+test_that("what to do with missing values", {
+
+  df1 <- data.frame(c("NA", "0.1723 34.5 10 5"))
+  expect_equal(commcare_gps_split(df1)[[1]], NA)
+
+})
+
 # output ----------------------------------------
 
 test_that("output is df of four columns", {
