@@ -7,10 +7,10 @@ context("check_merge")
 test_that("output returns correct values", {
 
   # loading in SR2017 Kenya example dataset...
-  testData <- readr::read_csv("sr17KenyaTestData.csv")
+  testData <- readr::read_csv("testdata.csv")
 
   expectedOutput_All <- testData %>%
-    dplyr::group_by(seed_variety) %>%
+    dplyr::group_by(name) %>%
     dplyr::summarize(
       "Merged Value" = mean(seed.price)
     ) %>%
@@ -19,12 +19,11 @@ test_that("output returns correct values", {
   expectedOutput_NAs <- expectedOutput_All %>%
     dplyr::filter(is.na(`Merged Value`))
 
-
-  expect_equal(check_merge(testData, seed_variety,
+  expect_equal(check_merge(testData, name,
                            seed.price),
                expectedOutput_All)
 
-  expect_equal(check_merge(testData, seed_variety,
+  expect_equal(check_merge(testData, name,
                            seed.price, onlyMissingValues = TRUE),
                expectedOutput_NAs)
 

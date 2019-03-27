@@ -20,7 +20,7 @@ test_that("output returns correct values for data that is not grouped", {
 test_that("output returns correct values for data that is grouped", {
 
   # loading in SR2017 Kenya example dataset...
-  testData <- readr::read_csv("sr17KenyaTestData.csv")
+  testData <- readr::read_csv("testdata.csv")
 
   # returning correct SD from mean
   expect_equal(check_iqr(testData, ton.hectare,

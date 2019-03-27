@@ -33,5 +33,6 @@ test_that("is_duplicated only flags the last instance of a value duplicated more
 
   multiple_duplicates <- c(1:3, 1, 1, 1)
 
-  expect_equal(is_duplicated(multiple_duplicates, all_instances = FALSE), c(FALSE, FALSE, FALSE, FALSE, TRUE))
+  expect_equal(is_duplicated(multiple_duplicates, all_instances = FALSE),
+               c(FALSE, FALSE, FALSE, FALSE, FALSE, TRUE))
 })

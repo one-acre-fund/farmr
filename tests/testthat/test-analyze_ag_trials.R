@@ -3,7 +3,7 @@ context("analyze_ag_trials")
 
 test_that("output returns correct means/confidence intervals", {
 
-  testData <- readr::read_csv("sr17KenyaTestData.csv")
+  testData <- readr::read_csv("testdata.csv")
 
   manualtestData <-testData %>%
     dplyr::group_by(block_type_number, name) %>%
@@ -42,7 +42,7 @@ test_that("output returns correct means/confidence intervals", {
 
 test_that("output returns correct p-values from Tukey's test", {
 
-  testData <- readr::read_csv("sr17KenyaTestData.csv")
+  testData <- readr::read_csv("testdata.csv")
 
   testData <- dplyr::filter(testData, block_type_number == 1)
 
