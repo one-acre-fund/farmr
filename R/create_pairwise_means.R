@@ -5,9 +5,9 @@
 #' and confidence intervals for all possible combinations. It is designed
 #' to match up with the Tukey's HSD output.
 #'
-#' @param depVariable The name of the dependent variable from the dataset
+#' @param depVar The name of the dependent variable from the dataset
 #' (e.g. yield, profit)
-#' @param testVariable The name of the variable that you are testing for
+#' @param testVar The name of the variable that you are testing for
 #' significant differences
 #' @param dataset The full dataset
 #'
@@ -15,49 +15,75 @@
 #' for all trials.
 
 
-create_pairwise_means <- function(depVar, testVar, dataset) {
+pairwise_stats <- function(mat){
 
-  # these are quoted for development.
-  #depVar = rlang::enquo(depVar)
-  #testVar = rlang::enquo(testVar)
+  output_table <- do.call(rbind, lapply(1:(nrow(mat)-1), function(z) {
 
-  means = aggregate(dataset[[rlang::quo_text(depVar)]],
-                    by = list(dataset[[rlang::quo_text(testVar)]]),
-                    FUN=mean, na.rm=T)
-
-  ci = aggregate(dataset[[rlang::quo_text(depVar)]],
-                 by = list(dataset[[rlang::quo_text(testVar)]]),
-                 FUN=norm.interval)
-  ## create a matrix for means
-  h <- as.matrix(means[,2])
-  names <- as.matrix(means[,1])
-  ci_m <- as.matrix(ci[,2])
-
-  tab.a <- do.call(rbind, lapply(1:(nrow(h)-1), function(z) {
-
-    cbind(cbind(rep(h[z,], nrow(h)-z)), h[,1][(1+z):nrow(h)])
+    cbind(cbind(rep(mat[z,], nrow(mat)-z)), mat[,1][(1+z):nrow(mat)])
 
   }))
 
-  ## create a matrix for the names
-  tab.names <- do.call(rbind, lapply(1:(nrow(names)-1), function(z) {
+  return(output_table)
 
-    cbind(cbind(rep(names[z,], nrow(names)-z)), names[,1][(1+z):nrow(names)])
+}
 
+dataset <- readr::read_csv("tests/testthat/testdata.csv") %>% as.data.frame()
+depVar = "ton.hectare"
+testVar = "trial_number"
+
+
+create_pairwise_means <- function(dep_var_list, testVar, dataset) {
+
+  #these are quoted for development.
+  # depVar = rlang::enquo(depVar) # depVar
+  # testVar = rlang::enquo(testVar) # testVar
+
+  agg_vars <- lapply(dep_var_list, function(dep_var){
+
+    agg_tab <- as.matrix(aggregate(dataset[,dep_var], by = list(testVar), function(x){
+      c(mean = mean(x, na.rm = T),
+        ci = norm.interval(x))
+    }))
+
+    agg_tab <- as.data.frame(agg_tab)
+    names(agg_tab) <- c("group", paste0(dep_var, ".mean"), paste0(dep_var, ".ci"))
+    return(agg_tab)
+  })
+
+  # js, this is me trying to give us the flexibility to accept multiple variables for aggregation.
+  # The next steps will be to assemble the list and label it in a flexible manner.
+
+
+  # depVar = dataset[ ,depVar] # <<< can eventually delete this....
+  # testVar = dataset [,testVar]
+  #
+  # means = aggregate(depVar,
+  #                   by = list(testVar),
+  #                   FUN=mean, na.rm=T)
+  #
+  # ci = aggregate(depVar,
+  #                by = list(testVar),
+  #                FUN=norm.interval)
+
+  # take 2 << this needs names!
+  tab <- do.call(cbind, lapply(agg_vars, function(x){
+    data.frame(
+      pairwise_stats(as.matrix(x[, 2])),
+      pairwise_stats(as.matrix(x[, 3]))
+    )
   }))
 
-  tab.ci <- do.call(rbind, lapply(1:(nrow(ci_m)-1), function(z) {
 
-    cbind(cbind(rep(ci_m[z,], nrow(ci_m)-z)), ci_m[,1][(1+z):nrow(ci_m)])
+  # take 1
+  tab <- cbind(
+    pairwise_stats(as.matrix(means[,1])), # names
+    pairwise_stats(as.matrix(means[,2])), # means
+    pairwise_stats(as.matrix(ci[,2])) # ci
+  )
 
-  }))
-
-
-  # bind means matrix, and names matrix, together
-  tab <- cbind(tab.names, tab.a, tab.ci)
 
   # remove all non-finite values
-  finalTab <- tab[ tab[,3] != "NaN" & tab[,4] != "NaN", ]
+  finalTab <- tab[ tab[,3] != "NaN" & tab[,4] != "NaN", ] # this needs to be updated.
 
 
   # fixing behaviour of one-row test
@@ -68,7 +94,8 @@ create_pairwise_means <- function(depVar, testVar, dataset) {
   finalDf <- as.data.frame(finalTab, stringsAsFactors = FALSE)
 
   # note that names are in reverse order
-  names(finalDf) <- c("Trial 2", "Trial 1", "M1", "M2", "C1", "C2")
+  col <- ncol(finalDf)/3
+  names(finalDf) <- c("Trial 2", "Trial 1", paste0("M", 1:col), paste0("C", 1:col))
 
   # these were converted to characters due to NAs, recasting as integers
   finalDf$M1 <- as.numeric(as.character(finalDf$M1))
@@ -82,8 +109,7 @@ create_pairwise_means <- function(depVar, testVar, dataset) {
   finalDf$`Percent Change` <- paste(round((((
     finalDf$M2 - finalDf$M1)/finalDf$M1)*100),1), "%", sep="")
 
-  finalDf <-
-    dplyr::select(finalDf, `Trial 1`, `Trial 2`, `Trial 1 Outcome`,
+  finalDf <- dplyr::select(finalDf, `Trial 1`, `Trial 2`, `Trial 1 Outcome`,
                   `Trial 2 Outcome`, `Percent Change`)
 
   return(finalDf)
