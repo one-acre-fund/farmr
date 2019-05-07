@@ -112,12 +112,12 @@ analyze_ag_trials <- function(dataset, depVariable,
                          output <- cbind(tukeyOutput, meansOutput)
 
                          # adding in variable for the trial
-                         trial <- unique(x[[rlang::quo_text(experimentVar)]])
-                         output$Trial <- trial
+                         experiment <- unique(x[[rlang::quo_text(experimentVar)]])
+                         output$Experiment <- experiment
 
                          # cleaning up and selecting required columns
                          outputClean <-
-                           dplyr::select(output, `Trial`,
+                           dplyr::select(output, `Experiment`,
                                          `Trial 1`, `Trial 2`,
                                          `Trial 1 Outcome`, `Trial 2 Outcome`,
                                          `P-Value`, `Percent Change`)
