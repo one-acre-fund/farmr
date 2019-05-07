@@ -34,11 +34,11 @@ names of the stratification variables and returns the analyzed output (using
 Tukey's HSD) in a dataframe.
 }
 \examples{
-With profit column:
+# With profit column:
 rcbdOutput <- analyze_ag_trials(finalData, block_type_number, ton.hectare,
 name, profitVariable = profit, block_number)
 
-Without profit column:
+# Without profit column:
 rcbdOutput <- analyze_ag_trials(finalData, block_type_number, ton.hectare,
 name, profitVariable = NULL, block_number)
 }

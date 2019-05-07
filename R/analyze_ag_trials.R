@@ -1,84 +1,98 @@
 #' Analyze Phase 1 and Phase 2 RCBD Agricultural Trials
 #'
-#' This function takes a clean dataset, the dependent variable name, and the
-#' names of the stratification variables and returns the analyzed output (using
-#' Tukey's HSD) in a dataframe.
+#' This function is designed to analyze all data from phase 1 and phase 2 trials.
+#'
+#' This function takes a clean dataset, the dependent variable name, experiment
+#' variable name, treatment variable name, block variable name, and any other
+#' variable names other than the dependent variable to calculate means and
+#' confidence intervals for, e.g. germination  rates / profitability.
+#'
+#' The function returns the analyzed output, using Tukey's HSD to calculate
+#' significance for the dependent variable, in a dataframe.
+#'
+#' Please note that each experiment must have its own unique code.
+#'
+#' If you want results separated by AEZ, you must ensure that all trials
+#' in different AEZs have different experimental codes.
 #'
 #' @param dataset The full dataset
 #' @param depVariable The name of the dependent variable from the dataset
-#' (e.g. yield, profit)
-#' @param trialVariable The name of the variable that designates which trial
-#' you are referring to. This will be used to split the dataset.
-#' @param testVariable The name of the variable that you are testing for
-#' significant differences
-#' @param profitVariable The name of the variable that designates farmer profit.
-#' If this is not included in your dataset, please set this variable to Null.
-#' @param ... The names of the other columns that the trial was stratified by /
-#' source of variation to control for (e.g. block, AEZ)
+#' (e.g. yield)
+#' @param experimentVariable The name of the variable that designates which
+#' experiment you are referring to. This will be used to split the dataset.
+#' Please ensure that each experiment has its own code.
+#' @param treatmentVariable The name of the treatment variable to test for
+#' significant differences, usually seed variety.
+#' @param blockVariable The name of the variable that designates which block
+#' the plot belonged to.
+#' @param ... The names of the other columns that you would like to calculate
+#' the means and upper/lower bounds for, e.g. profit, germination rate, etc.
 #'
-#' @return Returns a dataframe with the pairwise comparison of all trials.
+#' @return Returns a dataframe with the pairwise comparison of trials within
+#' each experiment.
 #' @export
 #' @examples
-#' With profit column:
-#' rcbdOutput <- analyze_ag_trials(finalData, block_type_number, ton.hectare,
-#' name, profitVariable = profit, block_number)
 #'
-#' Without profit column:
-#' rcbdOutput <- analyze_ag_trials(finalData, block_type_number, ton.hectare,
-#' name, profitVariable = NULL, block_number)
-
+#'
+#'
 
 # ref: https://community.rstudio.com/t/quasiquotation-inside-a-formula/14929
 
 # wrapper function that returns the final output
-analyze_ag_trials <- function(dataset, trialVariable,
-                              depVariable, testVariable,
-                              profitVariable = NULL, ... ) {
+analyze_ag_trials <- function(dataset, depVariable,
+                              experimentVariable, treatmentVariable,
+                              blockVariable, ... ) {
 
   # quoting variables
   depVar = rlang::enquo(depVariable)
-  trialVar = rlang::enquo(trialVariable)
-  testVar = rlang::enquo(testVariable)
-  groupVars = rlang::enquos(...)
-  profitVar = rlang::enquo(profitVariable)
+  experimentVar = rlang::enquo(experimentVariable)
+  treatmentVar = rlang::enquo(treatmentVariable)
+  blockVar = rlang::enquo(blockVariable)
+  additionalTestVars = rlang::enquos(...)
 
-  # ensuring that the test variable is in factor form
-  dataset[[rlang::quo_text(testVar)]] <-
-    as.factor(dataset[[rlang::quo_text(testVar)]])
+  # checking to ensure that variable names are in the dataset
 
-  # ensuring that the grouping variables are in factor form in the
-  # regression formula
-  groupVars <- purrr::map(groupVars, function(var) {
-    rlang::expr(as.factor(!!var))
-  })
+  for (i in c(rlang::quo_text(depVar),
+              rlang::quo_text(experimentVar),
+              rlang::quo_text(treatmentVar),
+              rlang::quo_text(blockVar))) {
 
-  # filtering any rows with Na in the dependent variable
-  dataset <- dplyr::filter(dataset, !is.na(!!depVar))
+         if(!i %in% names(dataset)) {
 
-  # creating regression formula
-  if (length(groupVars) > 0) {
+           stop(paste("Error!", i, "not found in dataset!"))
 
-    # collapsing group variables into a single string
-    groupVars = paste(purrr::map(groupVars, rlang::quo_text),
-                      collapse=" + ")
-
-    # creating the formula for the first dependent variable
-    completeFormula = paste(rlang::quo_text(depVar), " ~ ",
-                            rlang::quo_text(testVar),
-                            " + ", groupVars)
-
-  } else {
-
-    stop("Error - no grouping variables found! Did you set profitVariable to NULL?")
-
+         }
 
   }
 
+
+  # Ensuring that the experiment/treatment/block variables are in factor form
+  # ensuring that the test variable is in factor form
+  dataset[[rlang::quo_text(treatmentVar)]] <-
+    as.factor(dataset[[rlang::quo_text(treatmentVar)]])
+
+  dataset[[rlang::quo_text(experimentVar)]] <-
+    as.factor(dataset[[rlang::quo_text(experimentVar)]])
+
+  dataset[[rlang::quo_text(blockVar)]] <-
+    as.factor(dataset[[rlang::quo_text(blockVar)]])
+
+  # filtering out rows with NA in the dependent variable
+  dataset <- dplyr::filter(dataset, !is.na(!!depVar))
+
+
+  # creating regression formula
+  completeFormula = paste(rlang::quo_text(depVar), " ~ ",
+                          rlang::quo_text(treatmentVar),
+                          " + ", rlang::quo_text(blockVar))
+
+
   # forcing recognition of trial variable as a column name
-  trialVarColumn <- eval(as.name(rlang::quo_text(trialVar)), dataset)
+  experimentVarColumn <- eval(as.name(rlang::quo_text(experimentVar)), dataset)
+
 
   # Send to helper function to analyze the trial
-  finalOutput <- do.call(rbind, lapply(split(dataset, trialVarColumn),
+  finalOutput <- do.call(rbind, lapply(split(dataset, experimentVarColumn),
 
                        function(x) {
 
@@ -86,19 +100,19 @@ analyze_ag_trials <- function(dataset, trialVariable,
                          tukeyOutput <- create_tukey_output(
                            completeFormula,
                            depVar,
-                           testVar,
+                           treatmentVar,
                            x
                          )
 
                          # running function to compute means
                          meansOutput <- create_pairwise_means(depVar,
-                                                              testVar,
+                                                              treatmentVar,
                                                               x)
 
                          output <- cbind(tukeyOutput, meansOutput)
 
                          # adding in variable for the trial
-                         trial <- unique(x[[rlang::quo_text(trialVar)]])
+                         trial <- unique(x[[rlang::quo_text(experimentVar)]])
                          output$Trial <- trial
 
                          # cleaning up and selecting required columns
@@ -108,32 +122,46 @@ analyze_ag_trials <- function(dataset, trialVariable,
                                          `Trial 1 Outcome`, `Trial 2 Outcome`,
                                          `P-Value`, `Percent Change`)
 
-                         # weird way to get around the error of
-                         # checking if profitVariable is Null
-                         if(rlang::quo_text(profitVar) %in% colnames(dataset)) {
 
-                           profitMeansOutput <-
-                             create_pairwise_means(profitVar,
-                                                    testVar,
-                                                    x)
+                         ### Looping through and binding groupvariables
+                         if (length(additionalTestVars) > 0) {
 
-                           profitMeansOutput <- dplyr::select(
-                             profitMeansOutput,
-                              `Trial 1 Profit Outcome` = `Trial 1 Outcome`,
-                              `Trial 2 Profit Outcome` = `Trial 2 Outcome`,
-                              `Profit Percent Change` = `Percent Change`,
-                           )
+                           # collapsing group variables into a single string
+                           updatedOutput <- do.call(cbind, purrr::map(additionalTestVars,
 
-                           outputClean <- cbind(outputClean, profitMeansOutput)
+                                      function(var) {
+
+                                        addtlVar <- rlang::enquo(var)
+
+                                        additionalOutput <-
+                                        create_pairwise_means(addtlVar,
+                                                              treatmentVar,
+                                                              x)
+
+
+                                        additionalOutput <- dplyr::select(
+                                          additionalOutput,
+                                          `Trial 1 Profit Outcome` = `Trial 1 Outcome`,
+                                          `Trial 2 Profit Outcome` = `Trial 2 Outcome`,
+                                          `Profit Percent Change` = `Percent Change`,
+                                        )
+
+                                        return(additionalOutput)
+                                      }
+
+                            ))
+
+                           outputClean <- cbind(outputClean, updatedOutput)
 
                          }
 
 
                          return(outputClean)
 
-                         }
+                 }
 
   ))
+
 
 
   return(finalOutput)

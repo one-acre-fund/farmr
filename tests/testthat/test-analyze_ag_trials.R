@@ -16,10 +16,11 @@ test_that("output returns correct means/confidence intervals", {
     dplyr::filter(!is.na(groupMean)) %>%
     dplyr::mutate(groupMean = round(groupMean, 2)) %>%
     dplyr::select(Trial = block_type_number, TrialName = name,
-                  TrialResult = groupMean)
+                  TrialResult = groupMean) %>%
+    dplyr::mutate(Trial = as.factor(as.character(Trial)))
 
-  analysisData <- analyze_ag_trials(testData, block_type_number, ton.hectare,
-                                    name, profitVariable = NULL, block_number)
+  analysisData <- analyze_ag_trials(testData, ton.hectare,
+                                    block_type_number, name, block_number)
 
   analysisData1 <- analysisData %>%
     dplyr::select(Trial, TrialName = `Trial 1`, TrialResult = `Trial 1 Outcome`)
@@ -58,8 +59,8 @@ test_that("output returns correct p-values from Tukey's test", {
 
   rownames(testTukey) <- c()
 
-  analysisData <- analyze_ag_trials(testData, block_type_number, ton.hectare,
-                                    name, profitVariable = NULL, block_number)
+  analysisData <- analyze_ag_trials(testData, ton.hectare,
+                                    block_type_number, name, block_number)
 
   analysisData <- analysisData %>%
     dplyr::select(`P-Value`)
