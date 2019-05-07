@@ -1,0 +1,512 @@
+boxPlotFile2 <- paste(od, "kesr2017boxplotsiqr.pdf", sep = '/')
+forceUpdate <- TRUE
+if(file.exists(boxPlotFile2) && forceUpdate){
+pdf(file=boxPlotFile2, width=11, height=8.5)
+for(i in unique(sort(iqr$site))){
+print(ggplot(data=subset(iqr, iqr$site==i), aes(x=plot, y = ton.hectare)) + geom_boxplot() +
+theme_bw() +
+theme(legend.position = "bottom",
+axis.text.x = element_text(angle = 45, hjust = 1)) +
+labs(title = paste("Box Plots by Site - ", i, sep=""),
+x = "Treatment", y = "Yield (t/ha)"))
+}
+dev.off()
+}
+source('~/Documents/1AF/Trial Analysis/SR2017 Ag Studies/p2_r script sr2017.R', echo=TRUE)
+# effect size:
+# ---------------------------------------------------------------------------------
+esDir <- normalizePath(file.path("..", "..", "..", "..", "..", "analyses", "powerCalculator"))
+source(paste(esDir, "effectSize.R", sep = "/"))
+# monocrop analysis
+# ---------------------------------------------------------------------------------
+rs <- function(x) {
+x$plot <- as.factor(x$plot)
+x$oaf.id <- as.factor(x$oaf.id)
+#yield
+# *** ML: I've updated this code to use the most up to date method.
+mod <- summary(pairs(lsmeans(aov(ton.hectare ~ plot + oaf.id, data=x), "plot", method="pairwise", adjust="tukey")))
+pval <- ifelse(mod$p.value<0.001, "< 0.001", round(mod$p.value,3))
+tab <- tab.arrange(x$ton.hectare, x$plot)
+# yield comparison
+y.p <- per.comp(tab)
+tab <- cbind(tab, pval, y.p)
+# profit
+prof.tab <- tab.arrange(x$profit, x$plot)
+tab <- cbind(tab, prof.tab)
+# effect size and power
+#efTab <- effectSize("plot", "ton.hectare", "treatment.id", 0, x)
+# efTab <- efTab[!is.na(efTab$tab.effectsi),] %>%
+#   select(tab.effectsi, post.hoc.power)
+output <- data.frame(season=unique(x$season), phase=2, location = unique(x$site),
+trial=tab.rs(x$trial.desc), tab)
+names(output)[4:11] <- c("trial 1", "trial 2", "yield 1 (t/ha)",
+"yield 2 (t/ha)", "p.value", "yield change", "profit 1 (USD)", "profit 2 (USD)")
+#print(output)
+return(output)
+}
+# execute the rs function
+d <- d[order(d$site),]
+n.rcbd <- do.call(rbind, lapply(split(d, d$site),function(x){
+rs(x)
+}))
+names(d)
+d_clean <- d %>%
+# NAs in the dependent variable mess with ANOVA
+filter(!is.na(ton.hectare)) %>%
+n.rcbd <- do.call(rbind, lapply(split(d, d$site),function(x){
+rs(x)
+}))
+d_clean <- d %>%
+# NAs in the dependent variable mess with ANOVA
+filter(!is.na(ton.hectare))
+n.rcbd <- do.call(rbind, lapply(split(d, d$site),function(x){
+rs(x)
+}))
+n.rcbd <- do.call(rbind, lapply(split(d_clean, d_clean$site),function(x){
+rs(x)
+}))
+names(d_clean)
+# monocrop analysis
+# ---------------------------------------------------------------------------------
+rs <- function(x) {
+x$plot <- as.factor(x$plot)
+x$oaf.id <- as.factor(x$oaf.id)
+#yield
+# *** ML: I've updated this code to use the most up to date method.
+mod <- summary(pairs(lsmeans(aov(ton.hectare ~ plot + oaf_id, data=x), "plot", method="pairwise", adjust="tukey")))
+pval <- ifelse(mod$p.value<0.001, "< 0.001", round(mod$p.value,3))
+tab <- tab.arrange(x$ton.hectare, x$plot)
+# yield comparison
+y.p <- per.comp(tab)
+tab <- cbind(tab, pval, y.p)
+# profit
+prof.tab <- tab.arrange(x$profit, x$plot)
+tab <- cbind(tab, prof.tab)
+# effect size and power
+#efTab <- effectSize("plot", "ton.hectare", "treatment.id", 0, x)
+# efTab <- efTab[!is.na(efTab$tab.effectsi),] %>%
+#   select(tab.effectsi, post.hoc.power)
+output <- data.frame(season=unique(x$season), phase=2, location = unique(x$site),
+trial=tab.rs(x$trial.desc), tab)
+names(output)[4:11] <- c("trial 1", "trial 2", "yield 1 (t/ha)",
+"yield 2 (t/ha)", "p.value", "yield change", "profit 1 (USD)", "profit 2 (USD)")
+#print(output)
+return(output)
+}
+# execute the rs function
+d <- d[order(d$site),]
+n.rcbd <- do.call(rbind, lapply(split(d, d$site),function(x){
+rs(x)
+}))
+n.rcbd <- do.call(rbind, lapply(split(d_clean, d_clean$site),function(x){
+rs(x)
+}))
+n.rcbd <- do.call(rbind, lapply(split(d, d$site),function(x){
+rs(x)
+}))
+# monocrop analysis
+# ---------------------------------------------------------------------------------
+rs <- function(x) {
+x$plot <- as.factor(x$plot)
+x$oaf_id <- as.factor(x$oaf_id)
+#yield
+# *** ML: I've updated this code to use the most up to date method.
+mod <- summary(pairs(lsmeans(aov(ton.hectare ~ plot + oaf_id, data=x), "plot", method="pairwise", adjust="tukey")))
+pval <- ifelse(mod$p.value<0.001, "< 0.001", round(mod$p.value,3))
+tab <- tab.arrange(x$ton.hectare, x$plot)
+# yield comparison
+y.p <- per.comp(tab)
+tab <- cbind(tab, pval, y.p)
+# profit
+prof.tab <- tab.arrange(x$profit, x$plot)
+tab <- cbind(tab, prof.tab)
+# effect size and power
+#efTab <- effectSize("plot", "ton.hectare", "treatment.id", 0, x)
+# efTab <- efTab[!is.na(efTab$tab.effectsi),] %>%
+#   select(tab.effectsi, post.hoc.power)
+output <- data.frame(season=unique(x$season), phase=2, location = unique(x$site),
+trial=tab.rs(x$trial.desc), tab)
+names(output)[4:11] <- c("trial 1", "trial 2", "yield 1 (t/ha)",
+"yield 2 (t/ha)", "p.value", "yield change", "profit 1 (USD)", "profit 2 (USD)")
+#print(output)
+return(output)
+}
+d_clean <- d %>%
+# NAs in the dependent variable mess with ANOVA
+filter(!is.na(ton.hectare))
+n.rcbd <- do.call(rbind, lapply(split(d, d$site),function(x){
+rs(x)
+}))
+n.rcbd <- do.call(rbind, lapply(split(d_clean, d_clean$site),function(x){
+rs(x)
+}))
+View(d_clean)
+names(d)
+# monocrop analysis
+# ---------------------------------------------------------------------------------
+rs <- function(x) {
+x$plot <- as.factor(x$plot)
+x$oaf_id <- as.factor(x$oaf_id)
+#yield
+# *** ML: I've updated this code to use the most up to date method.
+mod <- summary(pairs(lsmeans(aov(ton.hectare ~ plot + oaf_id, data=x), "plot", method="pairwise", adjust="tukey")))
+pval <- ifelse(mod$p.value<0.001, "< 0.001", round(mod$p.value,3))
+tab <- tab.arrange(x$ton.hectare, x$plot)
+# yield comparison
+y.p <- per.comp(tab)
+tab <- cbind(tab, pval, y.p)
+# profit
+prof.tab <- tab.arrange(x$profit, x$plot)
+tab <- cbind(tab, prof.tab)
+# effect size and power
+#efTab <- effectSize("plot", "ton.hectare", "treatment.id", 0, x)
+# efTab <- efTab[!is.na(efTab$tab.effectsi),] %>%
+#   select(tab.effectsi, post.hoc.power)
+output <- data.frame(season=unique(x$season), phase=2, location = unique(x$site),
+trial=tab.rs(x$trial_name), tab)
+names(output)[4:11] <- c("trial 1", "trial 2", "yield 1 (t/ha)",
+"yield 2 (t/ha)", "p.value", "yield change", "profit 1 (USD)", "profit 2 (USD)")
+#print(output)
+return(output)
+}
+n.rcbd <- do.call(rbind, lapply(split(d_clean, d_clean$site),function(x){
+rs(x)
+}))
+# monocrop analysis
+# ---------------------------------------------------------------------------------
+rs <- function(x) {
+x$plot <- as.factor(x$plot)
+x$oaf_id <- as.factor(x$oaf_id)
+#yield
+# *** ML: I've updated this code to use the most up to date method.
+mod <- summary(pairs(lsmeans(aov(ton.hectare ~ plot + oaf_id, data=x), "plot", method="pairwise", adjust="tukey")))
+pval <- ifelse(mod$p.value<0.001, "< 0.001", round(mod$p.value,3))
+tab <- tab.arrange(x$ton.hectare, x$plot)
+# yield comparison
+y.p <- per.comp(tab)
+tab <- cbind(tab, pval, y.p)
+# profit
+prof.tab <- tab.arrange(x$profit, x$plot)
+tab <- cbind(tab, prof.tab)
+# effect size and power
+#efTab <- effectSize("plot", "ton.hectare", "treatment.id", 0, x)
+# efTab <- efTab[!is.na(efTab$tab.effectsi),] %>%
+#   select(tab.effectsi, post.hoc.power)
+output <- data.frame(season=unique(x$season), phase=2, location = unique(x$site),
+trial=tab.rs(x$treatment), tab)
+names(output)[4:11] <- c("trial 1", "trial 2", "yield 1 (t/ha)",
+"yield 2 (t/ha)", "p.value", "yield change", "profit 1 (USD)", "profit 2 (USD)")
+#print(output)
+return(output)
+}
+# execute the rs function
+d <- d[order(d$site),]
+d_clean <- d %>%
+# NAs in the dependent variable mess with ANOVA
+filter(!is.na(ton.hectare))
+n.rcbd <- do.call(rbind, lapply(split(d_clean, d_clean$site),function(x){
+rs(x)
+}))
+# monocrop analysis
+# ---------------------------------------------------------------------------------
+rs <- function(x) {
+x$plot <- as.factor(x$plot)
+x$oaf_id <- as.factor(x$oaf_id)
+#yield
+# *** ML: I've updated this code to use the most up to date method.
+mod <- summary(pairs(lsmeans(aov(ton.hectare ~ plot + oaf_id, data=x), "plot", method="pairwise", adjust="tukey")))
+pval <- ifelse(mod$p.value<0.001, "< 0.001", round(mod$p.value,3))
+tab <- tab.arrange(x$ton.hectare, x$plot)
+# yield comparison
+y.p <- per.comp(tab)
+tab <- cbind(tab, pval, y.p)
+# profit
+prof.tab <- tab.arrange(x$profit, x$plot)
+tab <- cbind(tab, prof.tab)
+return(tab)
+}
+n.rcbd <- do.call(rbind, lapply(split(d_clean, d_clean$site),function(x){
+rs(x)
+}))
+n.rcbd <- do.call(rbind, lapply(split(d, d$site),function(x){
+rs(x)
+}))
+View(Tab)
+tab
+n.rcbd <- do.call(rbind, lapply(split(d, d$site),function(x){
+rs(x)
+}))
+n.rcbd
+unique(p$plot)
+unique(p$treatment)
+# creating the trial description variable
+d$trial.desc <- paste(p$treatment, p$site, sep=" - ")
+View(D)
+View(d)
+# creating the trial description variable
+d$trial.desc <- paste(treatment, site, sep=" - ")
+# creating the trial description variable
+d$trial.desc <- paste(d$treatment, d$site, sep=" - ")
+View(d)
+unique(d$trial.desc)
+n.rcbd <- do.call(rbind, lapply(split(d, d$site),function(x){
+rs(x)
+}))
+n.rcbd
+# monocrop analysis
+# ---------------------------------------------------------------------------------
+rs <- function(x) {
+x$plot <- as.factor(x$plot)
+x$oaf_id <- as.factor(x$oaf_id)
+#yield
+# *** ML: I've updated this code to use the most up to date method.
+mod <- summary(pairs(lsmeans(aov(ton.hectare ~ plot + oaf_id, data=x), "plot", method="pairwise", adjust="tukey")))
+pval <- ifelse(mod$p.value<0.001, "< 0.001", round(mod$p.value,3))
+tab <- tab.arrange(x$ton.hectare, x$plot)
+# yield comparison
+y.p <- per.comp(tab)
+tab <- cbind(tab, pval, y.p)
+# profit
+prof.tab <- tab.arrange(x$profit, x$plot)
+tab <- cbind(tab, prof.tab)
+# effect size and power
+#efTab <- effectSize("plot", "ton.hectare", "treatment.id", 0, x)
+# efTab <- efTab[!is.na(efTab$tab.effectsi),] %>%
+#   select(tab.effectsi, post.hoc.power)
+output <- data.frame(season=unique(x$season), phase=2, location = unique(x$site),
+trial=tab.rs(x$trial.desc), tab)
+names(output)[4:11] <- c("trial 1", "trial 2", "yield 1 (t/ha)",
+"yield 2 (t/ha)", "p.value", "yield change", "profit 1 (USD)", "profit 2 (USD)")
+#print(output)
+return(output)
+}
+n.rcbd <- do.call(rbind, lapply(split(d, d$site),function(x){
+rs(x)
+}))
+n.rcbd <- do.call(rbind, lapply(split(d_clean, d_clean$site),function(x){
+rs(x)
+}))
+# h = variable with the trial names and descriptions
+tab.rs <- function(h) {
+h <- as.matrix(unique(h))
+tab.a <- do.call(rbind, lapply(1:(nrow(h)-1), function(z) {
+cbind(cbind(rep(h[z,], nrow(h)-z)), h[,1][(1+z):nrow(h)])}))
+rownames(tab.a) <-NULL
+return(tab.a)
+}
+n.rcbd <- do.call(rbind, lapply(split(d_clean, d_clean$site),function(x){
+rs(x)
+}))
+n.rcbd <- do.call(rbind, lapply(split(d, d$site),function(x){
+rs(x)
+}))
+# creating the trial description variable
+d$trial.desc <- paste(d$plot, d$treatment, d$site, sep=" - ")
+View(d)
+# execute the rs function
+d <- d[order(d$site),]
+n.rcbd <- do.call(rbind, lapply(split(d, d$site),function(x){
+rs(x)
+}))
+n.rcbd
+# IQR result
+iqr <- iqr[order(iqr$site),]
+iqr.res <- do.call(rbind, lapply(split(iqr, iqr$site),function(x){
+rs(x)
+}))
+# IQR result
+iqr$trial.desc <- paste(iqr$plot, iqr$treatment, iqr$site, sep=" - ")
+iqr <- iqr[order(iqr$site),]
+iqr.res <- do.call(rbind, lapply(split(iqr, iqr$site),function(x){
+rs(x)
+}))
+# add marker to the iqr results
+iqr.res$outliers.removed <- 1
+iqr.res
+# combine the raw and outlier removed data
+Combined <- plyr::rbind.fill(n.rcbd, iqr.res)
+Combined$outliers.removed <- ifelse(is.na(Combined$outliers.removed), 0,1)
+# raw results - d
+write.csv(n.rcbd, file=paste(od, "sr2017outputraw.csv", sep="/"), row.names=F)
+save(rs, n.rcbd,d,iqr.res, file=paste(od, "sr2017output.Rdata", sep = "/"))
+# outliers removed - iqr
+write.csv(iqr.res, file=paste(od, "sr2017outputiqr.csv", sep = "/"), row.names=F)
+write.csv(Combined, file=paste(od, "sr2017outputcombined.csv", sep = "/"), row.names=F)
+# Impact
+avg_impact <- 187.16
+sd_impact <- 60.1
+icc_impact <- 0.13
+# Impact
+avg_impact <- 187.16
+sd_impact <- 60.1
+icc_impact <- 0.13
+# Margin
+avg_margin <- 2297.771
+sd_margin <- 1114.331
+icc_margin <- 0.06
+# other
+n_clients_per_site <- 233
+# ICC Correction Function from Mike Barber
+ICC_correction <- function(samplesize, num_clusters, ICC_estimate){
+average_cluster_size = samplesize/num_clusters
+factor_inflate = 1 + (average_cluster_size - 1) * ICC_estimate
+return(data.frame("New sample size"=round(samplesize*factor_inflate), "Old sample size"=samplesize   ))
+}
+n_available_sites_per_trial_arm <- 80
+n_available_sites <- 80
+avg_farmers_per_trial <- n_available_sites  * n_clients_per_site
+ICC_correction(avg_farmers_per_trial, n_available_sites, icc_impact)
+ICC_correction(avg_farmers_per_trial, n_available_sites, icc_margin)
+# ICC Correction Function (basically, what is our equivalent sample?)
+ICC_correction <- function(samplesize, num_clusters, ICC_estimate){
+average_cluster_size = samplesize/num_clusters
+factor_inflate = 1 + (average_cluster_size - 1) * ICC_estimate
+return(data.frame("New sample size"=round(samplesize/factor_inflate), "Old sample size"=samplesize   ))
+}
+ICC_correction(avg_farmers_per_trial, n_available_sites, icc_margin)
+# ICC Correction Function (basically, what is our equivalent sample?)
+ICC_correction2 <- function(samplesize, num_clusters, ICC_estimate){
+average_cluster_size = samplesize/num_clusters
+factor_inflate = 1 + (average_cluster_size - 1) * ICC_estimate
+return(data.frame("New sample size"=round(samplesize*factor_inflate), "Old sample size"=samplesize   ))
+}
+# ICC Correction Function (basically, what is our equivalent sample?)
+ICC_correction <- function(samplesize, num_clusters, ICC_estimate){
+average_cluster_size = samplesize/num_clusters
+factor_inflate = 1 + (average_cluster_size - 1) * ICC_estimate
+return(data.frame("New sample size"=round(samplesize*factor_inflate), "Old sample size"=samplesize   ))
+}
+# modifying to get basically equivalent individual sample size that we would have
+ICC_correction2 <- function(samplesize, num_clusters, ICC_estimate){
+average_cluster_size = samplesize/num_clusters
+factor_inflate = 1 + (average_cluster_size - 1) * ICC_estimate
+return(data.frame("New sample size"=round(samplesize/factor_inflate), "Old sample size"=samplesize   ))
+}
+avg_farmers_per_trial <- n_available_sites  * n_clients_per_site
+ICC_correction(avg_farmers_per_trial, n_available_sites, icc_margin)
+ICC_correction2(avg_farmers_per_trial, n_available_sites, icc_margin)
+available_ss_per_treatment_arm = 1249/2
+available_ss_per_treatment_arm
+ICC_correction(avg_farmers_per_trial, n_available_sites, icc_margin)
+View(d)
+rm(list=ls())
+cat("\014")
+tab.arrange <- function(j, y) {
+m=aggregate(j, by=list(y), FUN=mean, na.rm=T)
+#ste = aggregate(j, by=list(y), function(z) {
+# sqrt(var(z,na.rm=TRUE)/length(na.omit(z)))})
+ste  = aggregate(j, by=list(y), function(z) {
+ciMean(z, conf=0.95, na.rm=T)})
+#h <-as.matrix(paste(round(m$x,2), " (", round(ste$x,2), ")", sep=""))
+h <-as.matrix(paste(prettyNum(round(m$x,2), big.mark = ","),
+" (", round(ste$x[,1],2),", ",
+round(ste$x[,2], 2), ")", sep=""))
+tab.a <- do.call(rbind, lapply(1:(nrow(h)-1), function(z) {
+cbind(cbind(rep(h[z,], nrow(h)-z)), h[,1][(1+z):nrow(h)])}))
+rownames(tab.a) <-NULL
+return(tab.a)
+}
+# test to incorporate sample size into the tab arrange funciton (length(na.omit(z)))
+tab.arrange.rw <- function(j, y) {
+m=aggregate(j, by=list(y), function(z){
+return(c(paste(round(mean(z, na.rm=T),2), " (",
+round(sqrt(var(z,na.rm=TRUE)/length(na.omit(z))), 2), ")", sep="")))
+})
+h <-as.matrix(m$x)
+tab.a <- do.call(rbind, lapply(1:(nrow(h)-1), function(z) {
+cbind(cbind(rep(h[z,], nrow(h)-z)), h[,1][(1+z):nrow(h)])}))
+rownames(tab.a) <-NULL
+l = aggregate(j, by=list(y), function(z){
+length(na.omit(z))
+})
+l = matrix(l$x)
+tab.l <- do.call(rbind, lapply(1:(nrow(l)-1), function(z) {
+cbind(cbind(rep(l[z,], nrow(l)-z)), l[,1][(1+z):nrow(l)])}))
+rownames(tab.l) <-NULL
+return(cbind(tab.a, tab.l))
+}
+per.comp <- function(h) {
+c1 <- as.numeric(sapply(strsplit(as.character(gsub(",", "", h[,1])),"\\("), `[`, 1))
+c2 <- as.numeric(sapply(strsplit(as.character(gsub(",", "", h[,2])), "\\("), `[`, 1))
+out <- paste(round((((c1-c2)/c2)*100),1), "%", sep="")
+return(out)
+}
+# h = variable with the trial names and descriptions
+tab.rs <- function(h) {
+h <- as.matrix(unique(h))
+tab.a <- do.call(rbind, lapply(1:(nrow(h)-1), function(z) {
+cbind(cbind(rep(h[z,], nrow(h)-z)), h[,1][(1+z):nrow(h)])}))
+rownames(tab.a) <-NULL
+return(tab.a)
+}
+#Libraries
+library(ggplot2)
+library(reshape2)
+library(Rmisc)
+suppressMessages(library(dplyr))
+library(lsr)
+library(lsmeans)
+suppressMessages(library(data.table))
+library(readxl)
+# johnna's trial folder
+drive <- "/Volumes/GoogleDrive/My Drive/ke sr trials 2017/phase 1"
+setwd(paste(drive, "output", sep="/"))
+d <- read_excel(paste(drive, "data/p1data_clean_sr2017.xlsx", sep="/"))
+# order the data by block_number and trial_number:
+# it's not completely necessary to sort the data as long as I properly subset.
+# Sort anyway: Or skip this step too.
+d <- d[order(d$station, d$block_type_number, d$trial_number),]
+# import crop, fertilizer, pesticide and market prices
+# ----------------------------------------------------------------------------------
+crop.prices<-read.csv(paste(drive, "market_prices/seed_prices.csv", sep="/"), header = TRUE, sep = ",",
+stringsAsFactors = FALSE)
+fert.prices<-read.csv(paste(drive, "market_prices/fert_prices.csv", sep="/"), header = TRUE, sep = ",",
+stringsAsFactors = FALSE)
+pest.prices<-read.csv(paste(drive, "market_prices/pesticide_prices.csv", sep="/"), header = TRUE, sep = ",",
+stringsAsFactors = FALSE)
+food.prices<-read.csv(paste(drive, "market_prices/food_prices.csv", sep="/"), header = TRUE, sep = ",",
+stringsAsFactors = FALSE)
+# checking total dry weight
+d$dryweightcheck <- apply(d[,names(d)[grep("^harvest_._dry_weight$", names(d))]], 1, function(x) {
+sum(x, na.rm=TRUE)})
+d$check <- d$total_dry_weight==d$dryweightcheck
+d[d$check==FALSE & !is.na(d$total_dry_weight),c("total_dry_weight", "dryweightcheck")]
+# checking total harvest weight
+d$harvestweightcheck <- apply(d[,names(d)[grep("^harvest_._weight$", names(d))]], 1, function(x) {
+sum(x, na.rm=TRUE)})
+d$check <- d$total_harvest_weight==d$harvestweightcheck
+d[d$check==FALSE & !is.na(d$total_dry_weight),c("total_harvest_weight", "harvestweightcheck")]
+# merging fertilizer cost information with main datset
+d$plant.fert.price1 <- fert.prices$price[match(d$planting_fertilizer_1, fert.prices$fertilizer)]
+d$top.fert.price1 <- fert.prices$price[match(d$top_dress_1_fertilizer, fert.prices$fertilizer)]
+d$top.fert.price2 <- fert.prices$price[match(d$top_dress_2_fertilizer, fert.prices$fertilizer)]
+d %>% select(planting_fertilizer_1, top_dress_1_fertilizer, top_dress_2_fertilizer,
+plant.fert.price1, top.fert.price1, top.fert.price2) %>%
+filter(is.na(plant.fert.price1) | is.na(top.fert.price1) | is.na(top.fert.price2)) %>%
+unique()
+crop.prices$price <- crop.prices$price_kg * crop.prices$kg_acre
+# merging seed cost information with main datset
+d$seed.price <- crop.prices$price[match(d$seed_variety, crop.prices$variety)]
+d %>% select(seed_variety, seed.price) %>% filter(is.na(seed.price)) %>% unique()
+# looks like scpundamilia529 was mispelled - I will change it and remerge (scpundamulia529)
+# glp92 should be 32 KG/acre
+# other value looks like it was missing
+crop.prices$kg_acre[crop.prices$variety == "glp92"] <- 32
+crop.prices$price <- crop.prices$price_kg * crop.prices$kg_acre
+d$seed.price <- crop.prices$price[match(d$seed_variety, crop.prices$variety)]
+d <- d %>% mutate(seed_variety = ifelse(seed_variety == "scpundamilia529", "scpundamulia529", seed_variety))
+d$seed.price <- crop.prices$price_kg[match(d$seed_variety, crop.prices$variety)]
+d %>% select(seed_variety, seed.price) %>% filter(is.na(seed.price)) %>% unique()
+View(crop.prices)
+# fixing tomato kg/acre application rate. all tomatoes should be .03 KG/acre, not .4
+crop.prices$kg_acre[crop.prices$crop == "tomato"] <- .03
+crop.prices$price <- crop.prices$price_kg * crop.prices$kg_acre
+View(crop.prices)
+View(crop.prices)
+# fixing maize kg/acre application rate. all maize should be 10 KG/acre, not 32 in some cases
+crop.prices$kg_acre[crop.prices$crop == "maize"] <- 10
+# merging yield revenue information
+unique(d$crop[!d$crop %in% food.prices$crop])
+# changing chilli to green chilli "bird eye green"
+d$crop[d$crop == "chilli"] <- "redchilli"
+unique(d$crop[!d$crop %in% food.prices$crop])

@@ -1,0 +1,26 @@
+"station","plot_number","name","block_type_number","trial_number","block_number","ton.hectare"
+"EKO",115,"P2859W",2,2,1,0.216666666666667
+"EKO",202,"P2859W",2,2,6,3.83333333333333
+"EKO",117,"30G19",2,3,1,0.166666666666667
+"EKO",165,"Malaika 125",2,4,3,2
+"EKO",114,"Haraka WH101",2,5,1,0.833333333333333
+"EKO",201,"Haraka WH101",2,5,6,3.83333333333333
+"EKO",313,"Kilele F1 Hybrid + Disease Treatment + Staking",3,2,3,5.68181818181818
+"EKO",310,"Kilele F1 Hybrid + Disease Treatment + Staking + irrigation",3,3,2,5.17045454545455
+"EKO",280,"KK8 + DAP",4,1,6,0.0892857142857143
+"EKO",259,"KK15 + DAP",4,3,2,0.357142857142857
+"EKO",222,"Maize Monocrop Program Control - 2 weeds",6,2,2,2.16666666666667
+"EKO",340,"Chillies + Fertilizer",7,2,2,1.60714285714286
+"EKO",345,"Chillies + Fertilizer",7,2,5,0.625
+"KKMT",4,"Maize SR Variety Control 1 (SC Duma)",10,3,1,0.708333333333333
+"KKMT",11,"30G19",11,3,1,2.23333333333333
+"KKMT",84,"P2859W",11,5,6,1
+"KKMT",102,"KK15 + DAP",12,1,3,0.214285714285714
+"GK",44,"Chelelang + DAP",13,6,4,0.0535714285714286
+"GK",15,"SC Duma",14,1,2,5.625
+"GK",19,"SC Twiga 81",14,2,3,4.66666666666667
+"SG",61,"KK8 + DAP",17,1,3,0.0892857142857143
+"SG",53,"Cangi",18,1,1,0.7
+"SG",56,"Tigoni",18,2,2,2.4
+"SG",38,"Riogrande Local + Disease Treatment + Staking",19,1,5,3.28598484848485
+"SG",43,"Kilele F1 Hybrid + Disease Treatment + Staking",19,2,6,6.11742424242424

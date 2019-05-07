@@ -1,0 +1,795 @@
+Block,ExperimentName,ExperimentNumber,AEZ,Treatment,topChoice,yieldAre,profit,cobSize,germinationRate
+1,Maize variety (low-mid altitude varieties),11,Eastern Ridges,ZM607,0,14.72,3388.481949,163.2653061,66
+1,Maize variety (low-mid altitude varieties),11,Eastern Ridges,WH505,0,30.132,7362.934217,310,80
+1,Maize variety (low-mid altitude varieties),11,Eastern Ridges,RHM104,0,27.216,6612.242268,232.7586207,79
+1,Maize variety (low-mid altitude varieties),11,Eastern Ridges,PAN4M21,1,38.016,9451.4723,242.6470588,81
+1,Maize variety (low-mid altitude varieties),11,Eastern Ridges,SC529,1,30.592,7483.592524,280.7017544,74
+2,Maize variety (low-mid altitude varieties),11,Eastern Ridges,WH505,1,29.16,7115.12,428.5714286,90
+2,Maize variety (low-mid altitude varieties),11,Eastern Ridges,RHM104,1,32.256,7920.96,242.4242424,86
+2,Maize variety (low-mid altitude varieties),11,Eastern Ridges,PAN4M21,0,32.256,7937.88,200,89
+2,Maize variety (low-mid altitude varieties),11,Eastern Ridges,SC529,0,22.944,5503.5,206.8965517,88
+2,Maize variety (low-mid altitude varieties),11,Eastern Ridges,ZM607,0,10.12,2209.82,171.875,69
+3,Maize variety (low-mid altitude varieties),11,Eastern Ridges,RHM104,0,25.2,6066.397121,227.2727273,79
+3,Maize variety (low-mid altitude varieties),11,Eastern Ridges,PAN4M21,1,38.016,9432.570318,226.0273973,85
+3,Maize variety (low-mid altitude varieties),11,Eastern Ridges,SC529,1,30.592,7474.255933,225.3521127,80
+3,Maize variety (low-mid altitude varieties),11,Eastern Ridges,ZM607,0,18.4,4328.691062,169.4915254,76
+3,Maize variety (low-mid altitude varieties),11,Eastern Ridges,WH505,0,27.216,6580.779076,237.2881356,78
+4,Maize variety (low-mid altitude varieties),11,Eastern Ridges,PAN4M21,0,11.52,2545.59581,116.2790698,75
+4,Maize variety (low-mid altitude varieties),11,Eastern Ridges,SC529,0,7.648,1515.307123,137.9310345,65
+4,Maize variety (low-mid altitude varieties),11,Eastern Ridges,ZM607,0,11.04,2450.821398,176.4705882,62
+4,Maize variety (low-mid altitude varieties),11,Eastern Ridges,WH505,1,33.048,8132.380848,261.5384615,70
+4,Maize variety (low-mid altitude varieties),11,Eastern Ridges,RHM104,1,34.272,8423.233993,269.8412698,72
+5,Maize variety (low-mid altitude varieties),11,Eastern Ridges,SC529,1,28.68,6982.3,245.9016393,76
+5,Maize variety (low-mid altitude varieties),11,Eastern Ridges,ZM607,0,23.92,5776.38,236.3636364,81
+5,Maize variety (low-mid altitude varieties),11,Eastern Ridges,WH505,0,23.328,5560.28,218.1818182,80
+5,Maize variety (low-mid altitude varieties),11,Eastern Ridges,RHM104,0,20.16,4738.12,196.0784314,84
+5,Maize variety (low-mid altitude varieties),11,Eastern Ridges,PAN4M21,1,34.56,8524.2,267.8571429,69
+6,Maize variety (low-mid altitude varieties),11,Eastern Ridges,ZM607,1,20.24,4813.82,189.6551724,70
+6,Maize variety (low-mid altitude varieties),11,Eastern Ridges,WH505,1,21.384,5036.52,157.1428571,81
+6,Maize variety (low-mid altitude varieties),11,Eastern Ridges,RHM104,1,22.176,5258.94,152.7777778,82
+6,Maize variety (low-mid altitude varieties),11,Eastern Ridges,PAN4M21,1,25.344,6113.7,164.1791045,80
+6,Maize variety (low-mid altitude varieties),11,Eastern Ridges,SC529,0,19.12,4516.14,185.1851852,60
+7,Maize variety (low-mid altitude varieties),11,Eastern Ridges,WH505,1,47.628,11856.28,288.2352941,80
+7,Maize variety (low-mid altitude varieties),11,Eastern Ridges,RHM104,0,33.264,8130.14,226.0273973,82
+7,Maize variety (low-mid altitude varieties),11,Eastern Ridges,PAN4M21,1,49.536,12408.06,241.5730337,84
+7,Maize variety (low-mid altitude varieties),11,Eastern Ridges,SC529,1,40.152,9932.14,287.6712329,79
+7,Maize variety (low-mid altitude varieties),11,Eastern Ridges,ZM607,0,29.44,7186.37,238.8059701,72
+8,Maize variety (low-mid altitude varieties),11,Eastern Ridges,RHM104,0,16.128,3685.261604,163.2653061,91
+8,Maize variety (low-mid altitude varieties),11,Eastern Ridges,PAN4M21,1,27.648,6737.610174,196.7213115,90
+8,Maize variety (low-mid altitude varieties),11,Eastern Ridges,SC529,0,21.2232,5033.228961,236.1702128,92
+8,Maize variety (low-mid altitude varieties),11,Eastern Ridges,ZM607,0,16.56,3846.05191,155.1724138,85
+8,Maize variety (low-mid altitude varieties),11,Eastern Ridges,WH505,0,15.552,3552.0183,210.5263158,88
+9,Maize variety (low-mid altitude varieties),11,Eastern Ridges,PAN4M21,1,39.168,9808.8,202.3809524,81
+9,Maize variety (low-mid altitude varieties),11,Eastern Ridges,SC529,1,23.9,5784.38,219.2982456,78
+9,Maize variety (low-mid altitude varieties),11,Eastern Ridges,ZM607,0,12.88,2942.6,162.7906977,70
+9,Maize variety (low-mid altitude varieties),11,Eastern Ridges,WH505,0,9.72,2078.76,125,63
+9,Maize variety (low-mid altitude varieties),11,Eastern Ridges,RHM104,1,22.176,5295.64,215.6862745,64
+10,Maize variety (low-mid altitude varieties),11,Eastern Ridges,SC529,0,24.856,5992.434025,265.3061224,79
+10,Maize variety (low-mid altitude varieties),11,Eastern Ridges,ZM607,1,25.76,6271.095301,241.3793103,80
+10,Maize variety (low-mid altitude varieties),11,Eastern Ridges,WH505,0,24.3,5845.654469,219.2982456,83
+10,Maize variety (low-mid altitude varieties),11,Eastern Ridges,RHM104,0,24.192,5831.97159,255.3191489,81
+10,Maize variety (low-mid altitude varieties),11,Eastern Ridges,PAN4M21,1,36.864,9157.345459,238.8059701,85
+1,Maize variety (low-mid altitude varieties),13,Eastern Savanah,ZM607,1,65.4171336,11325.12397,355.2631579,65
+1,Maize variety (low-mid altitude varieties),13,Eastern Savanah,WH505,0,51.657136,8806.228592,392.1568627,63
+1,Maize variety (low-mid altitude varieties),13,Eastern Savanah,RHM104,1,49.6,8426.722555,206.185567,64
+1,Maize variety (low-mid altitude varieties),13,Eastern Savanah,PAN4M21,0,68.4000072,11865.41447,375,64
+1,Maize variety (low-mid altitude varieties),13,Eastern Savanah,SC529,1,32.6857128,5378.498164,317.0731707,65
+2,Maize variety (low-mid altitude varieties),13,Eastern Savanah,WH505,1,51.657136,8789.64448,294.1176471,64
+2,Maize variety (low-mid altitude varieties),13,Eastern Savanah,RHM104,0,49.6,8405.08,256.4102564,75
+2,Maize variety (low-mid altitude varieties),13,Eastern Savanah,PAN4M21,1,97.714296,17121.59328,326.0869565,78
+2,Maize variety (low-mid altitude varieties),13,Eastern Savanah,SC529,1,60.3428544,10338.79379,342.8571429,76
+2,Maize variety (low-mid altitude varieties),13,Eastern Savanah,ZM607,0,41.1885656,6945.321808,204.8192771,70
+3,Maize variety (low-mid altitude varieties),13,Eastern Savanah,RHM104,0,47.12,7959.66,372.5490196,76
+3,Maize variety (low-mid altitude varieties),13,Eastern Savanah,PAN4M21,1,84.6857232,14780.05018,309.5238095,75
+3,Maize variety (low-mid altitude varieties),13,Eastern Savanah,SC529,1,50.285712,8530.20816,425.5319149,75
+3,Maize variety (low-mid altitude varieties),13,Eastern Savanah,ZM607,0,29.0742816,4760.300688,230.7692308,77
+3,Maize variety (low-mid altitude varieties),13,Eastern Savanah,WH505,1,51.657136,8785.52448,392.1568627,74
+4,Maize variety (low-mid altitude varieties),13,Eastern Savanah,PAN4M21,1,61.8857208,10688.23214,372.5490196,66
+4,Maize variety (low-mid altitude varieties),13,Eastern Savanah,ZM607,0,19.3828544,3037.516586,153.8461538,62
+4,Maize variety (low-mid altitude varieties),13,Eastern Savanah,SC529,0,37.714284,6280.108046,254.2372881,65
+4,Maize variety (low-mid altitude varieties),13,Eastern Savanah,WH505,1,72.3199904,12519.79388,301.0752688,64
+4,Maize variety (low-mid altitude varieties),13,Eastern Savanah,RHM104,1,52.08,8868.092615,466.6666667,67
+5,Maize variety (low-mid altitude varieties),13,Eastern Savanah,SC529,0,52.7999976,8939.859568,388.8888889,79
+5,Maize variety (low-mid altitude varieties),13,Eastern Savanah,ZM607,0,38.7657088,6462.947584,432.4324324,81
+5,Maize variety (low-mid altitude varieties),13,Eastern Savanah,WH505,1,80.0685608,13857.44094,407.8947368,78
+5,Maize variety (low-mid altitude varieties),13,Eastern Savanah,RHM104,1,52.08,8819.62,466.6666667,50
+5,Maize variety (low-mid altitude varieties),13,Eastern Savanah,PAN4M21,1,78.1714368,13563.37862,285.7142857,81
+6,Maize variety (low-mid altitude varieties),13,Eastern Savanah,ZM607,0,36.342852,6075.944897,258.6206897,79
+6,Maize variety (low-mid altitude varieties),13,Eastern Savanah,WH505,1,51.657136,8788.26452,327.8688525,80
+6,Maize variety (low-mid altitude varieties),13,Eastern Savanah,RHM104,0,47.12,7966.66986,283.5820896,78
+6,Maize variety (low-mid altitude varieties),13,Eastern Savanah,PAN4M21,1,78.1714368,13612.47539,222.2222222,79
+6,Maize variety (low-mid altitude varieties),13,Eastern Savanah,SC529,0,40.2285696,6724.0567,258.0645161,80
+7,Maize variety (low-mid altitude varieties),13,Eastern Savanah,WH505,1,51.657136,8812.575897,363.6363636,64
+7,Maize variety (low-mid altitude varieties),13,Eastern Savanah,RHM104,1,54.56,9319.582435,407.4074074,70
+7,Maize variety (low-mid altitude varieties),13,Eastern Savanah,PAN4M21,1,81.42858,14222.2941,297.6190476,63
+7,Maize variety (low-mid altitude varieties),13,Eastern Savanah,SC529,1,65.3714256,11274.2618,282.6086957,64
+7,Maize variety (low-mid altitude varieties),13,Eastern Savanah,ZM607,1,48.457136,8283.432185,312.5,61
+8,Maize variety (low-mid altitude varieties),13,Eastern Savanah,RHM104,1,74.4,12878.56687,434.7826087,86
+8,Maize variety (low-mid altitude varieties),13,Eastern Savanah,PAN4M21,0,91.2000096,15961.03167,311.1111111,83
+8,Maize variety (low-mid altitude varieties),13,Eastern Savanah,SC529,0,70.3999968,12159.28485,301.0752688,85
+8,Maize variety (low-mid altitude varieties),13,Eastern Savanah,ZM607,0,58.1485632,10002.73938,363.6363636,86
+8,Maize variety (low-mid altitude varieties),13,Eastern Savanah,WH505,1,95.5657016,16722.22549,451.2195122,85
+9,Maize variety (low-mid altitude varieties),13,Eastern Savanah,PAN4M21,1,65.142864,11260.14666,294.1176471,80
+9,Maize variety (low-mid altitude varieties),13,Eastern Savanah,SC529,0,40.2285696,6726.272269,347.826087,78
+9,Maize variety (low-mid altitude varieties),13,Eastern Savanah,ZM607,0,29.0742816,4778.92957,260.8695652,79
+9,Maize variety (low-mid altitude varieties),13,Eastern Savanah,WH505,1,51.657136,8812.735578,259.7402597,78
+9,Maize variety (low-mid altitude varieties),13,Eastern Savanah,RHM104,1,49.6,8411.692615,303.030303,79
+10,Maize variety (low-mid altitude varieties),13,Eastern Savanah,SC529,1,47.7714264,8099.716752,279.4117647,72
+10,Maize variety (low-mid altitude varieties),13,Eastern Savanah,ZM607,0,38.7657088,6505.607584,271.1864407,71
+10,Maize variety (low-mid altitude varieties),13,Eastern Savanah,WH505,1,69.7371336,12036.84405,325.3012048,72
+10,Maize variety (low-mid altitude varieties),13,Eastern Savanah,RHM104,0,42.16,7063,288.1355932,74
+10,Maize variety (low-mid altitude varieties),13,Eastern Savanah,PAN4M21,1,94.4571528,16523.8475,315.2173913,70
+11,Maize variety (low-mid altitude varieties),13,Eastern Savanah,ZM607,0,12.114284,1743.30112,147.0588235,48
+11,Maize variety (low-mid altitude varieties),13,Eastern Savanah,WH505,1,18.0799976,2777.379568,162.7906977,46
+11,Maize variety (low-mid altitude varieties),13,Eastern Savanah,RHM104,0,12.4,1745.92,151.5151515,60
+11,Maize variety (low-mid altitude varieties),13,Eastern Savanah,PAN4M21,1,29.3142888,4847.091984,173.0769231,40
+11,Maize variety (low-mid altitude varieties),13,Eastern Savanah,SC529,0,15.0857136,2228.628448,187.5,45
+12,Maize variety (low-mid altitude varieties),13,Eastern Savanah,WH505,1,90.399988,15784.13357,15.63896336,54
+12,Maize variety (low-mid altitude varieties),13,Eastern Savanah,RHM104,1,71.92,12453.72375,420.2898551,52
+12,Maize variety (low-mid altitude varieties),13,Eastern Savanah,PAN4M21,1,87.9428664,15390.73392,300,54
+12,Maize variety (low-mid altitude varieties),13,Eastern Savanah,SC529,1,62.85714,10820.25326,268.8172043,54
+12,Maize variety (low-mid altitude varieties),13,Eastern Savanah,ZM607,0,58.1485632,10024.29627,363.6363636,53
+13,Maize variety (low-mid altitude varieties),13,Eastern Savanah,RHM104,1,54.56,9287.36,379.3103448,70
+13,Maize variety (low-mid altitude varieties),13,Eastern Savanah,PAN4M21,1,78.1714368,13592.05862,358.2089552,75
+13,Maize variety (low-mid altitude varieties),13,Eastern Savanah,SC529,0,45.2571408,7612.125344,290.3225806,72
+13,Maize variety (low-mid altitude varieties),13,Eastern Savanah,ZM607,0,38.7657088,6493.587584,307.6923077,72
+13,Maize variety (low-mid altitude varieties),13,Eastern Savanah,WH505,1,59.4057064,10167.98715,403.5087719,70
+14,Maize variety (low-mid altitude varieties),13,Eastern Savanah,PAN4M21,1,91.2000096,15964.86173,304.3478261,57
+14,Maize variety (low-mid altitude varieties),13,Eastern Savanah,SC529,1,62.85714,10809.3652,342.4657534,59
+14,Maize variety (low-mid altitude varieties),13,Eastern Savanah,ZM607,0,41.1885656,6957.561808,288.1355932,60
+14,Maize variety (low-mid altitude varieties),13,Eastern Savanah,WH505,1,67.1542768,11586.32982,313.253012,62
+14,Maize variety (low-mid altitude varieties),13,Eastern Savanah,RHM104,0,47.12,7973.08,333.3333333,63
+15,Maize variety (low-mid altitude varieties),13,Eastern Savanah,SC529,1,60.3428544,10338.60963,358.2089552,71
+15,Maize variety (low-mid altitude varieties),13,Eastern Savanah,ZM607,1,48.457136,8250.617813,400,70
+15,Maize variety (low-mid altitude varieties),13,Eastern Savanah,WH505,0,51.657136,8794.805313,392.1568627,65
+15,Maize variety (low-mid altitude varieties),13,Eastern Savanah,RHM104,1,52.08,8857.295833,375,68
+15,Maize variety (low-mid altitude varieties),13,Eastern Savanah,PAN4M21,1,84.6857232,14771.36768,298.8505747,67
+1,Maize variety (low-mid altitude varieties),6,Eastern Ridges,ZM607,0,25.76,3227.28,325.5813953,92
+1,Maize variety (low-mid altitude varieties),6,Eastern Ridges,WH505,1,40.824,5332.792,283.7837838,96
+1,Maize variety (low-mid altitude varieties),6,Eastern Ridges,RHM104,0,38.304,4956.245333,292.3076923,95
+1,Maize variety (low-mid altitude varieties),6,Eastern Ridges,PAN4M21,1,48.384,6437.312,253.0120482,93
+1,Maize variety (low-mid altitude varieties),6,Eastern Ridges,SC529,0,17.208,1946.157333,230.7692308,88
+2,Maize variety (low-mid altitude varieties),6,Eastern Ridges,WH505,1,34.992,4564.724687,339.6226415,89
+2,Maize variety (low-mid altitude varieties),6,Eastern Ridges,RHM104,0,24.192,3021.314586,272.7272727,90
+2,Maize variety (low-mid altitude varieties),6,Eastern Ridges,PAN4M21,1,36.864,4866.279273,246.1538462,86
+2,Maize variety (low-mid altitude varieties),6,Eastern Ridges,SC529,0,28.68,3660.472323,288.4615385,91
+2,Maize variety (low-mid altitude varieties),6,Eastern Ridges,ZM607,0,29.44,3807.909899,307.6923077,81
+3,Maize variety (low-mid altitude varieties),6,Eastern Ridges,RHM104,1,40.32,5262.275152,350.877193,65
+3,Maize variety (low-mid altitude varieties),6,Eastern Ridges,PAN4M21,1,57.6,7722.8,352.1126761,90
+3,Maize variety (low-mid altitude varieties),6,Eastern Ridges,SC529,1,40.152,5198.887515,355.9322034,92
+3,Maize variety (low-mid altitude varieties),6,Eastern Ridges,ZM607,0,18.4,2129.806061,294.1176471,88
+3,Maize variety (low-mid altitude varieties),6,Eastern Ridges,WH505,1,58.32,7832.154822,370.3703704,91
+4,Maize variety (low-mid altitude varieties),6,Eastern Ridges,PAN4M21,1,76.032,10447.29339,314.2857143,96
+4,Maize variety (low-mid altitude varieties),6,Eastern Ridges,SC529,1,57.36,7745.827826,329.6703297,93
+4,Maize variety (low-mid altitude varieties),6,Eastern Ridges,ZM607,1,47.84,6453.239565,305.8823529,96
+4,Maize variety (low-mid altitude varieties),6,Eastern Ridges,WH505,1,54.432,7326.710783,304.3478261,95
+4,Maize variety (low-mid altitude varieties),6,Eastern Ridges,RHM104,0,30.24,3883.472174,283.0188679,82
+5,Maize variety (low-mid altitude varieties),6,Eastern Ridges,SC529,1,34.416,4472.029667,333.3333333,84
+5,Maize variety (low-mid altitude varieties),6,Eastern Ridges,ZM607,0,22.08,2742.929583,342.8571429,88
+5,Maize variety (low-mid altitude varieties),6,Eastern Ridges,WH505,1,38.88,5113.381667,298.5074627,89
+5,Maize variety (low-mid altitude varieties),6,Eastern Ridges,RHM104,0,16.128,1886.2415,380.952381,20
+5,Maize variety (low-mid altitude varieties),6,Eastern Ridges,PAN4M21,1,36.864,4855.6145,320,82
+6,Maize variety (low-mid altitude varieties),6,Eastern Ridges,ZM607,0,23.92,2990.932807,302.3255814,89
+6,Maize variety (low-mid altitude varieties),6,Eastern Ridges,WH505,1,44.712,5934.737053,489.3617021,91
+6,Maize variety (low-mid altitude varieties),6,Eastern Ridges,RHM104,0,52.416,7030.071333,361.1111111,90
+6,Maize variety (low-mid altitude varieties),6,Eastern Ridges,PAN4M21,1,64.512,8783.571263,250,90
+6,Maize variety (low-mid altitude varieties),6,Eastern Ridges,SC529,1,49.712,6636.732667,262.6262626,92
+7,Maize variety (low-mid altitude varieties),6,Eastern Ridges,WH505,1,50.544,6816.112,320.9876543,88
+7,Maize variety (low-mid altitude varieties),6,Eastern Ridges,RHM104,0,38.304,5083.252,333.3333333,44
+7,Maize variety (low-mid altitude varieties),6,Eastern Ridges,PAN4M21,1,50.688,6858.444,289.4736842,88
+7,Maize variety (low-mid altitude varieties),6,Eastern Ridges,SC529,1,42.064,5595.612,271.6049383,86
+7,Maize variety (low-mid altitude varieties),6,Eastern Ridges,ZM607,0,27.6,3550.53,283.0188679,90
+8,Maize variety (low-mid altitude varieties),6,Eastern Ridges,RHM104,1,66.528,9036.178897,261.9047619,72
+8,Maize variety (low-mid altitude varieties),6,Eastern Ridges,PAN4M21,1,78.336,10757.85047,263.5658915,86
+8,Maize variety (low-mid altitude varieties),6,Eastern Ridges,SC529,0,59.272,8011.90423,369.047619,92
+8,Maize variety (low-mid altitude varieties),6,Eastern Ridges,ZM607,0,38.64,5089.583786,276.3157895,90
+8,Maize variety (low-mid altitude varieties),6,Eastern Ridges,WH505,1,77.76,10648.48658,454.5454545,89
+9,Maize variety (low-mid altitude varieties),6,Eastern Ridges,SC529,1,42.064,5556.374222,271.6049383,86
+9,Maize variety (low-mid altitude varieties),6,Eastern Ridges,ZM607,1,36.8,4842.288889,285.7142857,86
+9,Maize variety (low-mid altitude varieties),6,Eastern Ridges,WH505,0,36.936,4824.092444,311.4754098,88
+9,Maize variety (low-mid altitude varieties),6,Eastern Ridges,RHM104,0,30.24,3866.342222,283.0188679,75
+9,Maize variety (low-mid altitude varieties),6,Eastern Ridges,PAN4M21,1,64.512,8797.282667,254.5454545,70
+1,Maize variety,20,Buberuka highlands,Pool9A,NA,0,-623.422524,NA,72
+1,Maize variety,20,Buberuka highlands,H629,NA,0,-591.7332268,NA,83
+1,Maize variety,20,Buberuka highlands,ZM607,NA,0,-543.9097444,NA,68
+2,Maize variety,20,Buberuka highlands,H629,NA,0,-582.3736404,NA,76
+2,Maize variety,20,Buberuka highlands,ZM607,NA,0,-577.6651472,NA,84
+2,Maize variety,20,Buberuka highlands,Pool9A,NA,0,-601.4475368,NA,87
+3,Maize variety,20,Buberuka highlands,ZM607,0,37.296,13608.95908,174.7572816,78
+3,Maize variety,20,Buberuka highlands,Pool9A,1,49.6228512,18254.84947,250,87
+3,Maize variety,20,Buberuka highlands,H629,1,0,-592.8579568,235.2941176,82
+4,Maize variety,20,Buberuka highlands,Pool9A,0,22.9028544,8075.067086,136.3636364,87
+4,Maize variety,20,Buberuka highlands,H629,0,0,-594.0047962,206.8965517,79
+4,Maize variety,20,Buberuka highlands,ZM607,NA,0,-592.7557954,NA,85
+5,Maize variety,20,Buberuka highlands,H629,1,53.76,19823.0446,340.4255319,75
+5,Maize variety,20,Buberuka highlands,ZM607,0,35.224,12789.41656,217.9487179,86
+5,Maize variety,20,Buberuka highlands,Pool9A,0,38.171424,13865.95247,227.2727273,81
+6,Maize variety,20,Buberuka highlands,ZM607,0,43.512,15981.46261,177.9661017,71
+6,Maize variety,20,Buberuka highlands,Pool9A,0,45.8057088,16801.82019,255.3191489,87
+6,Maize variety,20,Buberuka highlands,H629,1,48.72,17934.07233,290,69
+7,Maize variety,20,Buberuka highlands,Pool9A,0,32.4457104,11729.13773,184.7826087,85
+7,Maize variety,20,Buberuka highlands,H629,1,48.72,17910.72974,298.9690722,72
+7,Maize variety,20,Buberuka highlands,ZM607,0,55.944,20698.02828,259.6153846,78
+8,Maize variety,20,Buberuka highlands,H629,1,52.08,19206.87531,274.3362832,70
+8,Maize variety,20,Buberuka highlands,ZM607,0,53.872,19902.11466,288.8888889,88
+8,Maize variety,20,Buberuka highlands,Pool9A,0,38.171424,13902.33082,246.9135802,66
+9,Maize variety,20,Buberuka highlands,ZM607,0,29.008,10461.52842,208.9552239,72
+9,Maize variety,20,Buberuka highlands,Pool9A,0,41.9885664,15353.97792,236.5591398,87
+9,Maize variety,20,Buberuka highlands,H629,1,52.08,19209.92875,442.8571429,69
+10,Maize variety,20,Buberuka highlands,Pool9A,0,34.3542816,12450.29394,216.8674699,82
+10,Maize variety,20,Buberuka highlands,H629,1,48.72,17943.39233,218.0451128,71
+10,Maize variety,20,Buberuka highlands,ZM607,0,29.008,10474.288,254.5454545,83
+11,Maize variety,20,Buberuka highlands,H629,1,45.36,16680.93396,281.25,67
+11,Maize variety,20,Buberuka highlands,ZM607,0,31.08,11274.71066,166.6666667,84
+11,Maize variety,20,Buberuka highlands,Pool9A,0,36.2628528,13207.49861,200,87
+12,Maize variety,20,Buberuka highlands,ZM607,0,31.08,11251.05771,176.4705882,76
+12,Maize variety,20,Buberuka highlands,Pool9A,1,38.171424,13864.39453,229.8850575,81
+12,Maize variety,20,Buberuka highlands,H629,0,50.4,18544.25755,285.7142857,67
+13,Maize variety,20,Buberuka highlands,Pool9A,1,43.8971376,16076.7727,225.4901961,86
+13,Maize variety,20,Buberuka highlands,H629,1,38.64,14109.29739,255.5555556,79
+13,Maize variety,20,Buberuka highlands,ZM607,0,29.008,10452.11709,168.6746988,81
+14,Maize variety,20,Buberuka highlands,H629,1,21.84,7710.66402,260,83
+14,Maize variety,20,Buberuka highlands,ZM607,0,24.864,8885.764169,160,81
+14,Maize variety,20,Buberuka highlands,Pool9A,0,26.7199968,9541.985881,208.9552239,84
+15,Maize variety,20,Buberuka highlands,ZM607,0,26.936,9650.96536,180.5555556,82
+15,Maize variety,20,Buberuka highlands,Pool9A,0,24.8114256,8788.713936,188.4057971,86
+15,Maize variety,20,Buberuka highlands,H629,1,23.52,8316.359305,245.6140351,73
+1,Maize variety (low-mid altitude varieties),30,Central Plateau,ZM607,0,36.8254656,5480.784392,279.0697674,94
+1,Maize variety (low-mid altitude varieties),30,Central Plateau,WH505,1,58.906176,9077.58488,376.146789,96
+1,Maize variety (low-mid altitude varieties),30,Central Plateau,RHM104,1,43.8081584,6579.177104,329.787234,97
+1,Maize variety (low-mid altitude varieties),30,Central Plateau,PAN4M21,1,48.381568,7382.400712,271.1864407,98
+1,Maize variety (low-mid altitude varieties),30,Central Plateau,SC529,0,21.963584,2973.926132,205.1282051,98
+2,Maize variety (low-mid altitude varieties),30,Central Plateau,WH505,1,24.424512,3393.297417,220.7792208,90
+2,Maize variety (low-mid altitude varieties),30,Central Plateau,RHM104,0,22.6106624,3086.836668,188.2352941,89
+2,Maize variety (low-mid altitude varieties),30,Central Plateau,PAN4M21,1,31.750404,4634.643568,187.5,94
+2,Maize variety (low-mid altitude varieties),30,Central Plateau,SC529,1,27.45448,3893.191119,212.7659574,91
+2,Maize variety (low-mid altitude varieties),30,Central Plateau,ZM607,0,23.015916,3193.821473,205.4794521,88
+3,Maize variety (low-mid altitude varieties),30,Central Plateau,RHM104,1,28.263328,3996.843761,285.7142857,88
+3,Maize variety (low-mid altitude varieties),30,Central Plateau,PAN4M21,1,34.774252,5110.020781,203.539823,91
+3,Maize variety (low-mid altitude varieties),30,Central Plateau,SC529,0,20.59086,2725.193871,211.2676056,89
+3,Maize variety (low-mid altitude varieties),30,Central Plateau,ZM607,0,18.4127328,2418.976107,203.3898305,82
+3,Maize variety (low-mid altitude varieties),30,Central Plateau,WH505,0,22.987776,3134.649495,238.8059701,86
+4,Maize variety (low-mid altitude varieties),30,Central Plateau,PAN4M21,1,39.310024,5866.945465,236.3636364,96
+4,Maize variety (low-mid altitude varieties),30,Central Plateau,SC529,0,21.963584,2958.787777,285.7142857,94
+4,Maize variety (low-mid altitude varieties),30,Central Plateau,ZM607,1,23.015916,3184.94636,238.0952381,97
+4,Maize variety (low-mid altitude varieties),30,Central Plateau,WH505,0,22.987776,3160.07492,355.5555556,64
+4,Maize variety (low-mid altitude varieties),30,Central Plateau,RHM104,0,22.6106624,3083.299888,271.1864407,73
+6,Maize variety (low-mid altitude varieties),30,Central Plateau,ZM607,0,15.343944,1906.686214,185.1851852,98
+6,Maize variety (low-mid altitude varieties),30,Central Plateau,WH505,1,18.677568,2421.901999,203.125,96
+6,Maize variety (low-mid altitude varieties),30,Central Plateau,RHM104,0,18.3711632,2360.926667,180.5555556,98
+6,Maize variety (low-mid altitude varieties),30,Central Plateau,PAN4M21,0,15.11924,1866.70213,136.9863014,97
+6,Maize variety (low-mid altitude varieties),30,Central Plateau,SC529,0,12.354516,1372.916136,204.5454545,95
+7,Maize variety (low-mid altitude varieties),30,Central Plateau,WH505,0,20.114304,2657.452942,280,93
+7,Maize variety (low-mid altitude varieties),30,Central Plateau,RHM104,1,25.4369952,3535.954617,250,97
+7,Maize variety (low-mid altitude varieties),30,Central Plateau,PAN4M21,1,28.726556,4110.930618,395.8333333,94
+7,Maize variety (low-mid altitude varieties),30,Central Plateau,SC529,1,24.709032,3416.754367,264.7058824,96
+7,Maize variety (low-mid altitude varieties),30,Central Plateau,ZM607,0,13.8095496,1653.676525,163.6363636,95
+8,Maize variety (low-mid altitude varieties),30,Central Plateau,RHM104,0,19.7843296,2594.468984,177.2151899,90
+8,Maize variety (low-mid altitude varieties),30,Central Plateau,PAN4M21,0,19.655012,2610.39966,156.626506,94
+8,Maize variety (low-mid altitude varieties),30,Central Plateau,SC529,0,13.72724,1594.958076,196.0784314,92
+8,Maize variety (low-mid altitude varieties),30,Central Plateau,ZM607,0,13.8095496,1651.644493,160.7142857,89
+8,Maize variety (low-mid altitude varieties),30,Central Plateau,WH505,0,11.493888,1222.780203,170.212766,87
+9,Maize variety (low-mid altitude varieties),30,Central Plateau,PAN4M21,1,31.750404,4611.507064,207.9207921,92
+9,Maize variety (low-mid altitude varieties),30,Central Plateau,SC529,0,19.218136,2501.630576,208.9552239,86
+9,Maize variety (low-mid altitude varieties),30,Central Plateau,ZM607,0,13.8095496,1648.355234,157.8947368,84
+9,Maize variety (low-mid altitude varieties),30,Central Plateau,WH505,0,22.987776,3131.850816,228.5714286,90
+9,Maize variety (low-mid altitude varieties),30,Central Plateau,RHM104,1,33.9159936,4941.934938,252.6315789,93
+10,Maize variety (low-mid altitude varieties),30,Central Plateau,SC529,1,32.945376,4784.036583,285.7142857,88
+10,Maize variety (low-mid altitude varieties),30,Central Plateau,ZM607,0,29.1534936,4199.07529,275.3623188,84
+10,Maize variety (low-mid altitude varieties),30,Central Plateau,WH505,0,31.608192,4566.991923,297.2972973,83
+10,Maize variety (low-mid altitude varieties),30,Central Plateau,RHM104,0,26.8501616,3792.944133,327.5862069,88
+10,Maize variety (low-mid altitude varieties),30,Central Plateau,PAN4M21,1,34.774252,5120.883204,264.3678161,85
+11,Maize variety (low-mid altitude varieties),30,Central Plateau,ZM607,0,12.2751552,1409.907995,177.7777778,71
+11,Maize variety (low-mid altitude varieties),30,Central Plateau,WH505,1,27.297984,3842.856735,263.8888889,94
+11,Maize variety (low-mid altitude varieties),30,Central Plateau,RHM104,0,25.4369952,3552.591253,268.6567164,96
+11,Maize variety (low-mid altitude varieties),30,Central Plateau,PAN4M21,1,27.214632,3862.894177,206.8965517,92
+11,Maize variety (low-mid altitude varieties),30,Central Plateau,SC529,0,15.099964,1836.323754,192.9824561,89
+12,Maize variety (low-mid altitude varieties),30,Central Plateau,WH505,0,17.240832,2184.538112,200,94
+12,Maize variety (low-mid altitude varieties),30,Central Plateau,RHM104,0,14.131664,1663.096224,172.4137931,92
+12,Maize variety (low-mid altitude varieties),30,Central Plateau,PAN4M21,0,16.631164,2108.613224,211.5384615,96
+12,Maize variety (low-mid altitude varieties),30,Central Plateau,SC529,1,19.218136,2507.390576,205.8823529,95
+12,Maize variety (low-mid altitude varieties),30,Central Plateau,ZM607,1,27.6190992,3943.690467,204.5454545,91
+13,Maize variety (low-mid altitude varieties),30,Central Plateau,RHM104,1,16.9579968,2135.772363,272.7272727,89
+13,Maize variety (low-mid altitude varieties),30,Central Plateau,PAN4M21,1,24.190784,3364.168342,231.884058,92
+13,Maize variety (low-mid altitude varieties),30,Central Plateau,SC529,0,13.72724,1597.704619,227.2727273,90
+13,Maize variety (low-mid altitude varieties),30,Central Plateau,ZM607,0,9.2063664,892.8943875,120,88
+13,Maize variety (low-mid altitude varieties),30,Central Plateau,WH505,0,11.493888,1235.498424,135.5932203,93
+14,Maize variety (low-mid altitude varieties),30,Central Plateau,PAN4M21,1,21.166936,2856.308415,128.440367,89
+14,Maize variety (low-mid altitude varieties),30,Central Plateau,SC529,0,13.72724,1592.287266,136.9863014,86
+14,Maize variety (low-mid altitude varieties),30,Central Plateau,ZM607,0,12.2751552,1398.500093,37.38317757,88
+14,Maize variety (low-mid altitude varieties),30,Central Plateau,WH505,0,14.36736,1706.430339,161.2903226,91
+14,Maize variety (low-mid altitude varieties),30,Central Plateau,RHM104,0,12.7184976,1427.056916,140.625,87
+15,Maize variety (low-mid altitude varieties),30,Central Plateau,SC529,0,16.472688,2049.932394,160,92
+15,Maize variety (low-mid altitude varieties),30,Central Plateau,ZM607,0,16.8783384,2161.908216,150.6849315,96
+15,Maize variety (low-mid altitude varieties),30,Central Plateau,WH505,0,15.804096,1942.367491,171.875,93
+15,Maize variety (low-mid altitude varieties),30,Central Plateau,RHM104,1,18.3711632,2368.940822,154.7619048,95
+15,Maize variety (low-mid altitude varieties),30,Central Plateau,PAN4M21,1,21.166936,2859.789807,148.9361702,97
+16,Maize variety (low-mid altitude varieties),30,Central Plateau,ZM607,0,7.671972,628.1491927,312.5,64
+16,Maize variety (low-mid altitude varieties),30,Central Plateau,WH505,0,21.55104,2893.479043,357.1428571,75
+16,Maize variety (low-mid altitude varieties),30,Central Plateau,RHM104,1,22.6106624,3068.636065,320,82
+16,Maize variety (low-mid altitude varieties),30,Central Plateau,PAN4M21,1,54.429264,8379.355463,297.5206612,83
+16,Maize variety (low-mid altitude varieties),30,Central Plateau,SC529,1,34.3181,5012.270786,320.5128205,61
+17,Maize variety (low-mid altitude varieties),30,Central Plateau,WH505,1,33.044928,4824.698048,287.5,93
+17,Maize variety (low-mid altitude varieties),30,Central Plateau,RHM104,0,16.9579968,2163.027469,222.2222222,95
+17,Maize variety (low-mid altitude varieties),30,Central Plateau,PAN4M21,1,34.774252,5139.325832,219.047619,94
+17,Maize variety (low-mid altitude varieties),30,Central Plateau,SC529,1,27.45448,3892.82368,273.9726027,91
+17,Maize variety (low-mid altitude varieties),30,Central Plateau,ZM607,0,18.4127328,2426.233645,200,90
+18,Maize variety (low-mid altitude varieties),30,Central Plateau,RHM104,0,24.0238288,3307.55518,223.6842105,88
+18,Maize variety (low-mid altitude varieties),30,Central Plateau,PAN4M21,1,40.821948,6132.759684,219.5121951,90
+18,Maize variety (low-mid altitude varieties),30,Central Plateau,SC529,1,26.081756,3647.291496,226.1904762,94
+18,Maize variety (low-mid altitude varieties),30,Central Plateau,ZM607,0,21.4815216,2925.172586,179.4871795,91
+1,Maize variety,31,Central Plateau,Pool9A,0,5.166668,952.85376,68.49315068,86
+1,Maize variety,31,Central Plateau,H629,0,0,-690.4,208.3333333,92
+1,Maize variety,31,Central Plateau,ZM607,0,10.7407608,2790.043456,120.6896552,90
+2,Maize variety,31,Central Plateau,H629,0,0,-705.4545455,0,92
+2,Maize variety,31,Central Plateau,ZM607,0,0,-647.8021978,0,86
+2,Maize variety,31,Central Plateau,Pool9A,0,0,-735.82,0,84
+3,Maize variety,31,Central Plateau,ZM607,0,6.1375776,1323.984832,83.33333333,86
+3,Maize variety,31,Central Plateau,Pool9A,0,6.2000016,1297.989321,98.36065574,94
+3,Maize variety,31,Central Plateau,H629,0,0,-673.2214229,94.59459459,82
+4,Maize variety,31,Central Plateau,Pool9A,0,18.6000048,5267.881536,240,85
+4,Maize variety,31,Central Plateau,H629,1,23.9999928,6995.117696,403.8461538,78
+4,Maize variety,31,Central Plateau,ZM607,1,30.687888,9178.82416,289.8550725,86
+5,Maize variety,31,Central Plateau,H629,0,0,-668.8223553,258.0645161,87
+5,Maize variety,31,Central Plateau,ZM607,0,15.343944,4286.529146,175.4385965,84
+5,Maize variety,31,Central Plateau,Pool9A,0,12.4000032,3320.116792,193.5483871,82
+6,Maize variety,31,Central Plateau,ZM607,0,24.5503104,7216.810439,258.0645161,82
+6,Maize variety,31,Central Plateau,Pool9A,0,20.666672,5941.801707,357.1428571,86
+6,Maize variety,31,Central Plateau,H629,0,0,-683.2888889,342.8571429,78
+7,Maize variety,31,Central Plateau,H629,0,20.5714224,5906.687503,216.8674699,86
+7,Maize variety,31,Central Plateau,ZM607,1,23.015916,6730.06318,192.3076923,82
+7,Maize variety,31,Central Plateau,Pool9A,0,16.5333376,4610.029309,205.1282051,84
+8,Maize variety,31,Central Plateau,Pool9A,0,22.7333392,6566.520396,289.4736842,92
+8,Maize variety,31,Central Plateau,H629,0,0,-699.7027601,303.030303,90
+8,Maize variety,31,Central Plateau,ZM607,0,33.7566768,10164.73139,215.6862745,86
+9,Maize variety,31,Central Plateau,H629,0,0,-707.248947,117.6470588,92
+9,Maize variety,31,Central Plateau,ZM607,0,6.1375776,1324.869276,95.23809524,88
+9,Maize variety,31,Central Plateau,Pool9A,1,12.4000032,3245.423246,200,94
+10,Maize variety,31,Central Plateau,Pool9A,0,17.5666712,4975.871155,220.7792208,78
+10,Maize variety,31,Central Plateau,H629,0,23.9999928,7030.277472,295.7746479,86
+10,Maize variety,31,Central Plateau,ZM607,0,33.7566768,10166.38518,323.5294118,84
+11,Maize variety,31,Central Plateau,H629,0,19.4285656,5547.780992,239.4366197,88
+11,Maize variety,31,Central Plateau,ZM607,1,30.687888,9169.07416,227.2727273,86
+11,Maize variety,31,Central Plateau,Pool9A,0,18.6000048,5272.841536,253.5211268,88
+12,Maize variety,31,Central Plateau,ZM607,0,6.1375776,1311.274832,83.33333333,78
+12,Maize variety,31,Central Plateau,Pool9A,0,8.2666688,1959.054016,150.9433962,82
+12,Maize variety,31,Central Plateau,H629,0,0,-669.96,171.4285714,80
+13,Maize variety,31,Central Plateau,Pool9A,0,7.2333352,1628.387264,129.6296296,78
+13,Maize variety,31,Central Plateau,H629,0,0,-679.52,181.8181818,82
+13,Maize variety,31,Central Plateau,ZM607,0,12.2751552,3290.309664,148.1481481,74
+14,Maize variety,31,Central Plateau,H629,0,0,-700.3430532,227.2727273,86
+14,Maize variety,31,Central Plateau,ZM607,0,7.671972,1761.163115,104.1666667,90
+14,Maize variety,31,Central Plateau,Pool9A,0,6.2000016,1263.217207,136.3636364,92
+1,Maize variety (low-mid altitude varieties),25,Mayaga-Bugesera,ZM607,0,36.1866728,10166.65531,333.3333333,90
+1,Maize variety (low-mid altitude varieties),25,Mayaga-Bugesera,WH505,0,42.16,11910.15411,430.5555556,91
+1,Maize variety (low-mid altitude varieties),25,Mayaga-Bugesera,RHM104,0,43.848,12415.25568,381.5789474,87
+1,Maize variety (low-mid altitude varieties),25,Mayaga-Bugesera,PAN4M21,1,55.5,15948.76543,370,93
+1,Maize variety (low-mid altitude varieties),25,Mayaga-Bugesera,SC529,0,33.264,9247.016092,362.0689655,85
+2,Maize variety (low-mid altitude varieties),25,Mayaga-Bugesera,WH505,0,19.04,5014.4,378.3783784,90
+2,Maize variety (low-mid altitude varieties),25,Mayaga-Bugesera,RHM104,0,18.144,4741.82,352.9411765,87
+2,Maize variety (low-mid altitude varieties),25,Mayaga-Bugesera,PAN4M21,1,34.5,9680.8,294.8717949,95
+2,Maize variety (low-mid altitude varieties),25,Mayaga-Bugesera,SC529,0,34.848,9755.9,297.2972973,80
+2,Maize variety (low-mid altitude varieties),25,Mayaga-Bugesera,ZM607,0,14.1600024,3601.47072,230.7692308,75
+3,Maize variety (low-mid altitude varieties),25,Mayaga-Bugesera,RHM104,0,6.048,1114.46,400,88
+3,Maize variety (low-mid altitude varieties),25,Mayaga-Bugesera,PAN4M21,0,6,1132.66,285.7142857,90
+3,Maize variety (low-mid altitude varieties),25,Mayaga-Bugesera,SC529,0,7.92,1678.22,161.2903226,87
+3,Maize variety (low-mid altitude varieties),25,Mayaga-Bugesera,ZM607,0,6.2933344,1232.57032,235.2941176,90
+3,Maize variety (low-mid altitude varieties),25,Mayaga-Bugesera,WH505,0,5.44,937.68,222.2222222,85
+4,Maize variety (low-mid altitude varieties),25,Mayaga-Bugesera,PAN4M21,0,22.5,6085.18,267.8571429,91
+4,Maize variety (low-mid altitude varieties),25,Mayaga-Bugesera,SC529,0,20.592,5478.9,419.3548387,93
+4,Maize variety (low-mid altitude varieties),25,Mayaga-Bugesera,ZM607,0,12.5866688,3121.68064,296.2962963,91
+4,Maize variety (low-mid altitude varieties),25,Mayaga-Bugesera,WH505,0,9.52,2161.68,280,87
+4,Maize variety (low-mid altitude varieties),25,Mayaga-Bugesera,RHM104,0,13.608,3382.46,428.5714286,89
+5,Maize variety (low-mid altitude varieties),25,Mayaga-Bugesera,SC529,0,7.92,1676.06,166.6666667,89
+5,Maize variety (low-mid altitude varieties),25,Mayaga-Bugesera,ZM607,0,11.800002,2893.4706,267.8571429,84
+5,Maize variety (low-mid altitude varieties),25,Mayaga-Bugesera,WH505,0,10.2,2370.12,288.4615385,79
+5,Maize variety (low-mid altitude varieties),25,Mayaga-Bugesera,RHM104,0,18.144,4750.4,214.2857143,76
+5,Maize variety (low-mid altitude varieties),25,Mayaga-Bugesera,PAN4M21,1,30,8338.3,266.6666667,80
+6,Maize variety (low-mid altitude varieties),25,Mayaga-Bugesera,ZM607,0,11.0133352,2652.59652,194.4444444,93
+6,Maize variety (low-mid altitude varieties),25,Mayaga-Bugesera,WH505,1,16.32,4197.454545,307.6923077,94
+6,Maize variety (low-mid altitude varieties),25,Mayaga-Bugesera,RHM104,0,12.096,2940.69899,242.4242424,85
+6,Maize variety (low-mid altitude varieties),25,Mayaga-Bugesera,PAN4M21,1,12,2943.191919,266.6666667,89
+6,Maize variety (low-mid altitude varieties),25,Mayaga-Bugesera,SC529,0,15.84,4045.979798,256.4102564,90
+7,Maize variety (low-mid altitude varieties),25,Mayaga-Bugesera,WH505,0,42.16,11943,508.1967213,95
+7,Maize variety (low-mid altitude varieties),25,Mayaga-Bugesera,RHM104,1,55.944,16071.68,440.4761905,92
+7,Maize variety (low-mid altitude varieties),25,Mayaga-Bugesera,PAN4M21,0,49.5,14194.06,452.0547945,90
+7,Maize variety (low-mid altitude varieties),25,Mayaga-Bugesera,SC529,0,41.184,11646.62,530.6122449,87
+7,Maize variety (low-mid altitude varieties),25,Mayaga-Bugesera,ZM607,0,33.0400056,9280.59168,617.6470588,84
+8,Maize variety (low-mid altitude varieties),25,Mayaga-Bugesera,RHM104,0,19.656,5201.18,247.6190476,81
+8,Maize variety (low-mid altitude varieties),25,Mayaga-Bugesera,PAN4M21,1,30,8333.2,283.6879433,92
+8,Maize variety (low-mid altitude varieties),25,Mayaga-Bugesera,SC529,0,23.76,6426.88,250,90
+8,Maize variety (low-mid altitude varieties),25,Mayaga-Bugesera,ZM607,0,19.66667,5243.391,204.9180328,93
+8,Maize variety (low-mid altitude varieties),25,Mayaga-Bugesera,WH505,1,40.8,11543.72,307.6923077,91
+10,Maize variety (low-mid altitude varieties),25,Mayaga-Bugesera,SC529,1,34.848,9753.935354,354.8387097,88
+10,Maize variety (low-mid altitude varieties),25,Mayaga-Bugesera,ZM607,0,18.8800032,5003.667627,333.3333333,90
+10,Maize variety (low-mid altitude varieties),25,Mayaga-Bugesera,WH505,1,27.2,7458.868687,270.2702703,91
+10,Maize variety (low-mid altitude varieties),25,Mayaga-Bugesera,RHM104,0,18.144,4737.179798,190.4761905,87
+10,Maize variety (low-mid altitude varieties),25,Mayaga-Bugesera,PAN4M21,0,0,NA,204.5454545,90
+1,Maize variety (low-mid altitude varieties),36,Central Plateau,ZM607,0,18.48667952,1981.067133,307.6923077,84
+1,Maize variety (low-mid altitude varieties),36,Central Plateau,WH505,1,24.52260241,2756.516337,303.5714286,90
+1,Maize variety (low-mid altitude varieties),36,Central Plateau,RHM104,0,11.35073414,941.1627791,285.7142857,86
+1,Maize variety (low-mid altitude varieties),36,Central Plateau,PAN4M21,1,21.25194378,2345.180129,341.4634146,80
+1,Maize variety (low-mid altitude varieties),36,Central Plateau,SC529,1,27.56473896,3221.847454,338.9830508,76
+2,Maize variety (low-mid altitude varieties),36,Central Plateau,WH505,0,17.31007229,1781.995979,292.6829268,86
+2,Maize variety (low-mid altitude varieties),36,Central Plateau,RHM104,0,15.60725944,1530.232483,215.6862745,90
+2,Maize variety (low-mid altitude varieties),36,Central Plateau,PAN4M21,1,21.25194378,2331.057987,259.2592593,84
+2,Maize variety (low-mid altitude varieties),36,Central Plateau,SC529,1,16.53884337,1639.054234,166.6666667,90
+2,Maize variety (low-mid altitude varieties),36,Central Plateau,ZM607,1,30.81113253,3682.145248,266.6666667,84
+3,Maize variety (low-mid altitude varieties),36,Central Plateau,RHM104,1,28.37683534,3321.032948,266.6666667,90
+3,Maize variety (low-mid altitude varieties),36,Central Plateau,PAN4M21,1,24.28793574,2774.287004,320,86
+3,Maize variety (low-mid altitude varieties),36,Central Plateau,SC529,0,20.67355422,2238.96959,267.8571429,86
+3,Maize variety (low-mid altitude varieties),36,Central Plateau,ZM607,0,18.48667952,1982.465133,230.7692308,78
+3,Maize variety (low-mid altitude varieties),36,Central Plateau,WH505,0,21.63759036,2373.750651,288.4615385,94
+4,Maize variety (low-mid altitude varieties),36,Central Plateau,PAN4M21,1,36.43190361,4424.844146,338.028169,90
+4,Maize variety (low-mid altitude varieties),36,Central Plateau,SC529,1,24.80826506,2765.534748,276.9230769,86
+4,Maize variety (low-mid altitude varieties),36,Central Plateau,ZM607,1,29.2705759,3441.763856,243.5897436,80
+4,Maize variety (low-mid altitude varieties),36,Central Plateau,WH505,1,28.85012048,3319.056619,238.0952381,94
+4,Maize variety (low-mid altitude varieties),36,Central Plateau,RHM104,1,22.70146827,2489.668912,183.908046,88
+5,Maize variety (low-mid altitude varieties),36,Central Plateau,SC529,1,16.53884337,1631.31585,255.3191489,80
+5,Maize variety (low-mid altitude varieties),36,Central Plateau,ZM607,0,9.243339759,651.1842329,193.5483871,78
+5,Maize variety (low-mid altitude varieties),36,Central Plateau,WH505,0,14.42506024,1325.186212,227.2727273,84
+5,Maize variety (low-mid altitude varieties),36,Central Plateau,RHM104,0,12.7695759,1137.237429,250,82
+5,Maize variety (low-mid altitude varieties),36,Central Plateau,PAN4M21,0,12.14396787,1051.372169,228.5714286,86
+6,Maize variety (low-mid altitude varieties),36,Central Plateau,ZM607,1,23.1083494,2601.408916,245.9016393,84
+6,Maize variety (low-mid altitude varieties),36,Central Plateau,WH505,1,30.29262651,3573.679711,323.0769231,88
+6,Maize variety (low-mid altitude varieties),36,Central Plateau,RHM104,0,19.86378474,2117.301863,304.3478261,82
+6,Maize variety (low-mid altitude varieties),36,Central Plateau,PAN4M21,0,22.76993976,2556.235566,357.1428571,88
+6,Maize variety (low-mid altitude varieties),36,Central Plateau,SC529,0,20.67355422,2232.66559,394.7368421,86
+7,Maize variety (low-mid altitude varieties),36,Central Plateau,WH505,0,21.63759036,2348.477866,164.8351648,84
+7,Maize variety (low-mid altitude varieties),36,Central Plateau,RHM104,1,22.70146827,2507.50686,177.7777778,86
+7,Maize variety (low-mid altitude varieties),36,Central Plateau,PAN4M21,1,30.35991968,3601.227594,204.0816327,90
+7,Maize variety (low-mid altitude varieties),36,Central Plateau,SC529,1,23.43002811,2586.854586,188.8888889,84
+7,Maize variety (low-mid altitude varieties),36,Central Plateau,ZM607,0,21.56779277,2369.530988,164.7058824,82
+8,Maize variety (low-mid altitude varieties),36,Central Plateau,RHM104,1,14.18841767,1338.278474,153.8461538,70
+8,Maize variety (low-mid altitude varieties),36,Central Plateau,PAN4M21,1,19.73394779,2133.827691,160.4938272,86
+8,Maize variety (low-mid altitude varieties),36,Central Plateau,SC529,0,12.40413253,1047.078554,214.2857143,80
+8,Maize variety (low-mid altitude varieties),36,Central Plateau,ZM607,0,16.94612289,1745.974705,192.9824561,76
+8,Maize variety (low-mid altitude varieties),36,Central Plateau,WH505,0,11.54004819,955.206747,250,88
+9,Maize variety (low-mid altitude varieties),36,Central Plateau,PAN4M21,1,22.67886,2533.6354,238.0952381,86
+9,Maize variety (low-mid altitude varieties),36,Central Plateau,SC529,0,12.354516,1033.14224,236.8421053,90
+9,Maize variety (low-mid altitude varieties),36,Central Plateau,ZM607,0,9.2063664,651.906296,176.4705882,84
+9,Maize variety (low-mid altitude varieties),36,Central Plateau,WH505,0,17.240832,1720.15648,230.7692308,90
+9,Maize variety (low-mid altitude varieties),36,Central Plateau,RHM104,1,18.3711632,1872.997848,209.6774194,86
+10,Maize variety (low-mid altitude varieties),36,Central Plateau,SC529,0,30.199928,3532.83992,305.5555556,86
+10,Maize variety (low-mid altitude varieties),36,Central Plateau,ZM607,0,35.2910712,4300.454968,302.6315789,82
+10,Maize variety (low-mid altitude varieties),36,Central Plateau,WH505,1,37.355136,4546.32904,333.3333333,86
+10,Maize variety (low-mid altitude varieties),36,Central Plateau,RHM104,1,39.5686592,4851.557288,345.6790123,84
+10,Maize variety (low-mid altitude varieties),36,Central Plateau,PAN4M21,1,46.869644,5905.88516,340.6593407,90
+11,Maize variety (low-mid altitude varieties),36,Central Plateau,ZM607,0,29.1534936,3425.042437,292.3076923,90
+11,Maize variety (low-mid altitude varieties),36,Central Plateau,WH505,1,33.044928,3923.125701,258.4269663,92
+11,Maize variety (low-mid altitude varieties),36,Central Plateau,RHM104,1,29.6764944,3452.125771,300,88
+11,Maize variety (low-mid altitude varieties),36,Central Plateau,PAN4M21,1,31.750404,3779.108629,295.7746479,92
+11,Maize variety (low-mid altitude varieties),36,Central Plateau,SC529,0,24.709032,2744.624961,281.25,94
+12,Maize variety (low-mid altitude varieties),36,Central Plateau,WH505,0,15.804096,1543.87344,203.7037037,82
+12,Maize variety (low-mid altitude varieties),36,Central Plateau,RHM104,1,22.6106624,2472.848986,246.1538462,86
+12,Maize variety (low-mid altitude varieties),36,Central Plateau,PAN4M21,1,34.774252,4246.91403,261.3636364,80
+12,Maize variety (low-mid altitude varieties),36,Central Plateau,SC529,1,30.199928,3498.57117,271.6049383,88
+12,Maize variety (low-mid altitude varieties),36,Central Plateau,ZM607,NA,23.015916,2567.125115,234.375,78
+13,Maize variety (low-mid altitude varieties),36,Central Plateau,RHM104,0,25.53915181,2919.725497,219.5121951,90
+13,Maize variety (low-mid altitude varieties),36,Central Plateau,PAN4M21,1,25.80593173,2989.040926,168.3168317,92
+13,Maize variety (low-mid altitude varieties),36,Central Plateau,SC529,1,23.43002811,2619.399614,188.8888889,92
+13,Maize variety (low-mid altitude varieties),36,Central Plateau,ZM607,0,18.48667952,1967.320807,193.5483871,86
+13,Maize variety (low-mid altitude varieties),36,Central Plateau,WH505,0,17.31007229,1762.6098,176.4705882,94
+14,Maize variety (low-mid altitude varieties),36,Central Plateau,PAN4M21,1,21.25194378,2314.841573,147.3684211,92
+14,Maize variety (low-mid altitude varieties),36,Central Plateau,SC529,0,15.16060643,1435.056725,161.7647059,94
+14,Maize variety (low-mid altitude varieties),36,Central Plateau,ZM607,1,18.48667952,1945.436058,171.4285714,82
+14,Maize variety (low-mid altitude varieties),36,Central Plateau,WH505,0,10.09754217,713.3410888,155.5555556,90
+14,Maize variety (low-mid altitude varieties),36,Central Plateau,RHM104,1,18.44494297,1879.379979,6.925945658,92
+1,Maize variety (low-mid altitude varieties),47,Lake Kivu,ZM607,0,37.65894678,13232.39035,252.8735632,90
+1,Maize variety (low-mid altitude varieties),47,Lake Kivu,WH505,1,40.44217687,14231.77991,333.3333333,86
+1,Maize variety (low-mid altitude varieties),47,Lake Kivu,RHM104,1,31.95568627,11138.45543,448.7179487,87
+1,Maize variety (low-mid altitude varieties),47,Lake Kivu,PAN4M21,1,40.19779592,14190.43541,234.5679012,94
+1,Maize variety (low-mid altitude varieties),47,Lake Kivu,SC529,0,38.67466026,13577.47257,310.3448276,86
+2,Maize variety (low-mid altitude varieties),47,Lake Kivu,WH505,0,11.83673469,3740.25851,164.3835616,89
+2,Maize variety (low-mid altitude varieties),47,Lake Kivu,RHM104,1,15.52133333,5048.931821,168.3168317,90
+2,Maize variety (low-mid altitude varieties),47,Lake Kivu,PAN4M21,1,22.21457143,7564.631639,190.9090909,84
+2,Maize variety (low-mid altitude varieties),47,Lake Kivu,SC529,1,16.11444178,5282.194513,217.3913043,90
+2,Maize variety (low-mid altitude varieties),47,Lake Kivu,ZM607,0,25.67655462,8838.91047,180.7228916,85
+3,Maize variety (low-mid altitude varieties),47,Lake Kivu,RHM104,1,0,-585.6,222.2222222,85
+3,Maize variety (low-mid altitude varieties),47,Lake Kivu,PAN4M21,1,0,-559.8666667,188.8888889,85
+3,Maize variety (low-mid altitude varieties),47,Lake Kivu,SC529,0,0,-582.2666667,175.6756757,83
+3,Maize variety (low-mid altitude varieties),47,Lake Kivu,ZM607,0,0,-542.8,171.4285714,86
+3,Maize variety (low-mid altitude varieties),47,Lake Kivu,WH505,0,0,-601.6888889,180.3278689,80
+4,Maize variety (low-mid altitude varieties),47,Lake Kivu,PAN4M21,1,0,-559.92,204.3010753,87
+4,Maize variety (low-mid altitude varieties),47,Lake Kivu,SC529,0,0,-611.86,191.011236,83
+4,Maize variety (low-mid altitude varieties),47,Lake Kivu,ZM607,0,0,-570.38,168.6046512,89
+4,Maize variety (low-mid altitude varieties),47,Lake Kivu,WH505,1,0,-624.8,250,86
+4,Maize variety (low-mid altitude varieties),47,Lake Kivu,RHM104,1,0,-617.62,233.6448598,80
+5,Maize variety (low-mid altitude varieties),47,Lake Kivu,SC529,1,11.8125304,3749.458657,261.9047619,86
+5,Maize variety (low-mid altitude varieties),47,Lake Kivu,ZM607,0,15.3997704,5102.695737,257.1428571,82
+5,Maize variety (low-mid altitude varieties),47,Lake Kivu,WH505,1,18.734,6294.098,296.875,80
+5,Maize variety (low-mid altitude varieties),47,Lake Kivu,RHM104,1,10.9518528,3417.229978,218.1818182,87
+5,Maize variety (low-mid altitude varieties),47,Lake Kivu,PAN4M21,0,12.6889632,4098.369494,333.3333333,96
+6,Maize variety (low-mid altitude varieties),47,Lake Kivu,ZM607,0,10.2665136,3222.390491,230.7692308,94
+6,Maize variety (low-mid altitude varieties),47,Lake Kivu,WH505,0,23.664,8103.568,600,89
+6,Maize variety (low-mid altitude varieties),47,Lake Kivu,RHM104,0,10.0391984,3098.065813,220,89
+6,Maize variety (low-mid altitude varieties),47,Lake Kivu,PAN4M21,1,15.861204,5279.741868,230.7692308,89
+6,Maize variety (low-mid altitude varieties),47,Lake Kivu,SC529,1,18.2557288,6101.77247,212.5,92
+7,Maize variety (low-mid altitude varieties),47,Lake Kivu,WH505,1,31.552,10919.184,395.0617284,90
+7,Maize variety (low-mid altitude varieties),47,Lake Kivu,RHM104,0,20.9910512,7004.25579,348.4848485,90
+7,Maize variety (low-mid altitude varieties),47,Lake Kivu,PAN4M21,1,43.3539576,15279.86244,369.3693694,91
+7,Maize variety (low-mid altitude varieties),47,Lake Kivu,SC529,0,16.107996,5263.554532,405.4054054,86
+7,Maize variety (low-mid altitude varieties),47,Lake Kivu,ZM607,0,25.666284,8818.446228,306.122449,86
+8,Maize variety (low-mid altitude varieties),47,Lake Kivu,RHM104,1,10.53062769,3465.509594,243.2432432,86
+8,Maize variety (low-mid altitude varieties),47,Lake Kivu,PAN4M21,1,15.59007231,5352.787306,258.4269663,85
+8,Maize variety (low-mid altitude varieties),47,Lake Kivu,SC529,0,8.948886667,2880.138843,260,86
+8,Maize variety (low-mid altitude varieties),47,Lake Kivu,ZM607,0,21.93699487,7675.966862,400,84
+8,Maize variety (low-mid altitude varieties),47,Lake Kivu,WH505,1,19.59358974,6778.488462,500,86
+9,Maize variety (low-mid altitude varieties),47,Lake Kivu,PAN4M21,1,16.90509353,5682.83599,326.5306122,80
+9,Maize variety (low-mid altitude varieties),47,Lake Kivu,SC529,0,12.87609592,4180.993871,342.8571429,85
+9,Maize variety (low-mid altitude varieties),47,Lake Kivu,ZM607,1,25.64576739,8898.441075,348.8372093,82
+9,Maize variety (low-mid altitude varieties),47,Lake Kivu,WH505,1,15.76338929,5255.297202,363.6363636,81
+9,Maize variety (low-mid altitude varieties),47,Lake Kivu,RHM104,0,5.471549161,1477.347431,428.5714286,83
+10,Maize variety (low-mid altitude varieties),47,Lake Kivu,SC529,0,18.2557288,6111.42747,435.8974359,79
+10,Maize variety (low-mid altitude varieties),47,Lake Kivu,ZM607,0,27.3773696,9506.144643,246.1538462,79
+10,Maize variety (low-mid altitude varieties),47,Lake Kivu,WH505,1,34.51,12070.97,466.6666667,80
+10,Maize variety (low-mid altitude varieties),47,Lake Kivu,RHM104,1,25.5543232,8786.811614,411.7647059,81
+10,Maize variety (low-mid altitude varieties),47,Lake Kivu,PAN4M21,1,34.8946488,12264.53611,392.8571429,80
+1,Maize variety,44,Congo Nile,Pool9A,0,22.464,8377.18,233.7662338,97
+1,Maize variety,44,Congo Nile,H629,1,34.112,13062.86,295.4545455,93
+1,Maize variety,44,Congo Nile,ZM607,0,17.68,6567.84,173.3333333,95
+2,Maize variety,44,Congo Nile,H629,1,20.336,7635.596172,287.037037,81
+2,Maize variety,44,Congo Nile,ZM607,0,23.12,8755.675439,269.8412698,85
+2,Maize variety,44,Congo Nile,Pool9A,1,23.712,8937.351834,279.4117647,89
+3,Maize variety,44,Congo Nile,ZM607,0,16.32,6050.139155,173.9130435,72
+3,Maize variety,44,Congo Nile,Pool9A,1,19.968,7411.920893,150.9433962,85
+3,Maize variety,44,Congo Nile,H629,1,35.424,13664.69569,329.2682927,78
+4,Maize variety,44,Congo Nile,Pool9A,1,23.712,8860.903896,253.3333333,96
+4,Maize variety,44,Congo Nile,H629,1,32.8,12551.95238,260.4166667,91
+4,Maize variety,44,Congo Nile,ZM607,0,20.4,7658.857143,205.4794521,96
+5,Maize variety,44,Congo Nile,H629,1,30.176,11480.84,212.962963,91
+5,Maize variety,44,Congo Nile,ZM607,0,25.84,9792.58,169.6428571,92
+5,Maize variety,44,Congo Nile,Pool9A,1,32.448,12339.84,195.4887218,98
+6,Maize variety,44,Congo Nile,ZM607,0,27.2,10345.8483,192.3076923,93
+6,Maize variety,44,Congo Nile,Pool9A,1,33.696,12864.28822,212.5984252,92
+6,Maize variety,44,Congo Nile,H629,1,39.36,15150.78643,283.0188679,87
+7,Maize variety,44,Congo Nile,Pool9A,1,23.712,8848.209273,174.3119266,98
+7,Maize variety,44,Congo Nile,H629,1,40.016,15382.6,262.9310345,96
+7,Maize variety,44,Congo Nile,ZM607,0,24.48,9250.92,174.7572816,86
+8,Maize variety,43,Congo Nile,H629,1,30.832,11760.4,273.255814,81
+8,Maize variety,43,Congo Nile,ZM607,0,19.04,7127.397206,245.6140351,83
+8,Maize variety,43,Congo Nile,Pool9A,0,22.464,8400.849501,225,86
+9,Maize variety,43,Congo Nile,ZM607,0,19.04,7130.142929,222.2222222,69
+9,Maize variety,43,Congo Nile,Pool9A,0,19.344,7151.852874,198.7179487,84
+9,Maize variety,43,Congo Nile,H629,1,22.304,8361.048441,207.3170732,69
+10,Maize variety,44,Congo Nile,Pool9A,1,17.472,6366.68,134.6153846,79
+10,Maize variety,44,Congo Nile,H629,1,22.304,8370.925397,200,82
+10,Maize variety,44,Congo Nile,ZM607,1,21.76,8195.304348,188.2352941,93
+11,Maize variety,44,Congo Nile,H629,1,17.056,6241.18806,146.0674157,76
+11,Maize variety,44,Congo Nile,ZM607,1,11.56,4106.909055,90.42553191,90
+11,Maize variety,44,Congo Nile,Pool9A,1,8.112,2669.81747,100,89
+12,Maize variety,44,Congo Nile,ZM607,1,3.4,834.6312684,62.5,84
+12,Maize variety,44,Congo Nile,Pool9A,1,13.728,4875.703441,104.7619048,87
+12,Maize variety,44,Congo Nile,H629,1,16.4,5996.845238,154.3209877,74
+13,Maize variety,43,Congo Nile,Pool9A,0,22.464,8346.55,202.247191,92
+13,Maize variety,43,Congo Nile,H629,1,31.488,12001.35,260.8695652,86
+13,Maize variety,43,Congo Nile,ZM607,0,25.84,9776.55,180.952381,96
+14,Maize variety,43,Congo Nile,H629,0,28.208,10718.81151,279.2207792,83
+14,Maize variety,43,Congo Nile,ZM607,1,20.4,7689.896083,192.3076923,69
+14,Maize variety,43,Congo Nile,Pool9A,1,26.208,9883.419824,238.6363636,80
+15,Maize variety,43,Congo Nile,ZM607,0,21.76,8156.89,173.9130435,73
+15,Maize variety,43,Congo Nile,Pool9A,0,19.968,7381.312649,179.7752809,84
+15,Maize variety,43,Congo Nile,H629,1,17.056,6199.480314,185.7142857,77
+1,Maize variety (low-mid altitude varieties),42,Cyangugu,ZM607,0,0,-607.1380952,333.3333333,96
+1,Maize variety (low-mid altitude varieties),42,Cyangugu,WH505,1,0,-676.8428571,405.4054054,92
+1,Maize variety (low-mid altitude varieties),42,Cyangugu,RHM104,0,0,-758.7619048,321.1009174,93
+1,Maize variety (low-mid altitude varieties),42,Cyangugu,PAN4M21,1,0,-708.3809524,330.0970874,93
+1,Maize variety (low-mid altitude varieties),42,Cyangugu,SC529,1,0,-769.4761905,316.2393162,94
+2,Maize variety (low-mid altitude varieties),42,Cyangugu,WH505,1,54,18260.31056,300,96
+2,Maize variety (low-mid altitude varieties),42,Cyangugu,RHM104,1,64.5942816,21957.58448,283.4645669,98
+2,Maize variety (low-mid altitude varieties),42,Cyangugu,PAN4M21,0,74,25257.86749,291.3385827,98
+2,Maize variety (low-mid altitude varieties),42,Cyangugu,SC529,0,40.6933408,13615.34009,321.8390805,89
+2,Maize variety (low-mid altitude varieties),42,Cyangugu,ZM607,1,70.466676,24063.08815,301.7241379,95
+3,Maize variety (low-mid altitude varieties),42,Cyangugu,RHM104,1,84.3314232,28871.07058,370.0787402,89
+3,Maize variety (low-mid altitude varieties),42,Cyangugu,PAN4M21,1,82,28105.2588,288.7323944,98
+3,Maize variety (low-mid altitude varieties),42,Cyangugu,SC529,0,0,-629.5162278,404.494382,96
+3,Maize variety (low-mid altitude varieties),42,Cyangugu,WH505,1,0,-649.5031056,380.952381,90
+4,Maize variety (low-mid altitude varieties),42,Cyangugu,PAN4M21,0,24,7804.5,196.7213115,93
+4,Maize variety (low-mid altitude varieties),42,Cyangugu,SC529,1,37.7866736,12563.16076,320.9876543,92
+4,Maize variety (low-mid altitude varieties),42,Cyangugu,ZM607,1,48.3200064,16314.42724,230.7692308,90
+4,Maize variety (low-mid altitude varieties),42,Cyangugu,WH505,1,40,13351.2,246.9135802,96
+4,Maize variety (low-mid altitude varieties),42,Cyangugu,RHM104,1,39.4742832,13175.57412,189.6551724,93
+5,Maize variety (low-mid altitude varieties),42,Cyangugu,SC529,0,34.8800064,11609.36224,240,94
+5,Maize variety (low-mid altitude varieties),42,Cyangugu,ZM607,1,54.3600072,18473.55252,264.7058824,91
+5,Maize variety (low-mid altitude varieties),42,Cyangugu,WH505,1,0,-610.68,315.7894737,94
+5,Maize variety (low-mid altitude varieties),42,Cyangugu,RHM104,0,57.4171392,19500.75872,561.4035088,96
+5,Maize variety (low-mid altitude varieties),42,Cyangugu,PAN4M21,1,68,23235.68,365.5913978,90
+6,Maize variety (low-mid altitude varieties),42,Cyangugu,ZM607,0,36.2400048,12131.69168,183.6734694,93
+6,Maize variety (low-mid altitude varieties),42,Cyangugu,WH505,1,64,21786.06,355.5555556,92
+6,Maize variety (low-mid altitude varieties),42,Cyangugu,RHM104,1,50.2399968,16928.51888,301.0752688,93
+6,Maize variety (low-mid altitude varieties),42,Cyangugu,PAN4M21,1,56,18996.7,274.5098039,96
+6,Maize variety (low-mid altitude varieties),42,Cyangugu,SC529,0,37.7866736,12628.25576,257.4257426,95
+7,Maize variety (low-mid altitude varieties),42,Cyangugu,WH505,1,36,11955.72214,230.7692308,96
+7,Maize variety (low-mid altitude varieties),42,Cyangugu,RHM104,1,43.0628544,14458.10599,210.5263158,98
+7,Maize variety (low-mid altitude varieties),42,Cyangugu,PAN4M21,0,44,14782.01056,192.9824561,96
+7,Maize variety (low-mid altitude varieties),42,Cyangugu,SC529,0,23.2533376,7523.898978,170.212766,96
+7,Maize variety (low-mid altitude varieties),42,Cyangugu,ZM607,0,28.1866704,9299.179348,194.4444444,93
+8,Maize variety (low-mid altitude varieties),42,Cyangugu,RHM104,1,43.0628544,14455.65904,142.8571429,98
+8,Maize variety (low-mid altitude varieties),42,Cyangugu,PAN4M21,1,64,21826.16,278.2608696,89
+8,Maize variety (low-mid altitude varieties),42,Cyangugu,SC529,0,29.066672,9234.6152,206.185567,92
+8,Maize variety (low-mid altitude varieties),42,Cyangugu,ZM607,1,52.3466736,17770.16576,228.0701754,92
+8,Maize variety (low-mid altitude varieties),42,Cyangugu,WH505,1,64,21787.6,340.4255319,98
+9,Maize variety (low-mid altitude varieties),42,Cyangugu,PAN4M21,1,66,22481.94,277.3109244,92
+9,Maize variety (low-mid altitude varieties),42,Cyangugu,SC529,0,37.7866736,12615.89576,298.8505747,90
+9,Maize variety (low-mid altitude varieties),42,Cyangugu,ZM607,0,48.3200064,16338.54224,279.0697674,88
+9,Maize variety (low-mid altitude varieties),42,Cyangugu,WH505,1,60,20383.38,352.9411765,90
+9,Maize variety (low-mid altitude varieties),42,Cyangugu,RHM104,1,35.885712,11932.2592,250,98
+10,Maize variety (low-mid altitude varieties),42,Cyangugu,SC529,0,34.8800064,11614.78224,315.7894737,96
+10,Maize variety (low-mid altitude varieties),42,Cyangugu,ZM607,0,28.1866704,9277.48464,208.9552239,91
+10,Maize variety (low-mid altitude varieties),42,Cyangugu,WH505,1,28,9204.88,194.4444444,91
+10,Maize variety (low-mid altitude varieties),42,Cyangugu,RHM104,0,32.2971408,10716.93928,219.5121951,94
+10,Maize variety (low-mid altitude varieties),42,Cyangugu,PAN4M21,1,44,14810.44,217.8217822,98
+11,Maize variety (low-mid altitude varieties),42,Cyangugu,ZM607,1,58.3866744,19846.06033,263.6363636,82
+11,Maize variety (low-mid altitude varieties),42,Cyangugu,WH505,1,60,20382.19288,315.7894737,94
+11,Maize variety (low-mid altitude varieties),42,Cyangugu,RHM104,0,50.2399968,16941.94206,266.6666667,92
+11,Maize variety (low-mid altitude varieties),42,Cyangugu,PAN4M21,1,50,16884.89396,225.2252252,93
+11,Maize variety (low-mid altitude varieties),42,Cyangugu,SC529,0,30.5200056,10093.96675,221.0526316,93
+12,Maize variety (low-mid altitude varieties),42,Cyangugu,WH505,1,52,17566.14142,240.7407407,92
+12,Maize variety (low-mid altitude varieties),42,Cyangugu,RHM104,1,50.2399968,16965.31787,301.0752688,92
+12,Maize variety (low-mid altitude varieties),42,Cyangugu,PAN4M21,0,60,20380.83907,250,88
+12,Maize variety (low-mid altitude varieties),42,Cyangugu,SC529,0,26.1600048,8542.039914,193.5483871,81
+12,Maize variety (low-mid altitude varieties),42,Cyangugu,ZM607,0,36.2400048,12112.55311,360,76
+13,Maize variety (low-mid altitude varieties),42,Cyangugu,RHM104,1,35.885712,11913.2792,217.3913043,92
+13,Maize variety (low-mid altitude varieties),42,Cyangugu,PAN4M21,1,40,13345.46,194.1747573,92
+13,Maize variety (low-mid altitude varieties),42,Cyangugu,SC529,1,31.9733392,10536.88872,258.8235294,93
+13,Maize variety (low-mid altitude varieties),42,Cyangugu,ZM607,0,38.2533384,12788.85844,240.5063291,89
+13,Maize variety (low-mid altitude varieties),42,Cyangugu,WH505,1,56,18945.64,301.0752688,94
+14,Maize variety (low-mid altitude varieties),42,Cyangugu,PAN4M21,1,36,12009.84985,176.4705882,92
+14,Maize variety (low-mid altitude varieties),42,Cyangugu,SC529,0,20.3466704,6507.020326,189.1891892,81
+14,Maize variety (low-mid altitude varieties),42,Cyangugu,ZM607,0,28.1866704,9229.500306,148.9361702,81
+14,Maize variety (low-mid altitude varieties),42,Cyangugu,WH505,1,16,4903.041216,126.984127,62
+14,Maize variety (low-mid altitude varieties),42,Cyangugu,RHM104,1,10.7657136,3077.903722,139.5348837,81
+15,Maize variety (low-mid altitude varieties),42,Cyangugu,SC529,0,24.7066712,7934.710486,170,92
+15,Maize variety (low-mid altitude varieties),42,Cyangugu,ZM607,0,24.1600032,7735.062206,181.8181818,88
+15,Maize variety (low-mid altitude varieties),42,Cyangugu,WH505,1,28,9079.140271,218.75,91
+15,Maize variety (low-mid altitude varieties),42,Cyangugu,RHM104,1,25.1199984,8012.248309,162.7906977,90
+15,Maize variety (low-mid altitude varieties),42,Cyangugu,PAN4M21,1,34,11164.75113,154.5454545,92
+1,Maize variety,55,Congo Nile,Pool9A,1,31.2,6630.7,250,93
+1,Maize variety,55,Congo Nile,H629,1,45.01960784,9847.649412,209.5808383,95
+1,Maize variety,55,Congo Nile,ZM607,0,29.92,6390.09,247.1910112,94
+2,Maize variety,55,Congo Nile,ZM607,0,28.56,6096.1,269.2307692,79
+2,Maize variety,55,Congo Nile,Pool9A,1,29.952,6355.572,252.6315789,93
+3,Maize variety,55,Congo Nile,ZM607,0,17.68,3575.128951,224.137931,70
+3,Maize variety,55,Congo Nile,Pool9A,1,24.96,5197,317.4603175,89
+3,Maize variety,55,Congo Nile,H629,1,30.176,6418.976,310.8108108,84
+4,Maize variety,55,Congo Nile,Pool9A,1,34.944,7495.020349,282.8282828,83
+4,Maize variety,55,Congo Nile,H629,1,41.984,9152.748444,326.5306122,83
+4,Maize variety,55,Congo Nile,ZM607,0,27.2,5782.406349,327.8688525,81
+5,Maize variety,55,Congo Nile,H629,1,68.224,15219.064,400,87
+5,Maize variety,55,Congo Nile,ZM607,0,31.28,6746.41,280.4878049,84
+5,Maize variety,55,Congo Nile,Pool9A,1,43.68,9516.2,312.5,89
+6,Maize variety,55,Congo Nile,ZM607,1,13.6,2651.04,156.25,90
+6,Maize variety,55,Congo Nile,Pool9A,1,14.976,2904.996,171.4285714,88
+6,Maize variety,55,Congo Nile,H629,NA,10.496,1889.136,131.147541,91
+7,Maize variety,55,Congo Nile,Pool9A,1,13.728,2630.089079,148.6486486,92
+7,Maize variety,55,Congo Nile,H629,1,15.744,3115.485379,164.3835616,89
+7,Maize variety,55,Congo Nile,ZM607,0,6.8,1079.141658,71.42857143,94
+8,Maize variety,55,Congo Nile,H629,1,26.24,5539.211144,240.9638554,91
+8,Maize variety,55,Congo Nile,ZM607,0,13.6,2656.963184,172.4137931,87
+8,Maize variety,55,Congo Nile,Pool9A,0,12.23529412,2293.676324,204.0816327,88
+9,Maize variety,55,Congo Nile,ZM607,0,1.36,-184.98,111.1111111,72
+9,Maize variety,55,Congo Nile,Pool9A,0,2.496,18.856,200,76
+9,Maize variety,55,Congo Nile,H629,1,10.496,1884.256,228.5714286,69
+10,Maize variety,55,Congo Nile,Pool9A,1,27.456,5804.72406,217.8217822,94
+10,Maize variety,55,Congo Nile,H629,1,28.864,6144.957134,213.592233,92
+10,Maize variety,55,Congo Nile,ZM607,1,27.2,5796.085572,246.9135802,95
+11,Maize variety,55,Congo Nile,H629,1,18.368,3719.941333,250,91
+11,Maize variety,55,Congo Nile,ZM607,1,20.4,4218.655556,194.8051948,89
+11,Maize variety,55,Congo Nile,Pool9A,NA,23.712,4931.627556,228.9156627,92
+12,Maize variety,55,Congo Nile,ZM607,1,29.92,6408.883636,309.8591549,66
+12,Maize variety,55,Congo Nile,Pool9A,0,24.96,5199.828182,273.9726027,82
+12,Maize variety,55,Congo Nile,H629,1,38.58823529,8358.90508,303.030303,66
+13,Maize variety,55,Congo Nile,Pool9A,0,19.968,4079.062545,285.7142857,75
+13,Maize variety,55,Congo Nile,H629,1,32.15686275,6911.008021,320.5128205,76
+13,Maize variety,55,Congo Nile,ZM607,1,21.76,4545.219091,262.295082,74
+14,Maize variety,55,Congo Nile,H629,1,39.36,8584.822474,400,77
+15,Maize variety,55,Congo Nile,ZM607,0,19.04,3938.618109,218.75,71
+15,Maize variety,55,Congo Nile,Pool9A,1,22.464,4679.671562,268.6567164,76
+15,Maize variety,55,Congo Nile,H629,1,20.992,4364.773891,271.1864407,78
+1,Maize variety,67,Lake Kivu,Pool9A,1,31.114284,6056.529484,172.4137931,95
+1,Maize variety,67,Lake Kivu,H629,1,23.2453,4389.378981,206.3492063,94
+1,Maize variety,67,Lake Kivu,ZM607,1,22.2441128,4225.668791,158.5365854,90
+2,Maize variety,67,Lake Kivu,H629,1,42.9144,8571.353059,240,91
+2,Maize variety,67,Lake Kivu,ZM607,0,35.9327976,7127.908111,210,88
+2,Maize variety,67,Lake Kivu,Pool9A,1,51.85714,10462.72234,206.6115702,92
+3,Maize variety,67,Lake Kivu,ZM607,0,39.3549688,7856.648758,216.9811321,90
+3,Maize variety,67,Lake Kivu,Pool9A,1,45.6342832,9120.607372,229.1666667,93
+3,Maize variety,67,Lake Kivu,H629,1,35.762,7036.800949,281.6901408,90
+4,Maize variety,67,Lake Kivu,Pool9A,1,29.0399984,5602.671174,175,92
+4,Maize variety,67,Lake Kivu,H629,1,30.3977,5906.30606,236.1111111,93
+4,Maize variety,67,Lake Kivu,ZM607,1,18.8219416,3489.911945,192.9824561,90
+5,Maize variety,67,Lake Kivu,H629,1,28.6096,5499.5448,266.6666667,94
+5,Maize variety,67,Lake Kivu,ZM607,0,15.3997704,2739.351095,163.6363636,86
+5,Maize variety,67,Lake Kivu,Pool9A,1,29.0399984,5577.844659,218.75,91
+6,Maize variety,67,Lake Kivu,ZM607,0,22.2441128,4219.134888,191.1764706,89
+6,Maize variety,67,Lake Kivu,Pool9A,1,58.0799968,11792.13822,250,91
+6,Maize variety,67,Lake Kivu,H629,1,60.7954,12384.80482,317.7570093,92
+7,Maize variety,67,Lake Kivu,Pool9A,0,20.742856,3803.729494,181.8181818,91
+7,Maize variety,67,Lake Kivu,H629,1,17.881,3204.410576,172.4137931,93
+7,Maize variety,67,Lake Kivu,ZM607,1,17.110856,3100.626314,222.2222222,86
+8,Maize variety,65,Lake Kivu,H629,1,32.1858,6297.7754,246.5753425,90
+8,Maize variety,65,Lake Kivu,ZM607,0,25.666284,4964.418492,182.9268293,83
+8,Maize variety,65,Lake Kivu,Pool9A,1,47.7085688,9591.725154,216.9811321,90
+9,Maize variety,65,Lake Kivu,Pool9A,1,24.8914272,4742.473994,190.4761905,78
+9,Maize variety,65,Lake Kivu,H629,1,37.5501,7440.3713,304.3478261,90
+9,Maize variety,65,Lake Kivu,ZM607,0,18.8219416,3487.573561,180.3278689,91
+10,Maize variety,65,Lake Kivu,Pool9A,1,18.6685704,3400.510758,176.4705882,89
+10,Maize variety,65,Lake Kivu,H629,0,17.881,3242.021421,222.2222222,92
+10,Maize variety,65,Lake Kivu,ZM607,1,20.5330272,3872.692688,187.5,81
+11,Maize variety,65,Lake Kivu,H629,1,28.6096,5492.264553,228.5714286,89
+11,Maize variety,65,Lake Kivu,ZM607,0,18.8219416,3464.406894,154.9295775,88
+11,Maize variety,65,Lake Kivu,Pool9A,1,26.9657128,5135.57337,164.556962,90
+12,Maize variety,67,Lake Kivu,ZM607,1,23.9551984,4568.266783,237.2881356,89
+12,Maize variety,67,Lake Kivu,Pool9A,1,31.114284,6027.199635,250,90
+12,Maize variety,67,Lake Kivu,H629,1,17.881,3219.938714,161.2903226,78
+14,Maize variety,65,Lake Kivu,H629,NA,0,-560.5231388,NA,92
+14,Maize variety,65,Lake Kivu,ZM607,NA,0,-501.5694165,NA,89
+14,Maize variety,65,Lake Kivu,Pool9A,NA,0,-563.7424547,NA,93
+15,Maize variety,65,Lake Kivu,ZM607,NA,0,-528.652793,NA,93
+15,Maize variety,65,Lake Kivu,Pool9A,NA,0,-594.4797371,NA,91
+15,Maize variety,65,Lake Kivu,H629,NA,0,-578.8170865,NA,87
+2,Maize variety (low-mid altitude varieties),57,Lake Kivu,WH505,1,8.381,625.3,202.3809524,86
+2,Maize variety (low-mid altitude varieties),57,Lake Kivu,RHM104,0,7.3012352,448.432928,181.8181818,90
+2,Maize variety (low-mid altitude varieties),57,Lake Kivu,PAN4M21,1,9.5167224,760.901136,195.6521739,90
+2,Maize variety (low-mid altitude varieties),57,Lake Kivu,SC529,0,9.1278644,717.701016,217.9487179,89
+2,Maize variety (low-mid altitude varieties),57,Lake Kivu,ZM607,1,17.110856,1870.99984,147.0588235,87
+3,Maize variety (low-mid altitude varieties),57,Lake Kivu,RHM104,NA,0,-610.9281437,NA,88
+3,Maize variety (low-mid altitude varieties),57,Lake Kivu,PAN4M21,NA,0,-585.3293413,NA,96
+3,Maize variety (low-mid altitude varieties),57,Lake Kivu,SC529,NA,0,-623.253493,NA,86
+3,Maize variety (low-mid altitude varieties),57,Lake Kivu,ZM607,NA,0,-575.3992016,NA,89
+3,Maize variety (low-mid altitude varieties),57,Lake Kivu,WH505,NA,0,-619.6606786,NA,88
+4,Maize variety (low-mid altitude varieties),57,Lake Kivu,PAN4M21,NA,0,-527.4038462,NA,75
+4,Maize variety (low-mid altitude varieties),57,Lake Kivu,SC529,NA,0,-554.4070513,NA,70
+4,Maize variety (low-mid altitude varieties),57,Lake Kivu,ZM607,NA,0,-530.6290064,NA,80
+4,Maize variety (low-mid altitude varieties),57,Lake Kivu,WH505,NA,0,-565.3445513,NA,82
+4,Maize variety (low-mid altitude varieties),57,Lake Kivu,RHM104,NA,0,-564.5032051,NA,82
+5,Maize variety (low-mid altitude varieties),57,Lake Kivu,RHM104,0,21.9037056,2486.598624,333.3333333,89
+5,Maize variety (low-mid altitude varieties),57,Lake Kivu,PAN4M21,1,28.5501672,3444.98748,341.7721519,90
+6,Maize variety (low-mid altitude varieties),57,Lake Kivu,ZM607,1,17.110856,1859.04484,196.0784314,88
+6,Maize variety (low-mid altitude varieties),57,Lake Kivu,WH505,1,7.888,511.32,250,86
+6,Maize variety (low-mid altitude varieties),57,Lake Kivu,RHM104,0,8.2138896,571.219544,333.3333333,86
+7,Maize variety (low-mid altitude varieties),57,Lake Kivu,WH505,1,42.398,5347.7,421.5686275,100
+7,Maize variety (low-mid altitude varieties),57,Lake Kivu,RHM104,0,31.942904,3885.54656,402.2988506,98
+7,Maize variety (low-mid altitude varieties),57,Lake Kivu,PAN4M21,1,46.5261984,5971.887776,372.8813559,94
+7,Maize variety (low-mid altitude varieties),57,Lake Kivu,SC529,1,33.2898584,4086.800176,322.9166667,95
+7,Maize variety (low-mid altitude varieties),57,Lake Kivu,ZM607,0,47.9103968,6176.275552,345.6790123,89
+8,Maize variety (low-mid altitude varieties),57,Lake Kivu,RHM104,1,15.5151248,1603.184086,226.6666667,85
+8,Maize variety (low-mid altitude varieties),57,Lake Kivu,PAN4M21,1,21.148272,2407.808698,243.902439,90
+8,Maize variety (low-mid altitude varieties),57,Lake Kivu,SC529,0,16.107996,1666.797399,267.8571429,95
+8,Maize variety (low-mid altitude varieties),57,Lake Kivu,ZM607,0,17.110856,1869.31418,217.3913043,88
+8,Maize variety (low-mid altitude varieties),57,Lake Kivu,WH505,1,16.762,1761.905189,200,98
+9,Maize variety (low-mid altitude varieties),57,Lake Kivu,PAN4M21,1,26.43534,3128.160387,247.5247525,99
+9,Maize variety (low-mid altitude varieties),57,Lake Kivu,SC529,1,21.477328,2438.034711,317.4603175,95
+9,Maize variety (low-mid altitude varieties),57,Lake Kivu,ZM607,0,34.221712,4286.384335,476.1904762,87
+9,Maize variety (low-mid altitude varieties),57,Lake Kivu,WH505,1,23.664,2733.21974,480,86
+9,Maize variety (low-mid altitude varieties),57,Lake Kivu,RHM104,0,14.6024704,1479.171031,551.7241379,96
+10,Maize variety (low-mid altitude varieties),57,Lake Kivu,SC529,1,44.0285224,5565.967088,383.1775701,86
+10,Maize variety (low-mid altitude varieties),57,Lake Kivu,ZM607,0,47.9103968,6147.188967,329.4117647,80
+10,Maize variety (low-mid altitude varieties),57,Lake Kivu,WH505,1,49.3,6268.666667,442.4778761,95
+10,Maize variety (low-mid altitude varieties),57,Lake Kivu,RHM104,1,30.1175952,3610.663572,392.8571429,95
+10,Maize variety (low-mid altitude varieties),57,Lake Kivu,PAN4M21,1,34.8946488,4325.788073,305.5555556,90
+11,Maize variety (low-mid altitude varieties),57,Lake Kivu,ZM607,1,20.5330272,2317.521244,184.6153846,86
+11,Maize variety (low-mid altitude varieties),57,Lake Kivu,WH505,1,17.748,1898.309744,285.7142857,83
+11,Maize variety (low-mid altitude varieties),57,Lake Kivu,RHM104,1,8.2138896,550.8676209,243.2432432,86
+11,Maize variety (low-mid altitude varieties),57,Lake Kivu,PAN4M21,1,11.6315496,1068.801559,244.4444444,90
+11,Maize variety (low-mid altitude varieties),57,Lake Kivu,SC529,1,10.738664,903.8232164,263.1578947,89
+12,Maize variety (low-mid altitude varieties),57,Lake Kivu,WH505,NA,15.776,1609.0063,484.8484848,62
+12,Maize variety (low-mid altitude varieties),57,Lake Kivu,RHM104,NA,10.0391984,814.3400349,366.6666667,81
+12,Maize variety (low-mid altitude varieties),57,Lake Kivu,PAN4M21,NA,24.3205128,2847.423685,370.9677419,85
+12,Maize variety (low-mid altitude varieties),57,Lake Kivu,SC529,NA,18.2557288,1977.556204,346.9387755,75
+12,Maize variety (low-mid altitude varieties),57,Lake Kivu,ZM607,NA,27.3773696,3279.891166,280.7017544,86
+13,Maize variety (low-mid altitude varieties),57,Lake Kivu,RHM104,1,14.6024704,1462.709492,213.3333333,90
+13,Maize variety (low-mid altitude varieties),57,Lake Kivu,PAN4M21,1,24.3205128,2845.30361,214.953271,95
+13,Maize variety (low-mid altitude varieties),57,Lake Kivu,SC529,0,12.8863968,1212.959188,206.8965517,92
+13,Maize variety (low-mid altitude varieties),57,Lake Kivu,ZM607,0,18.8219416,2079.946824,174.6031746,88
+13,Maize variety (low-mid altitude varieties),57,Lake Kivu,WH505,1,15.776,1631.003636,246.1538462,85
+14,Maize variety (low-mid altitude varieties),57,Lake Kivu,PAN4M21,NA,0,-520.44,NA,88
+14,Maize variety (low-mid altitude varieties),57,Lake Kivu,SC529,NA,0,-558.8,NA,89
+14,Maize variety (low-mid altitude varieties),57,Lake Kivu,ZM607,NA,0,-511.62,NA,88
+14,Maize variety (low-mid altitude varieties),57,Lake Kivu,WH505,NA,0,-559.76,NA,92
+14,Maize variety (low-mid altitude varieties),57,Lake Kivu,RHM104,NA,0,-560.68,NA,88
+15,Maize variety (low-mid altitude varieties),57,Lake Kivu,SC529,0,18.2557288,1950.812012,220.7792208,88
+15,Maize variety (low-mid altitude varieties),57,Lake Kivu,ZM607,0,25.666284,3030.892035,333.3333333,88
+15,Maize variety (low-mid altitude varieties),57,Lake Kivu,WH505,0,17.748,1870.747944,260.8695652,90
+15,Maize variety (low-mid altitude varieties),57,Lake Kivu,RHM104,1,17.3404336,1819.07787,231.7073171,89
+15,Maize variety (low-mid altitude varieties),57,Lake Kivu,PAN4M21,1,22.2056856,2540.981613,253.0120482,80
+3,Maize variety (low-mid altitude varieties),52,Central Plateau,RHM104,1,0,-416.7173913,281.25,87
+3,Maize variety (low-mid altitude varieties),52,Central Plateau,PAN4M21,1,14.99924603,2977.779339,222.2222222,94
+3,Maize variety (low-mid altitude varieties),52,Central Plateau,SC529,0,0,-589.1521739,228.5714286,90
+3,Maize variety (low-mid altitude varieties),52,Central Plateau,ZM607,0,10.65551667,1971.198591,304.3478261,88
+3,Maize variety (low-mid altitude varieties),52,Central Plateau,WH505,1,0,-582.3043478,268.2926829,87
+4,Maize variety (low-mid altitude varieties),52,Central Plateau,PAN4M21,1,37.7981,8376.065405,568.1818182,92
+4,Maize variety (low-mid altitude varieties),52,Central Plateau,SC529,0,30.199928,6554.403715,564.1025641,90
+4,Maize variety (low-mid altitude varieties),52,Central Plateau,ZM607,1,36.8254656,8143.061797,500,90
+4,Maize variety (low-mid altitude varieties),52,Central Plateau,WH505,1,40.228608,8901.500658,400,87
+4,Maize variety (low-mid altitude varieties),52,Central Plateau,RHM104,0,32.5028272,7074.573122,27.479092,88
+5,Maize variety (low-mid altitude varieties),52,Central Plateau,SC529,0,27.45448,5867.7228,266.6666667,86
+5,Maize variety (low-mid altitude varieties),52,Central Plateau,ZM607,0,30.687888,6677.19368,277.7777778,88
+5,Maize variety (low-mid altitude varieties),52,Central Plateau,WH505,1,38.791872,8538.62992,346.1538462,89
+5,Maize variety (low-mid altitude varieties),52,Central Plateau,RHM104,1,33.9159936,7378.338496,358.2089552,84
+5,Maize variety (low-mid altitude varieties),52,Central Plateau,PAN4M21,1,37.7981,8345.6135,347.2222222,91
+7,Maize variety (low-mid altitude varieties),52,Central Plateau,WH505,1,18.52933333,3739.693333,351.3513514,88
+7,Maize variety (low-mid altitude varieties),52,Central Plateau,RHM104,0,12.61755714,2321.125929,230.7692308,89
+7,Maize variety (low-mid altitude varieties),52,Central Plateau,PAN4M21,1,22.49886905,4717.609226,333.3333333,91
+7,Maize variety (low-mid altitude varieties),52,Central Plateau,SC529,1,16.34195238,3211.70881,324.3243243,91
+7,Maize variety (low-mid altitude varieties),52,Central Plateau,ZM607,0,10.65551667,1938.496417,241.3793103,90

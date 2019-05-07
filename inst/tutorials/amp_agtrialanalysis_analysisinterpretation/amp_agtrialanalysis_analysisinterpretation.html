@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+
+<meta name="progressive" content="true" />
+<meta name="allow-skip" content="false" />
+
+<title>Agricultural Trial Analysis: Analysis and Interpretation</title>
+
+
+<!-- highlightjs -->
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs && document.readyState && document.readyState === "complete") {
+   window.setTimeout(function() {
+      hljs.initHighlighting();
+   }, 0);
+}
+</script>
+
+
+
+</head>
+
+<body>
+
+
+
+<div class="pageContent band">
+<div class="bandContent page">
+
+<div class="topics">
+
+<div id="section-agricultural-trial-analysis-analysis-and-interpretation" class="section level2">
+<h2>Agricultural Trial Analysis: Analysis and Interpretation</h2>
+<div id="section-objective" class="section level3">
+<h3>Objective</h3>
+<p>At the end of this lesson you should be able to:</p>
+<ol style="list-style-type: decimal">
+<li>Understand the basic intuition behind multiple comparison analysis.</li>
+<li>Efficiently execute code for agricultural trial analysis in R using the <code>farmr</code> package.</li>
+<li>Understand how to interpret ANOVA and Tukey’s HSD output.</li>
+<li>Plot a course from analysis to interpretation to next steps.</li>
+</ol>
+</div>
+<div id="section-motivation" class="section level3">
+<h3>Motivation</h3>
+<p>This lesson will be a dissection of ANOVA and Tukey’s HSD - two analytical tools we use for RCBD trial analysis - and how they function. The goal for this lesson is to create a more nuanced understanding of these tools that will lead to a stronger understanding of the results and how to formulate next steps and actionable recommendations.</p>
+</div>
+<div id="section-pre-requisites" class="section level3">
+<h3>Pre-Requisites</h3>
+<p>Before starting this lesson, you should be familiar with basic data manipulation techniques, summary statistics in R, and how to set up your data for analysis in R. You should also have completed the other AMP lessons on agricultural trial design, cleaning and describing data, and outliers.</p>
+</div>
+<div id="section-discussion" class="section level3">
+<h3>Discussion:</h3>
+<blockquote>
+<p>What methods have you used for analysis / agricultural trial analysis in the past (either within or outside of One Acre Fund)? Why did you choose those methods?</p>
+</blockquote>
+<div id="section-section" class="section level4">
+<h4></h4>
+<p>Possible methods might be a simple comparison of means or running t-tests for each comparison of interest in the data.</p>
+</div>
+</div>
+</div>
+<div id="section-analysis-of-variance" class="section level2">
+<h2>Analysis of Variance</h2>
+<blockquote>
+<p>Are you familiar with ANOVA tests? Can you explain a situation in which you would use ANOVA testing over t-tests?</p>
+</blockquote>
+<div id="section-section-1" class="section level4">
+<h4></h4>
+<p>If not, that’s okay! The lesson ahead will explain how to use ANOVA regressions for understanding outcomes of agricultural trials.</p>
+</div>
+<div id="section-anova-a-theory" class="section level3">
+<h3>ANOVA: A Theory</h3>
+</div>
+<div id="section-what-is-anova" class="section level3">
+<h3>What is ANOVA?</h3>
+<p>Analysis of Variance (ANOVA) is a linear regression used to analyze the differences in means between groups based on known sources of variance (such as treatment) and unknown sources of variance (i.e. the error term).</p>
+<p>In its most basic form, ANOVA tells us whether there are significant differences between groups of our predictor variables. The test compares groups based on two sources of variation:</p>
+<ul>
+<li>The average variation of observations within each group</li>
+<li>The average variation of observations between groups</li>
+</ul>
+<p>ANOVA then takes these averages and calculates the <em>F-statistic</em>, which is just the ratio of between group divided by within group variation.</p>
+</div>
+<div id="section-discussion-questions" class="section level3">
+<h3>Discussion Questions</h3>
+<blockquote>
+<ol style="list-style-type: decimal">
+<li>What do you think the sources of variation are in P1/P2 on-farm trials?</li>
+<li>Why do we suggest using ANOVA over t-tests?</li>
+</ol>
+</blockquote>
+</div>
+<div id="section-section-2" class="section level3">
+<h3></h3>
+<p>Possible answers below:</p>
+<ul>
+<li>Soil quality</li>
+<li>Proximity to the perimeter of the field</li>
+<li>Slope</li>
+<li>Your treatment (e.g. different seed/planting method)!</li>
+</ul>
+<p>We will discuss the advantages of ANOVA over t-tests in the next section.`</p>
+</div>
+<div id="section-what-are-the-advantages-of-using-anova-over-t-tests" class="section level3">
+<h3>What are the advantages of using ANOVA over t-tests?</h3>
+<p>The probability of making a <strong>Type 1</strong> error is much higher when using multiple t-tests.</p>
+<p><em>Type 1 Error</em>: Type 1 errors are another way of saying false positives. False positives happen when we incorrectly identify a difference as significant when in fact there is not true difference.</p>
+<p>As the number of tests increases, the probability of finding a <em>significant</em> result also increases by chance.</p>
+<p>For example, if we are making 10 comparisons the likelihood of making a type one error increases to c = 0.40 at the 5% significance level, or 1 - <span class="math inline">\((.9)^{10}\)</span> = .65 at the 10% significance level.</p>
+</div>
+<div id="section-how-does-anova-correct-for-this" class="section level3">
+<h3>How does ANOVA correct for this?</h3>
+<p>Instead of using multiple t-tests, the ANOVA test will instead return a significant result if <em>any</em> group is significantly different from the other with a <em>single</em> test, producing the <em>F-statistic</em>. Because ANOVA only runs one test, that means that the probability of a Type 1 error is equivalent to the p-value: at 5% the significance level it is 1 - <span class="math inline">\((.95)^{1}\)</span> = .05.</p>
+</div>
+<div id="section-anova-intuition" class="section level3">
+<h3>ANOVA Intuition</h3>
+<p><img src="amp_p1p2analysis_lesson_4_files/figure-html/anova.visualization-1.png" width="624" style="display: block; margin: auto;" /></p>
+<blockquote>
+<p>Do you think the groups below show large or small variation within each group? What about between groups?</p>
+</blockquote>
+</div>
+<div id="section-possible-answer" class="section level3">
+<h3>Possible Answer</h3>
+<p>In this example, it appears there is a lot of variation between groups - group 1’s distribution does not overlap much with either group 2 or group 3.</p>
+</div>
+<div id="section-statistical-formulas-in-r" class="section level3">
+<h3>Statistical Formulas in R</h3>
+<p>In R, the standard format for all formulas is: <code>dependent variable name ~ independent variables</code>. There is a separate argument for data in all ANOVA and regression functions.</p>
+<p>So, for example, if you wanted to calculate the regression of fertilizer on yields controlling for district you would use: <code>lm(yields ~ fertilizer + district, data = data)</code> (note: lm is an abbreviation for ‘linear model’, i.e. linear regression).</p>
+<p>In ANOVA, the <strong>independent variable must be a categorical variable.</strong></p>
+<blockquote>
+<p>If we have a numerical variable, how might we change it to a categorical variable? Type in the R code below to change vector1 from a numerical to a categorical vector.</p>
+</blockquote>
+<div class="tutorial-exercise" data-label="numeric.cag" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
+<pre class="text"><code>vector1 &lt;- c(1,2,3,4)
+class(vector1) # run this code to check if you changed the type</code></pre>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":false,"error":false,"message":false,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+</div>
+<div class="tutorial-exercise-support" data-label="numeric.cag-solution" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
+<pre class="text"><code># Use the as.factor() wrapper around the variable you want R to recognize as categorical. 
+factorVector1 &lt;- as.factor(vector1)
+class(factorVector1)
+
+# For example, as.factor(data$fieldNum), or in a formula: 
+# lm(Yield ~ as.factor(fieldNum), data = data)</code></pre>
+</div>
+</div>
+<div id="section-exercise-1" class="section level3">
+<h3>Exercise 1</h3>
+<blockquote>
+<p>Try calculating the ANOVA F-statistic for the <code>Group</code> against <code>Yield</code> using the dataset anovaDemo1.</p>
+</blockquote>
+<div class="tutorial-exercise" data-label="anova.exercise1" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="10">
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":false,"error":false,"message":false,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+</div>
+<div class="tutorial-exercise-support" data-label="anova.exercise1-hint-1" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
+<pre class="text"><code># Look up the &#39;aov&#39; function.</code></pre>
+</div>
+<div class="tutorial-exercise-support" data-label="anova.exercise1-hint-2" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
+<pre class="text"><code># Make sure to use the summary to get the F-statistic (as you would with a regression!).
+
+# Note: the answer is in the next hint.</code></pre>
+</div>
+<div class="tutorial-exercise-support" data-label="anova.exercise1-solution" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
+<pre class="text"><code># answer
+summary(aov(Yield ~ Group, data = anovaDemo1))</code></pre>
+</div>
+<blockquote>
+<p>What does the output show? How would you interpret this output?</p>
+</blockquote>
+</div>
+<div id="section-exercise-1-solution" class="section level3">
+<h3>Exercise 1 Solution</h3>
+<p>The output shows the f-statistic (F-value) for the ‘Group’ variable, as well as the corresponding p-value. Here, the P-value is less than .001, which indicates that there are significant differences between the groups.</p>
+</div>
+<div id="section-exercise-2" class="section level3">
+<h3>Exercise 2</h3>
+<p><img src="amp_p1p2analysis_lesson_4_files/figure-html/anova.visualization2-1.png" width="624" style="display: block; margin: auto;" /></p>
+<blockquote>
+<p>Do you think the groups below show large or small variation within each group? What about between groups?</p>
+</blockquote>
+</div>
+<div id="section-possible-solution" class="section level3">
+<h3>Possible Solution</h3>
+<p>In this example, it appears there is a lot of variation within groups - the distributions of both group 1 and group 3 overlap substantially with both each other and group 2.</p>
+<blockquote>
+<p>Try calculating the ANOVA F-statistic for the group using the dataset anovaDemo2.</p>
+</blockquote>
+<div class="tutorial-exercise" data-label="anova.exercise2" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="10">
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":false,"error":false,"message":false,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+</div>
+<div class="tutorial-exercise-support" data-label="anova.exercise2-hint-1" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
+<pre class="text"><code># Look up the &#39;aov&#39; function</code></pre>
+</div>
+<div class="tutorial-exercise-support" data-label="anova.exercise2-hint-2" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
+<pre class="text"><code># Make sure to use the summary</code></pre>
+</div>
+<div class="tutorial-exercise-support" data-label="anova.exercise2-solution" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
+<pre class="text"><code># Make sure to use the summary
+
+summary(aov(Yield ~ Group, data = anovaDemo2))</code></pre>
+</div>
+<blockquote>
+<p>What does the output show? Is there significant variation betwen groups?</p>
+</blockquote>
+</div>
+<div id="section-possible-solution-1" class="section level3">
+<h3>Possible Solution</h3>
+<p>As the p-value and F-statistic show, there is not significant variation between groups.</p>
+</div>
+<div id="section-anova-assumptions" class="section level3">
+<h3>ANOVA Assumptions</h3>
+<p>Before we move on, I would like to cover some basic assumptions of the ANOVA test:</p>
+<ul>
+<li>Observations are from a random sample and are selected independently of each other.</li>
+<li>Observations are distributed normally, or the sample size in each group is large (&gt; 30).</li>
+<li>Observational groups have similar variance to one another.</li>
+</ul>
+<p>It is <em>not</em> required to have equal sample size in the groups. We generally assume that agricultural trials cover these basic assumptions within 1AF, but if you apply ANOVA to another trial or analytical question please review your trial design and analytical plan with the <a href="https://docs.google.com/presentation/d/15zXT-o-RgAm-Nb7xTsTSrs3ldNHXk8HeXNd11tP0H6o/edit">Trial and Analysis Support Committee</a>.</p>
+</div>
+<div id="section-af-p1p2-anova-analysis" class="section level3">
+<h3>1AF P1/P2 ANOVA Analysis</h3>
+<p>When One Acre Fund analyzes research station and on-farm trials we want to account for as many known sources of variation as possible. In the research station, for example, we intentionally block replications along known slopes to account for soil variability. In on-farm trials, we typically block replications of all treatments on each farm in order to account for differences between farms.</p>
+<blockquote>
+<p>How do you think we can account for this other known source of variation in our ANOVA formula call?</p>
+</blockquote>
+</div>
+<div id="section-answer" class="section level3">
+<h3>Answer</h3>
+<p>We can account for it by adding another dependent variable in our formula.</p>
+<blockquote>
+<p>Calculate the ANOVA results for kgYieldPerAcre for the given dataset using on-farm trial results dataset <code>sr17_data</code>. Note that the variable for trial (e.g. seed variety) is <code>trial_number</code> and block is <code>block_number</code>.</p>
+</blockquote>
+<div class="tutorial-exercise" data-label="anova.p1.results" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="5">
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":false,"error":false,"message":false,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+</div>
+<blockquote>
+<p>What is your interpretation of the results?</p>
+</blockquote>
+</div>
+<div id="section-results" class="section level3">
+<h3>Results</h3>
+<div class="tutorial-exercise" data-label="anova.p1.results.solution" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
+<pre class="text"><code># solution
+
+summary(aov(kgYieldPerAcre ~ as.factor(trial_number) + as.factor(block_number),
+            data = sr17_data))
+
+## remember to make sure your variables are factor variables!!</code></pre>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":false,"error":false,"message":false,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+</div>
+<p><em><code>trial_number</code> is not significant</em>: we conclude there <strong>are not</strong> significant differences between the treatments in our station trial. However, since the p-value is still relatively low we can proceed to Tukey’s HSD. We will talk more about what to do with insignificant results later on in this lesson.</p>
+<p><em><code>block_number</code> is significant</em>: we conclude that there are meaningful differences between the blocks on the station. This means that the physical placement of the blocks did cause a significant difference in the outcome justifying our design decision to block the trials on the station.</p>
+<blockquote>
+<p>What do you think it would mean if block were not significant?</p>
+</blockquote>
+</div>
+<div id="section-if-the-blocks-were-not-significant" class="section level3">
+<h3>If the blocks were not significant…</h3>
+<p>If the block variable is not significant, we could conclude that the gradient along which we blocked the trials did not meaningfully determine the outcome and thus we could have got the same result without blocking the trials, i.e. we could have run a completely randomized design instead of a randomized complete block design.</p>
+<p>The cost of unnecessarily blocking a trial is a loss of statistical power, meaning that it will take a larger sample to achieve the same results.</p>
+</div>
+</div>
+<div id="section-anova-with-aez" class="section level2">
+<h2>ANOVA with AEZ</h2>
+<blockquote>
+<p>How do you think we can account for AEZ during ANOVA?</p>
+</blockquote>
+<div id="section-answer-1" class="section level3">
+<h3>Answer</h3>
+<p>It depends on how we plan to scale. If we can recommend and scale different varieties in different AEZs, then we should treat experiments in different AEZs as different experiments.</p>
+<p>On the other hand, if we can only recommend the same variety to all farmers, then we should account for this additional variation in our ANOVA formula. For example, <code>aov(Yield ~ Treatment + Block + AEZ)</code>.</p>
+</div>
+</div>
+<div id="section-anova-next-steps" class="section level2">
+<h2>ANOVA Next Steps</h2>
+<p>Now that we have identified that there is a significant difference <em>within</em> the groups, we need to check to see where this difference lies. Practically, we almost never examine ANOVA results by themselves and instead use an additional test to confidently determine where this difference lies.</p>
+</div>
+<div id="section-tukeys-hsd" class="section level2">
+<h2>Tukey’s HSD</h2>
+<p>The role of mean separation tests is to take the ANOVA result and provide a more granular answer. The ANOVA equation above has answered the question, “are there any differences between the treatments?” A significant p-value for trial number tells use that there is at least one significant difference. The Tukey’s Honest Significant Difference (HSD) means separation test will show us which treatment is different from which treatment.</p>
+<blockquote>
+<p>Any ideas what this test does and how it is differs from a normal t-test?</p>
+</blockquote>
+<div id="section-tukeys-hsd-theory" class="section level3">
+<h3>Tukey’s HSD Theory</h3>
+<p>The Tukey’s HSD output shows us the p-value for each pairwise comparison in our group variable, adjusting for the number of comparisons. We would have to run 10 separate t-tests to get all of these results provided by Tukey’s HSD. Whenever we execute numerous t-tests using the same data we run the risk of Type 1 error or a “false positive.” The honest part of Tukey’s HSD is that it adjusts the p-values to account for the number of comparisons we make allowing us to confidently interpret the result without worrying about false positive.</p>
+</div>
+<div id="section-calculating-tukeys-hsd" class="section level3">
+<h3>Calculating Tukey’s HSD</h3>
+<p>In order to calculate Tukey’s HSD, we need to our save our ANOVA object. We can then use the <code>TukeyHSD</code> function in R to calculate the confident intervals by <code>trial</code>. <strong>All variables need to be in factor-form. If you do not know how to do this, see the hint.</strong></p>
+<p>Use the <code>sr2017_dat</code> set to calculate Tukey’s HSD for each trial (<em>only</em> trial, not block). Set the confidence level to 90%. If you do not know how to do these, check the documentation!</p>
+<div class="tutorial-exercise" data-label="tukey.hsd" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="5">
+<pre class="text"><code># write the code to generate the Tukey&#39;s HSD output here.</code></pre>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":false,"error":false,"message":false,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+</div>
+<div class="tutorial-exercise-support" data-label="tukey.hsd-hint" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
+<pre class="text"><code># To coerce numerical variables to factors, you can use &#39;as.factor()`.</code></pre>
+</div>
+<blockquote>
+<p>What do you notice about the above output?</p>
+</blockquote>
+</div>
+<div id="section-tukeys-hsd-solution" class="section level3">
+<h3>Tukey’s HSD Solution</h3>
+<div class="tutorial-exercise" data-label="tukey.hsd.solution" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
+<pre class="text"><code># solution
+
+anovatest &lt;- aov(kgYieldPerAcre ~ as.factor(trial_number) + as.factor(block_number),data = sr17_data)
+TukeyHSD(anovatest, which = c(&quot;as.factor(trial_number)&quot;))</code></pre>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":false,"error":false,"message":false,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+</div>
+<p>The Tukey’s HSD output in shows us the p-value for each pairwise comparison in our trial number variable <em>adjusting for the number of comparisons</em>. In this specific example, no values were significant.</p>
+</div>
+</div>
+<div id="section-farmr-package" class="section level2">
+<h2><code>farmr</code> Package</h2>
+<p>Now that you have developed some of the intuition on why we use a combination of ANOVA and Tukey’s HSD to analyze our RCBD trials, we will go over a function specifically created in One Acre Fund’s <code>farmr</code> package to output the clean analysis for you.</p>
+<div id="section-analyze_ag_trials" class="section level3">
+<h3><code>analyze_ag_trials</code></h3>
+<p>The analyze_ag_trials function takes 5 arguments:</p>
+<ol style="list-style-type: decimal">
+<li><code>dataset</code> The full dataset you want to analyze.</li>
+<li><code>depVariable</code> - the name of the dependent variable of your formula. Most often, this will be your yield per hectare/acre/are variable.</li>
+<li><code>experimentVariable</code> - The name of the variable that designates the experiment, e.g. if it is a maize variety trial or a fertilizer trial.</li>
+<li><code>treatmentVariable</code> - The name of the variable that designates which treatment the data is coming from, e.g. the specific maize variety or fertilizer.</li>
+<li><code>blockVariable</code> - The name of the variable that specifies which block the data came from.</li>
+<li><code>...</code> - Finally, you can add in the name of any other variables you would like to compute means and confidence intervals for. Most often this is profit, but some teams also include germination rates. You just need to list each variable you want to add followed by a comma. This is optional.</li>
+</ol>
+<p>An example with profit: <br></p>
+<ul>
+<li>rcbdOutput &lt;- analyze_ag_trials(finalData, kgAcre, block_type_number,<br />
+seedName, blockNumber, profit)</li>
+</ul>
+<p><br><br> An example without profit: <br> * rcbdOutput &lt;- analyze_ag_trials(finalData, kgAcre, block_type_number,<br />
+seedName, blockNumber, profit)</p>
+</div>
+<div id="section-analyze_ag_trials-exercise-1" class="section level3">
+<h3><code>analyze_ag_trials</code> Exercise 1</h3>
+<blockquote>
+<p>Use the <code>analyze_ag_trials</code> function to calculate the results for the <code>sr17_data</code> using kgYieldPerAcre as the dependent variable. Note that <code>block_type_number</code> refers to the experiment here.</p>
+</blockquote>
+<div class="tutorial-exercise" data-label="analyze.ag.trials1" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="5">
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":false,"error":false,"message":false,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+</div>
+<blockquote>
+<p>What is your interpretation of the output? What do the Trial1Outcome and Trial2Outcomes show?</p>
+</blockquote>
+</div>
+<div id="section-analyze_ag_trials-exercise-1-solution" class="section level3">
+<h3><code>analyze_ag_trials</code> Exercise 1 Solution</h3>
+<div class="tutorial-exercise" data-label="analyze.ag.trials1solution" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
+<pre class="text"><code># solution
+output &lt;- analyze_ag_trials(sr17_data, kgYieldPerAcre, block_type_number,
+                            name, block_number)</code></pre>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":false,"error":false,"message":false,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+</div>
+<p>If we look at our output, it appears that no seed varieties were statistically significant for experiment 10.</p>
+<p>The Trial1 and Trial2 Outcome columns show the mean and confidence intervals for the mean for each variety.</p>
+<p>In the final section, we will discuss what to do when results are insignificant and/or conflicting.</p>
+</div>
+<div id="section-analyze_ag_trials-exercise-2" class="section level3">
+<h3><code>analyze_ag_trials</code> Exercise 2</h3>
+<blockquote>
+<p>Use the <code>analyze_ag_trials</code> function to calculate the results for the Phase 2 <code>rw18b_data</code>, including the additional statistcs on profit, cobSize, topChoice, and germinationRate.</p>
+</blockquote>
+<p>The dataset has the following variables:</p>
+<ul>
+<li>Block - Block number for the trial</li>
+<li>ExperimentName - The name of the experiment (not AEZ specific)</li>
+<li>ExperimentNumber - The number of the experiment, specific to each aEZ</li>
+<li>Treatment - Treatment variable</li>
+<li>yieldAre - Yield per Are</li>
+<li>topChoice - Yes/no (boolean) value for whether or not the seed was the farmer’s top choice</li>
+<li>germinationRate - Germination rate for the seed</li>
+<li>profit - Profit per are</li>
+<li>cobSize - Average size of the cobs</li>
+</ul>
+<div class="tutorial-exercise" data-label="analyze.ag.trials2" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="5">
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":false,"error":false,"message":false,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+</div>
+<blockquote>
+<p>What is your interpretation of the output? What do the Trial1Outcome and Trial2Outcomes show?</p>
+</blockquote>
+</div>
+<div id="section-analyze_ag_trials-exercise-1-solution-1" class="section level3">
+<h3><code>analyze_ag_trials</code> Exercise 1 Solution</h3>
+<div class="tutorial-exercise" data-label="analyze.ag.trials2solution" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
+<pre class="text"><code># solution
+rwandaOutput &lt;- analyze_ag_trials(rw18b_data, yieldAre, ExperimentNumber,
+                            Treatment, Block, Profit, germinationRate, cobSize,
+                            topChoice)
+
+rwandaOutput</code></pre>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":false,"error":false,"message":false,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+</div>
+<p>As we can see from the Rwanda output, a few seeds stood out - for example, PAN4M21 in experiment 6. Not only did it have higher yields than other varieties, but almost all farmers preferred it.</p>
+<p>The Trial1 and Trial2 Outcome columns show the mean and confidence intervals for the mean for each variety.</p>
+<p>In the final section, we will discuss what to do when results are insignificant and/or conflicting.</p>
+</div>
+</div>
+<div id="section-interpreting-results" class="section level2">
+<h2>Interpreting Results</h2>
+<div id="section-note-on-p-values" class="section level3">
+<h3>Note on P-Values</h3>
+<p>P-values are a useful but thorny test statistic. On one hand, they give us a quick indication of whether a result is statistically meaningful. On the other, p-values can simplify and obscure the more important questions we should ask whenever we design and analyze a trial. Here are key ideas to keep in mind when reading p-values:</p>
+<ul>
+<li><p>P-values were never intended to be a stand alone indicator of significance. P-values were created by Ronald Fisher (of F-test fame) to be an informal indicator of whether a finding was worth a second look. Thus, from conception, p-values were intended to be used as part of a system.</p></li>
+<li><p>P-values are calculated relative to a specific null hypothesis (typically this is, “the means of the groups are equal”) but we must remember the underlying likelihood of seeing an effect in the first place. We should be skeptical when we see a strong p-value on a variable for which we have no prior expectation of a significant difference (ie. have no prior justification for rejecting the null hypothesis)</p></li>
+<li><p>Finally, the emphasis should be on economically meaningful effects, not only effects with statistically significant p-values. Practically, I recommend reporting confidence intervals with our findings. We can also calculate effect sizes to further contextualize the magnitude of change due to the treatment.</p></li>
+</ul>
+</div>
+</div>
+<div id="section-using-results-for-decision-making" class="section level2">
+<h2>Using Results for Decision-Making</h2>
+<p>The sequence of ANOVA, Tukey’s HSD, p-values, confidence intervals and effect sizes provide statistical indications of how meaningful a finding may be but they are only part of the decision process for advancing or scaling a trial. The figure below shows the various elements worth considering when making an interpretation and scaling decision:</p>
+<p><img src="images/decision_making.png" width="100%" /></p>
+<p>Most of the decision dimensions mentioned in the figure above will be intuitive however I hope the figure is a useful reminder of all the elements we should weigh when making a trial decision. I want to call attention to two elements in particular: the literature and farmer preference.</p>
+<p>“The Literature” can be demystified to say “our expectation before we saw the results.” We often run so many station and on-farm trials that we do not have clearly articulated magnitude differences we expect to see from the trial. The more we can tie an expected effect size to an observed effect size and p-value, the more grounded we will be in our interpretations.</p>
+<p>Second, we all understand the importance of farmer preference. If farmers aren’t willing to adopt a new product or practice, the marginal impact of that product is irrelevant. I recommend, in addition to quantifying farmer preference during trials, to use farmer preference as the <strong>justification</strong> for new trials. We clearly have a role to play in providing good options to farmers but involving farmers earlier in the process, before trial resources are spent, may help unlock farmer preference for promising new practices.</p>
+</div>
+<div id="section-examples" class="section level2">
+<h2>Examples</h2>
+<div id="section-full-stops" class="section level3">
+<h3>Full Stops</h3>
+<ul>
+<li>P-value indicates no difference in yields and it’s more expensive</li>
+<li>Not profitable for farmers</li>
+<li>Inputs not available and no prospects of availability</li>
+<li>Low likelihood of adoption</li>
+<li>More complex versus alternative with no yield or profit benefit</li>
+<li>P-value indicates a significantly lower yield</li>
+</ul>
+</div>
+<div id="section-pause" class="section level3">
+<h3>Pause</h3>
+<ul>
+<li>P-value indicates no yield difference</li>
+<li>Opportunity cost of prioritizing this trial is too high</li>
+<li>Inputs not available and no prospects of availability</li>
+<li>Low likelihood of adoption</li>
+<li>Unclear result and no clear channel for impact or adoption</li>
+<li>Low scalability but still worth considering for later season</li>
+</ul>
+</div>
+<div id="section-repeat-trial" class="section level3">
+<h3>Repeat Trial?</h3>
+<ul>
+<li>P-value indicates no yield difference despite literature suggesting otherwise</li>
+<li>Trial conditions not right (e.g. no disease pressure)</li>
+<li>Poor hypotheses and measurement</li>
+<li>Confounding factors like Striga or drought</li>
+<li>Want to retrial but in a different context</li>
+</ul>
+</div>
+</div>
+<div id="section-homework" class="section level2">
+<h2>Homework</h2>
+<ul>
+<li>Calculate the results for your own on-farm data and recommendations.</li>
+</ul>
+</div>
+<div id="section-appendix-deeper-anova-theory" class="section level2">
+<h2>Appendix: Deeper ANOVA Theory</h2>
+<p>Analysis of Variance (ANOVA) is actually linear regression used to analyze the differences in means between groups based on known sources of variance and unknown sources of variance (error term).</p>
+<p>Here’s an easy short hand for the interpretation of ANOVA output values:</p>
+<ul>
+<li><p>Total Sum of Squares (TSS): This is the sum of total deviations from the mean for this variable. The larger the sum of the deviations, the more variance in this variable.</p></li>
+<li><p>Mean Sum of Squares (MSS): This is the average deviation for this variable. What we want to see is that the MSS of the residual is lower than the MSS for our explanatory variables. This means that our variables are capturing most of the variance in the outcome. If the MSS of the residuals were large, that would mean we may not be explaining the outcome variable well with our variables. It’s important to remember that at this stage, we are still working with <strong>all</strong> levels of trial number. We are not able to make conclusions about differences between one level of the outcome variable and another level of that variable.</p></li>
+<li><p>F-value and p-value: The F-value is the MSS of the variable divided by the MSS of the residuals. The smaller the MSS of the residuals, the larger the resulting F-value.</p></li>
+</ul>
+<p>Let’s look at how we would replicate the ANOVA result using an OLS regression to build our intuition for how ANOVA and OLS answer complimentary questions. We use an OLS model including trial number and block as factor predictor variables. Factors in an OLS regression will be read as n-1 dummy variables with the lowest value, in this case where trial number == 1 (the control) will be excluded. The same goes for the block variable. You will notice that trial number1 and block1 are both missing from the regression results.</p>
+<pre class="r"><code>reg &lt;- lm(kgYieldPerAcre ~ as.factor(trial_number) + as.factor(block_number), data = sr17_data)
+
+summary(reg)</code></pre>
+<pre><code>## 
+## Call:
+## lm(formula = kgYieldPerAcre ~ as.factor(trial_number) + as.factor(block_number), 
+##     data = sr17_data)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -217.39  -97.48  -19.67   64.50  351.70 
+## 
+## Coefficients:
+##                          Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)                471.39      78.17   6.031 1.28e-06 ***
+## as.factor(trial_number)2    46.64      84.43   0.552 0.584749    
+## as.factor(trial_number)3   -93.28      84.43  -1.105 0.278006    
+## as.factor(trial_number)4   -78.67      84.43  -0.932 0.358877    
+## as.factor(trial_number)5  -135.99      84.43  -1.611 0.117721    
+## as.factor(trial_number)6  -132.62      84.43  -1.571 0.126728    
+## as.factor(trial_number)7    44.39      84.43   0.526 0.602890    
+## as.factor(block_number)2  -216.75      78.17  -2.773 0.009458 ** 
+## as.factor(block_number)3  -298.63      78.17  -3.820 0.000624 ***
+## as.factor(block_number)4  -405.08      78.17  -5.182 1.39e-05 ***
+## as.factor(block_number)5  -415.20      78.17  -5.312 9.66e-06 ***
+## as.factor(block_number)6  -373.29      78.17  -4.776 4.39e-05 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 146.2 on 30 degrees of freedom
+## Multiple R-squared:  0.6322, Adjusted R-squared:  0.4973 
+## F-statistic: 4.687 on 11 and 30 DF,  p-value: 0.0003627</code></pre>
+<p>The coefficients for each variable represent how different they are from the control. How does this compare to the Tukey’s HSD result?</p>
+<pre class="r"><code>anovatest &lt;- aov(kgYieldPerAcre ~ as.factor(trial_number) + as.factor(block_number), data = sr17_data)
+
+TukeyHSD(anovatest, which = c(&quot;as.factor(trial_number)&quot;))</code></pre>
+<pre><code>##   Tukey multiple comparisons of means
+##     95% family-wise confidence level
+## 
+## Fit: aov(formula = kgYieldPerAcre ~ as.factor(trial_number) + as.factor(block_number), data = sr17_data)
+## 
+## $`as.factor(trial_number)`
+##            diff        lwr       upr     p adj
+## 2-1   46.641389 -219.87464 313.15741 0.9976727
+## 3-1  -93.282778 -359.79880 173.23325 0.9216837
+## 4-1  -78.672222 -345.18825 187.84380 0.9642067
+## 5-1 -135.990556 -402.50658 130.52547 0.6767556
+## 6-1 -132.618889 -399.13491 133.89714 0.7009894
+## 7-1   44.393611 -222.12241 310.90964 0.9982323
+## 3-2 -139.924167 -406.44019 126.59186 0.6479770
+## 4-2 -125.313611 -391.82964 141.20241 0.7515838
+## 5-2 -182.631944 -449.14797  83.88408 0.3442661
+## 6-2 -179.260278 -445.77630  87.25575 0.3655760
+## 7-2   -2.247778 -268.76380 264.26825 1.0000000
+## 4-3   14.610556 -251.90547 281.12658 0.9999973
+## 5-3  -42.707778 -309.22380 223.80825 0.9985770
+## 6-3  -39.336111 -305.85214 227.17991 0.9991056
+## 7-3  137.676389 -128.83964 404.19241 0.6644794
+## 5-4  -57.318333 -323.83436 209.19769 0.9928506
+## 6-4  -53.946667 -320.46269 212.56936 0.9948360
+## 7-4  123.065833 -143.45019 389.58186 0.7664978
+## 6-5    3.371667 -263.14436 269.88769 1.0000000
+## 7-5  180.384167  -86.13186 446.90019 0.3583947
+## 7-6  177.012500  -89.50352 443.52852 0.3801651</code></pre>
+<p>We can see that the coefficients are the same as the difference between each treatment and the control!</p>
+<p>An OLS regression excludes one group and all coefficients are in reference to that group. What about comparisons to other treatments? There are two ways we can test how the other treatments compare to one another.</p>
+<ul>
+<li><p>Option 1 is to change the reference group in the regression. The R and STATA default to setting the lowest category as the reference group. However, we could tell R to set trial number == 2 as the reference group and so on to see how all the treatments compare. This would take some time though.</p></li>
+<li><p>Option 2 is to use an F-test to assess the equivalency of the coefficients. This is the OLS version of completing full pairwise comparisons using the <code>linearHypothesis</code> function from the <code>car</code> package.</p></li>
+</ul>
+
+<script type="application/shiny-prerendered" data-context="server-start">
+
+rm(list=ls())
+cat("\014") 
+
+# change code chunk default to not show warnings or messages
+knitr::opts_chunk$set(warning = FALSE, message = FALSE)
+
+## load libraries
+libs <- c("tidyverse", "learnr", "farmr", "ggplot2", "knitr")
+lapply(libs, require, character.only = T, quietly = T, warn.conflicts = F)
+
+knitr::opts_chunk$set(echo = FALSE)
+
+#  loading global dataset for the lesson
+
+### 1AF datasets
+sr17_data <- read_csv("www/KESR17_P1_ExampleDatClean.csv") ### Update this with a p2 RW dataset!
+sr17_data <- sr17_data %>% filter(station == "KKMT")
+
+
+rw18b_data <- read_csv("www/RW18b_p2data_clean.csv")
+rw18b_data <- rw18b_data %>% mutate(Profit = profit) %>% dplyr::select(-profit)
+
+### Demo datasets
+group1_1 <- rnorm(1000, 50, 10)
+group2_1 <- rnorm(1000, 20, 10)
+group3_1 <- rnorm(1000, 15, 5)
+
+anovaDemo1 <- data.frame(Yield = c(group1_1, group2_1, group3_1), 
+                         Group = c(rep("Group1", 1000), 
+                                   rep("Group2", 1000), 
+                                   rep("Group3", 1000)))
+
+group1_2 <- rnorm(1000, 25, 50)
+group2_2 <- rnorm(1000, 25, 15)
+group3_2 <- rnorm(1000, 25, 30)
+
+anovaDemo2 <- data.frame(Yield = c(group1_2, group2_2, group3_2), 
+                         Group = c(rep("Group1", 1000), 
+                                   rep("Group2", 1000), 
+                                   rep("Group3", 1000)))
+
+
+
+</script>
+ 
+<script type="application/shiny-prerendered" data-context="server">
+learnr:::register_http_handlers(session, metadata = NULL)
+</script>
+ 
+<script type="application/shiny-prerendered" data-context="server">
+`tutorial-exercise-numeric.cag-result` <- learnr:::setup_exercise_handler(reactive(req(input$`tutorial-exercise-numeric.cag-code-editor`)), session)
+output$`tutorial-exercise-numeric.cag-output` <- renderUI({
+  `tutorial-exercise-numeric.cag-result`()
+})
+</script>
+ 
+<script type="application/shiny-prerendered" data-context="server">
+`tutorial-exercise-anova.exercise1-result` <- learnr:::setup_exercise_handler(reactive(req(input$`tutorial-exercise-anova.exercise1-code-editor`)), session)
+output$`tutorial-exercise-anova.exercise1-output` <- renderUI({
+  `tutorial-exercise-anova.exercise1-result`()
+})
+</script>
+ 
+<script type="application/shiny-prerendered" data-context="server">
+`tutorial-exercise-anova.exercise2-result` <- learnr:::setup_exercise_handler(reactive(req(input$`tutorial-exercise-anova.exercise2-code-editor`)), session)
+output$`tutorial-exercise-anova.exercise2-output` <- renderUI({
+  `tutorial-exercise-anova.exercise2-result`()
+})
+</script>
+ 
+<script type="application/shiny-prerendered" data-context="server">
+`tutorial-exercise-anova.p1.results-result` <- learnr:::setup_exercise_handler(reactive(req(input$`tutorial-exercise-anova.p1.results-code-editor`)), session)
+output$`tutorial-exercise-anova.p1.results-output` <- renderUI({
+  `tutorial-exercise-anova.p1.results-result`()
+})
+</script>
+ 
+<script type="application/shiny-prerendered" data-context="server">
+`tutorial-exercise-anova.p1.results.solution-result` <- learnr:::setup_exercise_handler(reactive(req(input$`tutorial-exercise-anova.p1.results.solution-code-editor`)), session)
+output$`tutorial-exercise-anova.p1.results.solution-output` <- renderUI({
+  `tutorial-exercise-anova.p1.results.solution-result`()
+})
+</script>
+ 
+<script type="application/shiny-prerendered" data-context="server">
+`tutorial-exercise-tukey.hsd-result` <- learnr:::setup_exercise_handler(reactive(req(input$`tutorial-exercise-tukey.hsd-code-editor`)), session)
+output$`tutorial-exercise-tukey.hsd-output` <- renderUI({
+  `tutorial-exercise-tukey.hsd-result`()
+})
+</script>
+ 
+<script type="application/shiny-prerendered" data-context="server">
+`tutorial-exercise-tukey.hsd.solution-result` <- learnr:::setup_exercise_handler(reactive(req(input$`tutorial-exercise-tukey.hsd.solution-code-editor`)), session)
+output$`tutorial-exercise-tukey.hsd.solution-output` <- renderUI({
+  `tutorial-exercise-tukey.hsd.solution-result`()
+})
+</script>
+ 
+<script type="application/shiny-prerendered" data-context="server">
+`tutorial-exercise-analyze.ag.trials1-result` <- learnr:::setup_exercise_handler(reactive(req(input$`tutorial-exercise-analyze.ag.trials1-code-editor`)), session)
+output$`tutorial-exercise-analyze.ag.trials1-output` <- renderUI({
+  `tutorial-exercise-analyze.ag.trials1-result`()
+})
+</script>
+ 
+<script type="application/shiny-prerendered" data-context="server">
+`tutorial-exercise-analyze.ag.trials1solution-result` <- learnr:::setup_exercise_handler(reactive(req(input$`tutorial-exercise-analyze.ag.trials1solution-code-editor`)), session)
+output$`tutorial-exercise-analyze.ag.trials1solution-output` <- renderUI({
+  `tutorial-exercise-analyze.ag.trials1solution-result`()
+})
+</script>
+ 
+<script type="application/shiny-prerendered" data-context="server">
+`tutorial-exercise-analyze.ag.trials2-result` <- learnr:::setup_exercise_handler(reactive(req(input$`tutorial-exercise-analyze.ag.trials2-code-editor`)), session)
+output$`tutorial-exercise-analyze.ag.trials2-output` <- renderUI({
+  `tutorial-exercise-analyze.ag.trials2-result`()
+})
+</script>
+ 
+<script type="application/shiny-prerendered" data-context="server">
+`tutorial-exercise-analyze.ag.trials2solution-result` <- learnr:::setup_exercise_handler(reactive(req(input$`tutorial-exercise-analyze.ag.trials2solution-code-editor`)), session)
+output$`tutorial-exercise-analyze.ag.trials2solution-output` <- renderUI({
+  `tutorial-exercise-analyze.ag.trials2solution-result`()
+})
+</script>
+ <!--html_preserve-->
+<script type="application/shiny-prerendered" data-context="dependencies">
+{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["jquery"]},{"type":"character","attributes":{},"value":["1.11.3"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["rmd/h/jquery"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["jquery.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["rmarkdown"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["1.12"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["bootstrap"]},{"type":"character","attributes":{},"value":["3.3.5"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["rmd/h/bootstrap"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["viewport"]}},"value":[{"type":"character","attributes":{},"value":["width=device-width, initial-scale=1"]}]},{"type":"character","attributes":{},"value":["js/bootstrap.min.js","shim/html5shiv.min.js","shim/respond.min.js"]},{"type":"character","attributes":{},"value":["css/cerulean.min.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["rmarkdown"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["1.12"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["pagedtable"]},{"type":"character","attributes":{},"value":["1.1"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["rmd/h/pagedtable-1.1"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["js/pagedtable.js"]},{"type":"character","attributes":{},"value":["css/pagedtable.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["rmarkdown"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["1.12"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["highlightjs"]},{"type":"character","attributes":{},"value":["9.12.0"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["rmd/h/highlightjs"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["highlight.js"]},{"type":"character","attributes":{},"value":["textmate.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["rmarkdown"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["1.12"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["tutorial"]},{"type":"character","attributes":{},"value":["0.9.2.1"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/tutorial"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["tutorial.js"]},{"type":"character","attributes":{},"value":["tutorial.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.9.2.1"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["tutorial-autocompletion"]},{"type":"character","attributes":{},"value":["0.9.2.1"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/tutorial"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["tutorial-autocompletion.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.9.2.1"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["tutorial-diagnostics"]},{"type":"character","attributes":{},"value":["0.9.2.1"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/tutorial"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["tutorial-diagnostics.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.9.2.1"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["tutorial-format"]},{"type":"character","attributes":{},"value":["0.9.2.1"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["rmarkdown/templates/tutorial/resources"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["tutorial-format.js"]},{"type":"character","attributes":{},"value":["tutorial-format.css","rstudio-theme.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.9.2.1"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["jquery"]},{"type":"character","attributes":{},"value":["1.11.3"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["rmd/h/jquery"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["jquery.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["rmarkdown"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["1.12"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["font-awesome"]},{"type":"character","attributes":{},"value":["5.1.0"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["rmd/h/fontawesome"]}]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["css/all.css","css/v4-shims.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["rmarkdown"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["1.12"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["bootbox"]},{"type":"character","attributes":{},"value":["4.4.0"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/bootbox"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["bootbox.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.9.2.1"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["localforage"]},{"type":"character","attributes":{},"value":["1.5"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/localforage"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["localforage.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.9.2.1"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["tutorial"]},{"type":"character","attributes":{},"value":["0.9.2.1"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/tutorial"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["tutorial.js"]},{"type":"character","attributes":{},"value":["tutorial.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.9.2.1"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["tutorial-autocompletion"]},{"type":"character","attributes":{},"value":["0.9.2.1"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/tutorial"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["tutorial-autocompletion.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.9.2.1"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["tutorial-diagnostics"]},{"type":"character","attributes":{},"value":["0.9.2.1"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/tutorial"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["tutorial-diagnostics.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.9.2.1"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["ace"]},{"type":"character","attributes":{},"value":["1.2.6"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/ace"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["ace.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.9.2.1"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["clipboardjs"]},{"type":"character","attributes":{},"value":["1.5.15"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/clipboardjs"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["clipboard.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.9.2.1"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["ace"]},{"type":"character","attributes":{},"value":["1.2.6"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/ace"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["ace.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.9.2.1"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["clipboardjs"]},{"type":"character","attributes":{},"value":["1.5.15"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/clipboardjs"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["clipboard.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.9.2.1"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["ace"]},{"type":"character","attributes":{},"value":["1.2.6"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/ace"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["ace.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.9.2.1"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["clipboardjs"]},{"type":"character","attributes":{},"value":["1.5.15"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/clipboardjs"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["clipboard.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.9.2.1"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["ace"]},{"type":"character","attributes":{},"value":["1.2.6"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/ace"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["ace.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.9.2.1"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["clipboardjs"]},{"type":"character","attributes":{},"value":["1.5.15"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/clipboardjs"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["clipboard.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.9.2.1"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["ace"]},{"type":"character","attributes":{},"value":["1.2.6"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/ace"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["ace.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.9.2.1"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["clipboardjs"]},{"type":"character","attributes":{},"value":["1.5.15"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/clipboardjs"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["clipboard.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.9.2.1"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["ace"]},{"type":"character","attributes":{},"value":["1.2.6"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/ace"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["ace.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.9.2.1"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["clipboardjs"]},{"type":"character","attributes":{},"value":["1.5.15"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/clipboardjs"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["clipboard.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.9.2.1"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["ace"]},{"type":"character","attributes":{},"value":["1.2.6"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/ace"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["ace.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.9.2.1"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["clipboardjs"]},{"type":"character","attributes":{},"value":["1.5.15"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/clipboardjs"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["clipboard.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.9.2.1"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["ace"]},{"type":"character","attributes":{},"value":["1.2.6"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/ace"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["ace.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.9.2.1"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["clipboardjs"]},{"type":"character","attributes":{},"value":["1.5.15"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/clipboardjs"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["clipboard.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.9.2.1"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["ace"]},{"type":"character","attributes":{},"value":["1.2.6"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/ace"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["ace.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.9.2.1"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["clipboardjs"]},{"type":"character","attributes":{},"value":["1.5.15"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/clipboardjs"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["clipboard.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.9.2.1"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["ace"]},{"type":"character","attributes":{},"value":["1.2.6"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/ace"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["ace.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.9.2.1"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["clipboardjs"]},{"type":"character","attributes":{},"value":["1.5.15"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/clipboardjs"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["clipboard.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.9.2.1"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["ace"]},{"type":"character","attributes":{},"value":["1.2.6"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/ace"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["ace.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.9.2.1"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["clipboardjs"]},{"type":"character","attributes":{},"value":["1.5.15"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/clipboardjs"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["clipboard.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.9.2.1"]}]}]}
+</script>
+<!--/html_preserve-->
+<!--html_preserve-->
+<script type="application/shiny-prerendered" data-context="execution_dependencies">
+{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["packages"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["packages","version"]},"class":{"type":"character","attributes":{},"value":["data.frame"]},"row.names":{"type":"integer","attributes":{},"value":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73]}},"value":[{"type":"character","attributes":{},"value":["assertthat","backports","base","broom","cellranger","cli","colorspace","compiler","crayon","datasets","digest","dplyr","evaluate","farmr","forcats","generics","ggplot2","glue","graphics","grDevices","grid","gtable","haven","hms","htmltools","htmlwidgets","httpuv","httr","jsonlite","knitr","labeling","later","lattice","lazyeval","learnr","lubridate","magrittr","markdown","methods","mime","modelr","munsell","nlme","pillar","pkgconfig","plyr","promises","purrr","R6","Rcpp","readr","readxl","rlang","rmarkdown","rprojroot","rstudioapi","rvest","scales","shiny","stats","stringi","stringr","tibble","tidyr","tidyselect","tidyverse","tools","utils","withr","xfun","xml2","xtable","yaml"]},{"type":"character","attributes":{},"value":["0.2.1","1.1.4","3.5.1","0.5.2","1.1.0","1.1.0","1.4-1","3.5.1","1.3.4","3.5.1","0.6.18","0.8.0.1","0.13","0.1.0","0.4.0","0.0.2","3.1.1","1.3.1","3.5.1","3.5.1","3.5.1","0.3.0","2.1.0","0.4.2","0.3.6","1.2","1.4.5","1.4.0","1.6","1.22","0.3","0.7.4","0.20-35","0.2.2","0.9.2.1","1.7.4","1.5","0.9","3.5.1","0.6","0.1.4","0.5.0","3.1-137","1.3.1","2.0.2","1.8.4","1.0.1","0.3.2","2.4.0","1.0.1","1.3.1","1.3.1","0.3.4","1.12","1.3-2","0.10","0.3.3","1.0.0","1.1.0","3.5.1","1.4.3","1.4.0","2.1.1","0.8.3","0.2.5","1.2.1","3.5.1","3.5.1","2.1.2","0.6","1.2.0","1.8-3","2.2.0"]}]}]}
+</script>
+<!--/html_preserve-->
+</div>
+
+</div> <!-- topics -->
+
+<div class="topicsContainer">
+<div class="topicsPositioner">
+<div class="band">
+<div class="bandContent topicsListContainer">
+
+<!-- begin doc-metadata -->
+<div id="doc-metadata">
+<h2 class="title toc-ignore" style="display:none;">Agricultural Trial Analysis: Analysis and Interpretation</h2>
+</div>
+<!-- end doc-metadata -->
+
+</div> <!-- bandContent.topicsListContainer -->
+</div> <!-- band -->
+</div> <!-- topicsPositioner -->
+</div> <!-- topicsContainer -->
+
+
+</div> <!-- bandContent page -->
+</div> <!-- pageContent band -->
+
+
+
+
+<script>
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+</script>
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+
+</html>
