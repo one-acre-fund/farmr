@@ -141,17 +141,26 @@ analyze_ag_trials <- function(dataset, depVariable,
 
                                         additionalOutput <- dplyr::select(
                                           additionalOutput,
-                                          `Trial 1 Profit Outcome` = `Trial 1 Outcome`,
-                                          `Trial 2 Profit Outcome` = `Trial 2 Outcome`,
-                                          `Profit Percent Change` = `Percent Change`,
+                                          `Trial 1 Outcome`,
+                                          `Trial 2 Outcome`,
+                                          `Percent Change`
                                         )
+
+                                        # not a beautiful way to do this, but it works
+                                        name1 <-  paste("Trial 1", rlang::quo_text(var), "Outcome")
+                                        name2 <- paste("Trial 2", rlang::quo_text(var), "Outcome")
+                                        name3 <- paste(rlang::quo_text(var), "Percent Change")
+
+                                        names(additionalOutput)[1] <- name1
+                                        names(additionalOutput)[2] <- name2
+                                        names(additionalOutput)[3] <- name3
 
                                         return(additionalOutput)
                                       }
 
                             ))
 
-                           outputClean <- cbind(outputClean, updatedOutput)
+                          outputClean <- cbind(outputClean, updatedOutput)
 
                          }
 
