@@ -4,41 +4,51 @@
 \alias{analyze_ag_trials}
 \title{Analyze Phase 1 and Phase 2 RCBD Agricultural Trials}
 \usage{
-analyze_ag_trials(dataset, trialVariable, depVariable, testVariable,
-  profitVariable = NULL, ...)
+analyze_ag_trials(dataset, depVariable, experimentVariable,
+  treatmentVariable, blockVariable, ...)
 }
 \arguments{
 \item{dataset}{The full dataset}
 
-\item{trialVariable}{The name of the variable that designates which trial
-you are referring to. This will be used to split the dataset.}
-
 \item{depVariable}{The name of the dependent variable from the dataset
-(e.g. yield, profit)}
+(e.g. yield)}
 
-\item{testVariable}{The name of the variable that you are testing for
-significant differences}
+\item{experimentVariable}{The name of the variable that designates which
+experiment you are referring to. This will be used to split the dataset.
+Please ensure that each experiment has its own code.}
 
-\item{profitVariable}{The name of the variable that designates farmer profit.
-If this is not included in your dataset, please set this variable to Null.}
+\item{treatmentVariable}{The name of the treatment variable to test for
+significant differences, usually seed variety.}
 
-\item{...}{The names of the other columns that the trial was stratified by /
-source of variation to control for (e.g. block, AEZ)}
+\item{blockVariable}{The name of the variable that designates which block
+the plot belonged to.}
+
+\item{...}{The names of the other columns that you would like to calculate
+the means and upper/lower bounds for, e.g. profit, germination rate, etc.}
 }
 \value{
-Returns a dataframe with the pairwise comparison of all trials.
+Returns a dataframe with the pairwise comparison of trials within
+each experiment.
 }
 \description{
-This function takes a clean dataset, the dependent variable name, and the
-names of the stratification variables and returns the analyzed output (using
-Tukey's HSD) in a dataframe.
+This function is designed to analyze all data from phase 1 and phase 2 trials.
+}
+\details{
+This function takes a clean dataset, the dependent variable name, experiment
+variable name, treatment variable name, block variable name, and any other
+variable names other than the dependent variable to calculate means and
+confidence intervals for, e.g. germination  rates / profitability.
+
+The function returns the analyzed output, using Tukey's HSD to calculate
+significance for the dependent variable, in a dataframe.
+
+Please note that each experiment must have its own unique code.
+
+If you want results separated by AEZ, you must ensure that all trials
+in different AEZs have different experimental codes.
 }
 \examples{
-# With profit column:
-rcbdOutput <- analyze_ag_trials(finalData, block_type_number, ton.hectare,
-name, profitVariable = profit, block_number)
 
-# Without profit column:
-rcbdOutput <- analyze_ag_trials(finalData, block_type_number, ton.hectare,
-name, profitVariable = NULL, block_number)
+
+
 }
