@@ -43,8 +43,10 @@ theme_oaf <- function(base_size = 11, base_family = "Calibri") {
         legend.title = ggplot2::element_text(size = 0)
       ),
     ggplot2::scale_fill_manual(values=c("#929948", "#3D6066", "#bf5138", "#6b7150", "#ebbd5e", "#595959", "#E57838", "#e2ab21",
-                               "#E33227", "#D0A44B", "#ED811E", "#E2AB21", "#CDC45D", "#C3C082", "#E57838", "#E55E29")),
+                               "#E33227", "#D0A44B", "#ED811E", "#E2AB21", "#CDC45D", "#C3C082", "#E57838", "#E55E29",
+                               "#79863D", "#D17D0F", "#e0c24a")),
     ggplot2::scale_color_manual(values=c("#929948", "#3D6066", "#bf5138", "#6b7150", "#ebbd5e", "#595959", "#E57838", "#e2ab21",
-                                "#E33227", "#D0A44B", "#ED811E", "#E2AB21", "#CDC45D", "#C3C082", "#E57838", "#E55E29"))
+                                "#E33227", "#D0A44B", "#ED811E", "#E2AB21", "#CDC45D", "#C3C082", "#E57838", "#E55E29",
+                                "#79863D", "#D17D0F", "#e0c24a"))
   )
 }
