@@ -1,0 +1,11 @@
+{
+    "id": "farmr",
+    "version": "0.1.1",
+    "meta": {
+        "label": "Forecast",
+        "description": "This package houses common analytical functions used during 1AF trial analysis",
+        "author": "One Acre Fund (Johnna Sundberg)",
+        "icon": "icon-calendar",
+        "tags": ["R"]
+    }
+}
