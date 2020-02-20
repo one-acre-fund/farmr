@@ -6,6 +6,7 @@
         "description": "This package houses common analytical functions used during 1AF trial analysis",
         "author": "One Acre Fund (Johnna Sundberg)",
         "icon": "icon-calendar",
-        "tags": ["R"]
+        "url": "https://github.com/one-acre-fund/farmr",
+        "tags": ["R", "Markdown"]
     }
 }
